@@ -56,6 +56,25 @@ cargo build --release
 time ./target/release/jolt-bench
 ```
 
+## Building Research Paper
+
+### Requirements
+
+To use these templates, we require the following software.
+
+1. [_Pandoc_](https://pandoc.org/) for converting between the Markdown files into other document formats.
+2. [_LaTeX_](https://www.latex-project.org/) for creating PDF documents.
+3. Shell such as Bash for invoking the build scripts.
+
+### Building
+
+```bash
+cd research-paper
+source ./build.sh
+pdf_print # To build the pdf for printing
+pdf_ereader # To build the pdf for ereader
+```
+
 ## Todos
 
 - [x] Individually benchmark SP1
