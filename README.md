@@ -36,7 +36,7 @@ cargo prove --version
 #### 2. Roughly benchmark SP1 Execution and Proving
 
 ```bash
-(cd program/ && cargo prove build) && (cd script/ && cargo build --release) # Build the program and the script
+(cd program/ && cargo prove build) && (cd script/ && cargo build --release)
 time ./script/target/release/sp1-bench-script
 ```
 
