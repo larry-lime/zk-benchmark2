@@ -123,7 +123,7 @@ By efficient, we are almost always referring to proof generation time. Verifier 
 
 ## Table 2 - Component Comparison
 
-|                   | RISC0               | SP1                   | Jolt     |
+|                   |                | SP1                   | Jolt     |
 | ----------------- | ------------------- | --------------------- | -------- |
 | PCS               | FRI                 | FRI                   | Hyrax    |
 | Lookups           | Plookup             | Plookup?              | Lasso    |
@@ -145,19 +145,59 @@ In the frontend, Jolt uses Rank-1 Constraint System (R1CS). The backend employs 
 
 In the frontend, SP1 uses Algebraic Intermediate Representation (AIR) which requires expensive Fast Fourier Transforms (FFTs). The backend incorporates Plonky3 STARKs and Hyrax, with Hyrax incurring larger prover costs. It operates over smaller fields, either approximately 31-bit or 64-bit (Baby Bear, Goldilocks). SP1 supports recursion for aggregate proofs. The Fast Reed-Solomon Interactive Oracle Proof (FRI) blowup factor is 2, leading to faster proofs, larger proofs, and more expensive recursion. For lookups, SP1 uses Plookup. Notably, SP1 implements AIRs for each RISC-V instruction compatible with the Plonky3 prover and is optimized for CPU performance.
 
-### **RISC0**
+### **RISC ZERO**
 
-In the frontend, RISC0 employs AIR, which also requires expensive FFTs. The backend utilizes Plonky3 STARKs and operates over a smaller, approximately 32-bit field (Baby Bear). RISC0 supports recursion for aggregate proofs, with a FRI blowup factor of 4, resulting in slower proofs, smaller proofs, and less expensive recursion. For lookups, RISC0 uses Plookup. This system is optimized for GPU performance.
+In the frontend, RISC ZERO employs AIR, which also requires expensive FFTs. The backend utilizes Plonky3 STARKs and operates over a smaller, approximately 32-bit field (Baby Bear). RISC ZERO supports recursion for aggregate proofs, with a FRI blowup factor of 4, resulting in slower proofs, smaller proofs, and less expensive recursion. For lookups, RISC ZERO uses Plookup. This system is optimized for GPU performance.
 
 ## Benchmarking Rationale
 
-Jolt, RISC0, SP1 use different memory checking techniques which affects the proving time of programs as they scale with memory usage. The memory checking techniques are closely tied with the lookup arguments they use, with Jolt claiming to have improvements in this area. We need to breakdown the papers more to analyze the intricacies of these memory checks.
+Jolt, RISC ZERO, SP1 use different memory checking techniques which affects the proving time of programs as they scale with memory usage. The memory checking techniques are closely tied with the lookup arguments they use, with Jolt claiming to have improvements in this area. We need to breakdown the papers more to analyze the intricacies of these memory checks.
 
 Benchmark Setup: The experimental setup, including hardware and software configurations, will be detailed, along with a description of the benchmarking methodology and specific memory-intensive operations tested. Results: Findings from the benchmarks will be presented, focusing on memory usage, proving time, and verification time across different zkVM implementations.
 
 ## Benchmarking Results
 
-…
+
+| zkVM | Execution Time | Fibonacci Output | User Time | System Time | CPU Usage |
+|------|----------------|------------------|-----------|-------------|-----------|
+| RISC0 | 5.222s | n=10: 55 | 50.71s | 0.32s | 977% |
+| RISC0 | 5.224s | n=100: 3594 | 50.75s | 0.30s | 977% |
+| RISC0 | 10.128s | n=1000: 5965 | 103.04s | 0.40s | 1021% |
+| RISC0 | 1:20.80 | n=10000: 5721 | 812.55s | 4.85s | 1011% |
+| Jolt | 1.477s | n=10: 55 | 2.44s | 0.85s | 223% |
+| Jolt | 1.338s | n=100: 3594 | 3.42s | 1.09s | 337% |
+| Jolt | 2.678s | n=1000: 5965 | 10.80s | 2.03s | 478% |
+| Jolt | 22.720s | n=10000: 5721 | 117.09s | 35.91s | 673% |
+| SP1 | 1.217s | n=10: 55 | 5.11s | 0.67s | 475% |
+| SP1 | 1.221s | n=100: 3594 | 5.29s | 0.64s | 486% |
+| SP1 | 1.877s | n=1000: 5965 | 10.79s | 0.81s | 618% |
+| SP1 | 8.553s | n=10000: 5721 | 68.06s | 1.74s | 816% |
+
+The provided benchmark results compare the performance of three different zero knowledge virtual machines (zkVMs): RISC ZERO, Jolt, and SP1, in executing the Fibonacci sequence computation with varying input values (n=10, 100, 1000, and 10000).
+
+The results are presented in terms of  Execution Time, Fibonacci Output, User Time, System Time, and CPU Usage.
+
+Here's a discussion based on the provided data:
+
+1. **Execution Time**:
+  - RISC ZERO has the longest Execution Time for all input values, ranging from 5.222 seconds for n=10 to 1 minute and 20.80 seconds for n=10000.
+  - Jolt has the second-fastest Execution Time, ranging from 1.477 seconds for n=10 to 22.720 seconds for n=10000.
+  - SP1 has the fastest Execution Time, ranging from 1.217 seconds for n=10 to 8.553 seconds for n=10000.
+2. **User Time and System Time**:
+  - RISC ZERO has the highest User Time and relatively low System Time for all input values.
+  - Jolt has lower User Time compared to RISC ZERO but higher System Time.
+  - SP1 has the lowest User Time and System Time among the three VMs for all input values except n=10000, where Jolt has a lower System Time.
+3. **CPU Usage**:
+  - RISC ZERO has the highest CPU Usage, ranging from 977% for n=10 and n=100 to 1021% for n=1000 and 1011% for n=10000.
+  - Jolt has moderate CPU Usage, ranging from 223% for n=10 to 673% for n=10000.
+  - SP1 has the lowest CPU Usage, ranging from 475% for n=10 to 816% for n=10000.
+
+Based on these results, it appears that SP1 is the most efficient zkVM in terms of Execution Time, User Time, and System Time, while RISC ZERO is the least efficient, consuming the most CPU resources.
+
+Jolt strikes a balance between performance and resource usage, being faster than RISC ZERO but slower than SP1, while having moderate CPU Usage compared to the other two zkVMs.
+
+It's worth noting that these results are specific to the Fibonacci sequence computation and may vary for different workloads or algorithms. Additionally, factors such as memory usage, energy efficiency, and scalability should also be considered when evaluating the overall performance of these zkVMs.
+
 
 # Conclusion
 
@@ -165,9 +205,18 @@ It would be quite interesting to compare the proof
 
 Benchmarking Challenges: The section will discuss the challenges in creating fair and comprehensive benchmarks for zkVMs, especially with varying memory loads, and mention the limitations of the Rust package and its impact on benchmark accuracy. Interpretation of Results: How the results should be interpreted given the limitations will be explained, suggesting areas for further research to refine the benchmarks.
 
-- Benchmarks are misleading
+- Benchmarks are misleading: Every zkVM ecosystems have derived their own benchmarking mechanism and not providing quantitaive performance metrics, they may not fully capture the nuances and complexities of real-world scenarios.
 - Precompiles are complicated
 - Naming is hard
 - Recursion is helpful
 
+ZKVMs continue to develop, the performance penalty will become acceptable for a wider range of applications. The importance of pre-compiling and formally verifying contracts for technologies is going to bring in even more applications. 
+
 # References
+
+1. SP1 book. Introduction. (n.d.). https://succinctlabs.github.io/sp1/ 
+2. Jolt: Snarks for Virtual Machines . (n.d.). https://eprint.iacr.org/2023/1217.pdf 
+3. Unlocking the lookup singularity with lasso. (n.d.-c). https://people.cs.georgetown.edu/jthaler/Lasso-paper.pdf 
+4. RISC Zero zkVM: Scalable, transparent arguments of RISC-v integrity. (n.d.-b). https://dev.risczero.com/proof-system-in-detail.pdf 
+5. LambdaClass. (2023, May 16). Arithmetization schemes for ZK-SNARKs. LambdaClass Blog. https://blog.lambdaclass.com/arithmetization-schemes-for-zk-snarks/ 
+ 
