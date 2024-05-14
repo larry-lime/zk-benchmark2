@@ -12,11 +12,10 @@ fn main() {
 
     // Generate the proof for the given program.
     let client = ProverClient::new();
-    client.prove(ELF, stdin).expect("proving failed");
-    // let proof = client.prove(ELF, stdin).expect("proving failed");
+    // client.prove(ELF, stdin).expect("proving failed");
 
     // Verify proof.
-    // client.verify(ELF, &proof).expect("verification failed");
+    client.verify(ELF, &proof).expect("verification failed");
 
     // Save the proof.
     // proof

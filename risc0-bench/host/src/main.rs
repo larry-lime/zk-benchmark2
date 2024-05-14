@@ -3,7 +3,7 @@ use methods::{RISC0_GUEST_ELF, RISC0_GUEST_ID};
 use risc0_zkvm::{default_prover, ExecutorEnv};
 
 fn main() {
-    let input: u32 = 10;
+    let input: u32 = 1000;
     let env = ExecutorEnv::builder()
         .write(&input)
         .unwrap()

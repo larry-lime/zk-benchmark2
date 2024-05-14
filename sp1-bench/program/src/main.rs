@@ -18,6 +18,6 @@ fn fib(n: u32) -> u32 {
 }
 
 pub fn main() {
-    let output = fib(10);
+    let output = fib(1000);
     println!("output: {}", output);
 }
