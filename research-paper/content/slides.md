@@ -136,14 +136,49 @@ By efficient, we are almost always referring to proof generation time. Verifier 
 | SNARK Prover      | Plonky2 STARK?      | Plonky3 STARK         | Spartan  |
 
 # Design Tradeoff Comparison
+### **Jolt**
+
+In the frontend, Jolt uses Rank-1 Constraint System (R1CS). The backend employs Spartan and Hyrax, with Hyrax incurring larger prover costs. It operates over an approximately 256-bit field, although efforts are being made to use smaller fields. The system utilizes Spice-based memory checking and currently does not support recursion for aggregate proofs. For lookups, Jolt relies on Spice.
+
+# Design Tradeoff Comparison Continue
+### **SP1**
+
+In the frontend, SP1 uses Algebraic Intermediate Representation (AIR) which requires expensive Fast Fourier Transforms (FFTs). The backend incorporates Plonky3 STARKs and Hyrax, with Hyrax incurring larger prover costs. It operates over smaller fields, either approximately 31-bit or 64-bit (Baby Bear, Goldilocks). SP1 supports recursion for aggregate proofs. The Fast Reed-Solomon Interactive Oracle Proof (FRI) blowup factor is 2, leading to faster proofs, larger proofs, and more expensive recursion. For lookups, SP1 uses Plookup. Notably, SP1 implements AIRs for each RISC-V instruction compatible with the Plonky3 prover and is optimized for CPU performance.
+
+# Design Tradeoff Comparison Continue
+### **RISC0**
+
+In the frontend, RISC0 employs AIR, which also requires expensive FFTs. The backend utilizes Plonky3 STARKs and operates over a smaller, approximately 32-bit field (Baby Bear). RISC0 supports recursion for aggregate proofs, with a FRI blowup factor of 4, resulting in slower proofs, smaller proofs, and less expensive recursion. For lookups, RISC0 uses Plookup. This system is optimized for GPU performance.
 
 # Benchmarking Rationale
+Jolt, RISC0, SP1 use different memory checking techniques which affects the proving time of programs as they scale with memory usage. The memory checking techniques are closely tied with the lookup arguments they use, with Jolt claiming to have improvements in this area. We need to breakdown the papers more to analyze the intricacies of these memory checks. 
 
-…
+Benchmark Setup: The experimental setup, including hardware and software configurations, will be detailed, along with a description of the benchmarking methodology and specific memory-intensive operations tested. 
+
+Results: Findings from the benchmarks will be presented, focusing on memory usage, proving time, and verification time across different zkVM implementations.
 
 # Benchmarking Results
 
-…
+| zkVM | Execution Time | Fibonacci Output | User Time | System Time | CPU Usage |
+|------|----------------|------------------|-----------|-------------|-----------|
+| RISC0 | 5.222s | n=10: 55 | 50.71s | 0.32s | 977% |
+| RISC0 | 5.224s | n=100: 3594 | 50.75s | 0.30s | 977% |
+| RISC0 | 10.128s | n=1000: 5965 | 103.04s | 0.40s | 1021% |
+| RISC0 | 1:20.80 | n=10000: 5721 | 812.55s | 4.85s | 1011% |
+| Jolt | 1.477s | n=10: 55 | 2.44s | 0.85s | 223% |
+| Jolt | 1.338s | n=100: 3594 | 3.42s | 1.09s | 337% |
+
+
+# Benchmarking Results continue
+
+| zkVM | Execution Time | Fibonacci Output | User Time | System Time | CPU Usage |
+|------|----------------|------------------|-----------|-------------|-----------|
+| Jolt | 2.678s | n=1000: 5965 | 10.80s | 2.03s | 478% |
+| Jolt | 22.720s | n=10000: 5721 | 117.09s | 35.91s | 673% |
+| SP1 | 1.217s | n=10: 55 | 5.11s | 0.67s | 475% |
+| SP1 | 1.221s | n=100: 3594 | 5.29s | 0.64s | 486% |
+| SP1 | 1.877s | n=1000: 5965 | 10.79s | 0.81s | 618% |
+| SP1 | 8.553s | n=10000: 5721 | 68.06s | 1.74s | 816% |
 
 # Conclusion
 
@@ -154,3 +189,10 @@ By efficient, we are almost always referring to proof generation time. Verifier 
 
 # References
 
+1. SP1 book. Introduction. (n.d.). https://succinctlabs.github.io/sp1/ 
+2. Jolt: Snarks for Virtual Machines . (n.d.). https://eprint.iacr.org/2023/1217.pdf 
+3. Unlocking the lookup singularity with lasso. (n.d.-c). 
+https://people.cs.georgetown.edu/jthaler/Lasso-paper.pdf 
+4. RISC Zero zkVM: Scalable, transparent arguments of RISC-v integrity. (n.d.-b). https://dev.risczero.com/proof-system-in-detail.pdf 
+5. LambdaClass. (2023, May 16). Arithmetization schemes for ZK-SNARKs. LambdaClass Blog. https://blog.lambdaclass.com/arithmetization-schemes-for-zk-snarks/ 
+ 
