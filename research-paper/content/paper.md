@@ -205,10 +205,12 @@ It would be quite interesting to compare the proof
 
 Benchmarking Challenges: The section will discuss the challenges in creating fair and comprehensive benchmarks for zkVMs, especially with varying memory loads, and mention the limitations of the Rust package and its impact on benchmark accuracy. Interpretation of Results: How the results should be interpreted given the limitations will be explained, suggesting areas for further research to refine the benchmarks.
 
-- Benchmarks are misleading
+- Benchmarks are misleading: Every zkVM ecosystems have derived their own benchmarking mechanism and not providing quantitaive performance metrics, they may not fully capture the nuances and complexities of real-world scenarios.
 - Precompiles are complicated
 - Naming is hard
 - Recursion is helpful
+
+ZKVMs continue to develop, the performance penalty will become acceptable for a wider range of applications. The importance of pre-compiling and formally verifying contracts for technologies is going to bring in even more applications. 
 
 # References
 
