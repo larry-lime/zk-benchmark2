@@ -71,8 +71,7 @@ To use these templates, we require the following software.
 ```bash
 cd research-paper
 source ./build.sh
-pdf_print # To build the pdf for printing
-pdf_ereader # To build the pdf for ereader
+build # Build paper PDF and slides
 ```
 
 ## Todos
