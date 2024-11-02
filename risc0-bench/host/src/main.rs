@@ -5,7 +5,7 @@ use methods::{
 use risc0_zkvm::{default_prover, ExecutorEnv};
 
 fn main() {
-    let input: u32 = 1000;
+    let input: u32 = 10;
     let env = ExecutorEnv::builder()
         .write(&input)
         .unwrap()
@@ -19,13 +19,13 @@ fn main() {
     let receipt = prover.prove(env, RISC0_GUEST_ELF).unwrap().receipt;
 
     // Extract journal of receipt
-    let output: u32 = receipt.journal.decode().unwrap();
+    let output: u128 = receipt.journal.decode().unwrap();
 
     // Print, notice, after committing to a journal, the private input became public
     println!("The output is: {}", output);
 
     // how someone else can verify the receipt
     // receipt
-    //.verify(HELLO_GUEST_ID)
+    //.verify(RISC0_GUEST_ID)
     //.unwrap(); 
 }   
