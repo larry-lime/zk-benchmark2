@@ -1,8 +1,9 @@
-[workspace]
 [package]
 version = "0.1.0"
-name = "sp1-bench-program"
+name = "fibonacci-program"
 edition = "2021"
 
 [dependencies]
-sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
+alloy-sol-types = { workspace = true }
+sp1-zkvm = "3.0.0-rc4"
+fibonacci-lib = { path = "../lib" }
