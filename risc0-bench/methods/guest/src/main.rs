@@ -1,12 +1,6 @@
-#![no_main]
-// If you want to try std support, also update the guest Cargo.toml file
-#![no_std] // std support is experimental
-
 extern crate alloc;
 use alloc::vec::Vec;
 use risc0_zkvm::guest::env;
-
-risc0_zkvm::guest::entry!(main);
 
 fn fib(n: u32) -> u32 {
     let mut nums = Vec::<u32>::new(); // Initialize an empty vector
