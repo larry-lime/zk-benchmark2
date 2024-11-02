@@ -3629,7 +3629,7 @@ dependencies = [
 
 [[package]]
 name = "sp1-bench-script"
-version = "0.1.0"
+version = "1.1.0"
 dependencies = [
  "sp1-helper",
  "sp1-sdk",
