@@ -12,3 +12,5 @@ guest = []
 
 [dependencies]
 jolt = { package = "jolt-sdk", git = "https://github.com/a16z/jolt" }
+pyo3 = { version = "0.20.0", features = ["auto-initialize"] }
+
