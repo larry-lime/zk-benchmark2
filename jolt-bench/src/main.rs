@@ -1,3 +1,8 @@
+use pyo3::prelude::*;
+use std::path::Path;
+use guest::execute_python;
+
+
 pub fn main() -> PyResult<()> {
     //  // let (prove_fib, verify_fib) = guest::build_fib();
     // let (prove_add, verify_add) = guest::build_add();
@@ -15,14 +20,13 @@ pub fn main() -> PyResult<()> {
     //
     // println!("add output: {}", add_output);
     // println!("add valid: {}", add_is_valid);
-    let python_script = Path::new("./model/python.py");
+    let python_script = Path::new("./guest/src/test.py");
     
     // Execute the Python function and capture the result
-    let result = executePython(python_script)?;
+    let result = execute_python(python_script)?;
     
     // Print the result
-    println!("{}", result); // Expected Output: Models trained and saved successfully.
-    
+    println!("This is the result: {}", result); // Expected Output: Models trained and saved successfully.
     Ok(())
     
 }
