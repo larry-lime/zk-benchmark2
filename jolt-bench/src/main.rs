@@ -1,9 +1,6 @@
-use pyo3::prelude::*;
-use std::path::Path;
-use guest::execute_python;
+use guest::load_model;
 
-
-pub fn main() -> PyResult<()> {
+pub fn main() {
     //  // let (prove_fib, verify_fib) = guest::build_fib();
     // let (prove_add, verify_add) = guest::build_add();
     //
@@ -20,13 +17,7 @@ pub fn main() -> PyResult<()> {
     //
     // println!("add output: {}", add_output);
     // println!("add valid: {}", add_is_valid);
-    let python_script = Path::new("./guest/src/test.py");
-    
-    // Execute the Python function and capture the result
-    let result = execute_python(python_script)?;
-    
-    // Print the result
-    println!("This is the result: {}", result); // Expected Output: Models trained and saved successfully.
-    Ok(())
-    
+    if let Err(e) = load_model() {
+        eprintln!("Error loading model: {}", e);
+    }
 }
