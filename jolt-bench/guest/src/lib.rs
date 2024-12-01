@@ -1,21 +1,19 @@
-use serde::Deserialize;
+// #![cfg_attr(feature = "guest", no_std)]
+//#![no_main]
+use serde::{Deserialize, Serialize};
 use std::fs::File;
+use std::io;
 use std::io::Read;
 use ndarray::Array2;
 use csv::ReaderBuilder;
 use serde_json::from_str;
+use std::fmt;
 
 mod models;
 mod predictions;
 
 use models::{TestData, LinearRegressionParams, RidgeRegressionParams, PolynomialRidgeRegressionParams, ScalerParams};
-
-use predictions::{
-    Scaler,
-    LinearRegressionModel, 
-    RidgeRegressionModel, 
-    PolynomialRidgeRegressionModel
-};
+use predictions::{Scaler, LinearRegressionModel, RidgeRegressionModel, PolynomialRidgeRegressionModel};
 
 #[derive(Debug, Deserialize)]
 struct ModelPredictions {
@@ -24,10 +22,39 @@ struct ModelPredictions {
     polynomial_ridge_regression: Vec<f64>,
 }
 
-// #![cfg_attr(feature = "guest", no_std)]
-// #![no_main]
+#[derive(Debug, Serialize, Deserialize)]
+pub enum MyError {
+    FileNotFound(String),
+    ParseError(String),
+    IoError(String)
+}
 
-pub fn load_model() -> Result<(), Box<dyn std::error::Error>> {
+impl fmt::Display for MyError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            MyError::FileNotFound(msg) => write!(f, "File not found: {}", msg),
+            MyError::ParseError(msg) => write!(f, "Parse error: {}", msg),
+            MyError::IoError(msg) => write!(f, "IO error: {}", msg),
+        }
+    }
+}
+
+impl std::error::Error for MyError {}
+
+impl From<io::Error> for MyError {
+    fn from(error: io::Error) -> Self {
+        MyError::IoError(error.to_string())
+    }
+}
+
+impl From<serde_json::Error> for MyError {
+    fn from(error: serde_json::Error) -> Self {
+        MyError::ParseError(error.to_string())
+    }
+}
+
+#[jolt::provable(stack_size = 10000, memory_size = 10000000)]
+pub fn load_model() -> Result<(), MyError>{
     println!("Starting model loading...");
     let mut file = File::open("./model/Test_Dataset.csv").expect("Test_Dataset.csv not found.");
     let mut contents = String::new();
@@ -115,7 +142,7 @@ pub fn load_model() -> Result<(), Box<dyn std::error::Error>> {
     let num_samples = test_features.len();
     let num_features = test_features[0].len();
     let flat_features: Vec<f64> = test_features.into_iter().flatten().collect();
-    let X: Array2<f64> = Array2::from_shape_vec((num_samples, num_features), flat_features)
+    let x: Array2<f64> = Array2::from_shape_vec((num_samples, num_features), flat_features)
         .expect("Failed to create Array2 from shape");
     println!("Data converted to Array2<64>");
 
@@ -126,7 +153,7 @@ pub fn load_model() -> Result<(), Box<dyn std::error::Error>> {
     let scaler_params: ScalerParams = from_str(&contents)?;
     let scaler = Scaler::new(scaler_params);
 
-    let X_scaled = scaler.transform(&X);
+    let X_scaled = scaler.transform(&x);
 
     // Load Linear Regression parameters
     let mut file = File::open("./model/linear_regression_params.json")?;

@@ -1,5 +1,3 @@
-use guest::load_model;
-
 pub fn main() {
     //  // let (prove_fib, verify_fib) = guest::build_fib();
     // let (prove_add, verify_add) = guest::build_add();
@@ -17,7 +15,12 @@ pub fn main() {
     //
     // println!("add output: {}", add_output);
     // println!("add valid: {}", add_is_valid);
-    if let Err(e) = load_model() {
-        eprintln!("Error loading model: {}", e);
-    }
+    
+
+    let (prove_model, verify_model) = guest::build_load_model();
+    let (output, proof) = prove_model();
+    let model_is_valid = verify_model(proof);
+
+    println!("output: {:?}", output);
+    println!("valid: {}", model_is_valid);
 }

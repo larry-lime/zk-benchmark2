@@ -53,8 +53,8 @@ impl RidgeRegressionModel {
         }
     }
 
-    pub fn predict(&self, X: &Array2<f64>) -> Array1<f64> {
-        X.dot(&self.coefficients) + self.intercept
+    pub fn predict(&self, x: &Array2<f64>) -> Array1<f64> {
+        x.dot(&self.coefficients) + self.intercept
     }
 }
 
@@ -73,15 +73,15 @@ impl PolynomialRidgeRegressionModel {
         }
     }
 
-    pub fn predict(&self, X: &Array2<f64>) -> Array1<f64> {
+    pub fn predict(&self, x: &Array2<f64>) -> Array1<f64> {
         // Assuming X has been preprocessed (scaled)
         // Generate polynomial features manually
         // For degree=2, include squares and pairwise products
 
-        let num_features = X.shape()[1];
-        let mut X_poly = Array2::<f64>::zeros((X.shape()[0], self.feature_names.len()));
+        let num_features = x.shape()[1];
+        let mut X_poly = Array2::<f64>::zeros((x.shape()[0], self.feature_names.len()));
         
-        for (i, row) in X.outer_iter().enumerate() {
+        for (i, row) in x.outer_iter().enumerate() {
             for (j, feature_name) in self.feature_names.iter().enumerate() {
                 // Simple parser for feature names like 'feature1', 'feature1^2', 'feature1 feature2'
                 if feature_name.contains("^2") {

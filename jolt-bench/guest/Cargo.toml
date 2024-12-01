@@ -11,8 +11,7 @@ path = "./src/lib.rs"
 guest = []
 
 [dependencies]
-jolt = { package = "jolt-sdk", git = "https://github.com/a16z/jolt" }
-pyo3 = { version = "0.20.0", features = ["auto-initialize"] }
+jolt = { package = "jolt-sdk", git = "https://github.com/a16z/jolt", features = ["guest-std"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 ndarray = "0.16.0"
