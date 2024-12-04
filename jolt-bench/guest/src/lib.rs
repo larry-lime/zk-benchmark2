@@ -15,13 +15,6 @@ mod predictions;
 use models::{TestData, LinearRegressionParams, RidgeRegressionParams, PolynomialRidgeRegressionParams, ScalerParams};
 use predictions::{Scaler, LinearRegressionModel, RidgeRegressionModel, PolynomialRidgeRegressionModel};
 
-#[derive(Debug, Deserialize)]
-struct ModelPredictions {
-    linear_regression: Vec<f64>,
-    ridge_regression: Vec<f64>,
-    polynomial_ridge_regression: Vec<f64>,
-}
-
 #[derive(Debug, Serialize, Deserialize)]
 pub enum MyError {
     FileNotFound(String),
