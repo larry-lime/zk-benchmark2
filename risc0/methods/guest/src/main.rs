@@ -20,14 +20,7 @@ fn main() {
 
     let combined_predictions = vec![ridge_pred.clone()];
 
-<<<<<<< HEAD
     let output: Vec<f32> = combined_predictions.into_iter().flat_map(|array| array.to_vec()).collect();
-=======
-    let output: Vec<_> = combined_predictions
-        .into_iter()
-        .flat_map(|array| array.to_vec())
-        .collect();
->>>>>>> 2ba9433e21c134bb7a37b43118fbe83147ccfd13
-    // write public output to the journal
+   // write public output to the journal
     env::commit(&output);
 }
