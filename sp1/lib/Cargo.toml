@@ -1,5 +1,5 @@
 [package]
-name = "ml-lib"
+name = "ml_lib"
 version = "0.1.0"
 edition = "2021"
 

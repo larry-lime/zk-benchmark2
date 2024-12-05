@@ -8,23 +8,27 @@
 #![no_main]
 sp1_zkvm::entrypoint!(main);
 
-use alloy_sol_types::SolType;
-use fibonacci_lib::{fibonacci, PublicValuesStruct};
+extern crate alloc;
+use alloc::vec;
+use alloc::vec::Vec;
+
+use ml_lib::ModelInput;
+use serde::{Deserialize, Serialize};
 
 pub fn main() {
     // Read an input to the program.
     //
     // Behind the scenes, this compiles down to a custom system call which handles reading inputs
     // from the prover.
-    let n = sp1_zkvm::io::read::<u32>();
+    let model_input = sp1_zkvm::io::read::<ModelInput>();
 
-    // Compute the n'th fibonacci number using a function from the workspace lib crate.
-    let (a, b) = fibonacci(n);
+    let X_scaled = model_input.scaler.transform(&model_input.x);
 
-    // Encode the public values of the program.
-    let bytes = PublicValuesStruct::abi_encode(&PublicValuesStruct { n, a, b });
+    let ridge_pred = model_input.ridge_model.predict(&X_scaled);
 
-    // Commit to the public values of the program. The final proof will have a commitment to all the
-    // bytes that were committed to.
-    sp1_zkvm::io::commit_slice(&bytes);
+    let combined_predictions = vec![ridge_pred.clone()];
+
+    let output: Vec<f32> = combined_predictions.into_iter().flat_map(|array| array.to_vec()).collect();
+ 
+    sp1_zkvm::io::commit(&output);
 }

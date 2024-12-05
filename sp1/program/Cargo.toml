@@ -6,4 +6,5 @@ edition = "2021"
 [dependencies]
 alloy-sol-types = { workspace = true }
 sp1-zkvm = "3.0.0-rc4"
-ml-lib = { path = "../lib" }
+serde = { version = "1.0.200", default-features = false, features = ["derive"] }
+ml_lib = { path = "../lib" }
