@@ -10,7 +10,7 @@ use serde::{Serialize, Deserialize};
 #[derive(Serialize, Deserialize)]
 pub struct ModelInput {
     pub scaler: Scaler,
-    pub linear_model: LinearRegressionModel,
+    pub ridge_model: RidgeRegressionModel,
     pub x: Vec<Vec<f32>>
 }
 
