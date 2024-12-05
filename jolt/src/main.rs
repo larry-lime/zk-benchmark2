@@ -47,14 +47,16 @@ impl From<serde_json::Error> for MyError {
     }
 }
 
-pub fn read_test_dataset() -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
+pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
     match env::current_dir() {
-            Ok(path) => println!("Current working directory: {}", path.display()),
-            Err(e) => eprintln!("Error getting current directory: {}", e),
+        Ok(path) => println!("Current working directory: {}", path.display()),
+        Err(e) => eprintln!("Error getting current directory: {}", e),
     }
-    let mut file = File::open("./guest/model/Test_Dataset.csv").expect("Test_Dataset.csv not found.");
+    let mut file =
+        File::open("./guest/model/Test_Dataset.csv").expect("Test_Dataset.csv not found.");
     let mut contents = String::new();
-    file.read_to_string(&mut contents).expect("Failed to read Test_Dataset.csv");
+    file.read_to_string(&mut contents)
+        .expect("Failed to read Test_Dataset.csv");
 
     // Parse the CSV into a vector of TestData
     let mut rdr = ReaderBuilder::new()
@@ -63,8 +65,11 @@ pub fn read_test_dataset() -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
 
     let mut test_features = Vec::new();
     let mut actual_amounts = Vec::new();
-
+    let mut cur: usize = 0;
     for result in rdr.deserialize() {
+        if cur == lines {
+            break;
+        }
         let record: TestData = result.expect("Failed to deserialize record.");
         // Collect features into a vector (excluding 'amount')
         test_features.push(vec![
@@ -131,10 +136,12 @@ pub fn read_test_dataset() -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
             record.IsClothing,
         ]);
         actual_amounts.push(record.amount);
+        cur += 1;
     }
-    
+
     Ok((test_features, actual_amounts))
 }
+
 
 pub fn read_models(
     scaler_path: &str,
@@ -189,7 +196,7 @@ pub fn main() {
     let poly_ridge_model_path = "./guest/model/polynomial_ridge_regression_params.json";
 
     // Read the test dataset
-    let Ok((x, actual_amounts)) = read_test_dataset() else { todo!() };
+    let Ok((x, actual_amounts)) = read_test_dataset(1) else { todo!() };
     // println!("test: {:?}", test_features);
     // Read the models
     let Ok((scaler, linear_model, ridge_model)) =
@@ -216,10 +223,13 @@ pub fn main() {
     let (prove_model, verify_model) = guest::build_load_model();
 
     let (model_output, model_proof) = prove_model(model_input);
+    let model_is_valid = verify_model(model_proof);
 
     let (output, proof) = prove_alloc(41);
     let is_valid = verify_alloc(proof);
 
     println!("output: {:?}", output);
+    println!("output: {:?}", model_output);
+    println!("output: {:?}", model_is_valid);
     println!("valid: {}", is_valid);
 }
