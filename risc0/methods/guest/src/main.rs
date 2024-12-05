@@ -18,7 +18,7 @@ fn main() {
 
     let X_scaled = model_input.scaler.transform(&model_input.x);
     
-    let ridge_pred = model_input.ridge_model.predict(&X_scaled);
+    let ridge_pred = model_input.linear_model.predict(&X_scaled);
     
     let combined_predictions = vec![ridge_pred.clone()];
 
