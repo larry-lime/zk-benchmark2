@@ -1,5 +1,3 @@
-use alloy_sol_types::sol;
-
 extern crate alloc;
 use alloc::vec::Vec;
 
