@@ -1,22 +1,120 @@
 use alloy_sol_types::sol;
 
-sol! {
-    /// The public values encoded as a struct that can be easily deserialized inside Solidity.
-    struct PublicValuesStruct {
-        uint32 n;
-        uint32 a;
-        uint32 b;
+extern crate alloc;
+use alloc::vec::Vec;
+
+use serde::{Serialize, Deserialize};
+
+#[derive(Serialize, Deserialize)]
+pub struct ModelInput {
+    pub scaler: Scaler,
+    pub ridge_model: RidgeRegressionModel,
+    pub x: Vec<Vec<f32>>
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct LinearRegressionParams {
+    pub coefficients: Vec<f32>,
+    pub intercept: f32// intercept is a single value but using Vec for consistency
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct RidgeRegressionParams {
+    pub coefficients: Vec<f32>,
+    pub intercept: f32
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct PolynomialRidgeRegressionParams {
+    pub coefficients: Vec<f32>,
+    pub intercept: f32,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct ScalerParams {
+    pub mean: Vec<f32>,
+    pub scale: Vec<f32>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Scaler {
+    mean: Vec<f32>,
+    scale: Vec<f32>,
+}
+
+impl Scaler {
+    pub fn new(params: ScalerParams) -> Self {
+        Scaler {
+            mean: params.mean,
+            scale: params.scale,
+        }
+    }
+
+    pub fn transform(&self, input: &[Vec<f32>]) -> Vec<Vec<f32>> {
+        input
+            .iter()
+            .map(|row| {
+                row.iter()
+                    .zip(&self.mean)
+                    .zip(&self.scale)
+                    .map(|((value, mean), scale)| (value - mean) / scale)
+                    .collect()
+            })
+            .collect()
     }
 }
 
-/// Compute the n'th fibonacci number (wrapping around on overflows), using normal Rust code.
-pub fn fibonacci(n: u32) -> (u32, u32) {
-    let mut a = 0u32;
-    let mut b = 1u32;
-    for _ in 0..n {
-        let c = a.wrapping_add(b);
-        a = b;
-        b = c;
-    }
-    (a, b)
+#[derive(Debug, Serialize, Deserialize)]
+pub struct LinearRegressionModel {
+    coefficients: Vec<f32>,
+    intercept: f32,
 }
+
+impl LinearRegressionModel {
+    pub fn new(params: LinearRegressionParams) -> Self {
+        LinearRegressionModel {
+            coefficients: params.coefficients,
+            intercept: params.intercept,
+        }
+    }
+
+    pub fn predict(&self, x: &[Vec<f32>]) -> Vec<f32> {
+        x.iter()
+            .map(|row| {
+                row.iter()
+                    .zip(&self.coefficients)
+                    .map(|(value, coef)| value * coef)
+                    .sum::<f32>()
+                    + self.intercept
+            })
+            .collect()
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct RidgeRegressionModel {
+    coefficients: Vec<f32>,
+    intercept: f32,
+}
+
+impl RidgeRegressionModel {
+    pub fn new(params: RidgeRegressionParams) -> Self {
+        RidgeRegressionModel {
+            coefficients: params.coefficients,
+            intercept: params.intercept,
+        }
+    }
+
+    pub fn predict(&self, x: &[Vec<f32>]) -> Vec<f32> {
+        x.iter()
+            .map(|row| {
+                row.iter()
+                    .zip(&self.coefficients)
+                    .map(|(value, coef)| value * coef)
+                    .sum::<f32>()
+                    + self.intercept
+            })
+            .collect()
+    }
+}
+
