@@ -305,8 +305,6 @@ fn main() {
     // This struct contains the receipt along with statistics about execution of the guest
     let receipt = test(model_input).unwrap();
 
-    // TODO: Implement code for retrieving receipt journal here.
-
     // For example:
     let output = receipt.get_commit().unwrap();
     // The receipt was verified at the end of proving, but the below code is an
