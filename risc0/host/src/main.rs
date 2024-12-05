@@ -252,7 +252,7 @@ pub fn read_models(
     Ok((scaler, linear_model, ridge_model))
 }
 
-fn main() {
+fn main(){
     let scaler_path = "./host/model/scaler_params.json";
     let linear_model_path = "./host/model/linear_regression_params.json";
     let ridge_model_path = "./host/model/ridge_regression_params.json";
@@ -321,7 +321,7 @@ fn main() {
     // Proof information by proving the specified ELF binary.
     // This struct contains the receipt along with statistics about execution of the guest
     // let prove_info = prover.prove(env, ML_GUEST_ELF).unwrap();
-    let receipt = prover.prove(env, ML_GUEST_ELF)?.receipt;
+    let receipt = prover.prove(env, ML_GUEST_ELF).receipt;
 
     // TODO: Implement code for retrieving receipt journal here.
 
@@ -334,5 +334,4 @@ fn main() {
     // example of how someone else could verify this receipt.
     println!("Verifying proof");
     receipt.verify(ML_GUEST_ID).unwrap();
-    Ok(())
 }
