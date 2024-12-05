@@ -13,6 +13,7 @@ use std::fmt;
 use std::fs::File;
 use std::io;
 use std::io::Read;
+use std::time::Instant;
 
 use ml_core::{
     LinearRegressionModel, LinearRegressionParams, ModelInput, RidgeRegressionModel,
@@ -258,7 +259,7 @@ fn main() {
     let poly_ridge_model_path = "./host/model/polynomial_ridge_regression_params.json";
 
     // Read the test dataset
-    let Ok((x, actual_amounts)) = read_test_dataset(5) else {
+    let Ok((x, actual_amounts)) = read_test_dataset(10) else {
         todo!()
     };
 
@@ -300,12 +301,18 @@ fn main() {
     // Proof information by proving the specified ELF binary.
     // This struct contains the receipt along with statistics about execution of the guest
     println!("Start generating proof");
+    let mut start = Instant::now();
     let receipt = run_model(model_input).unwrap();
-
-    // For example:
+    let proof_duration = start.elapsed();
+    start = Instant::now(); 
+    let verify = receipt.verify();
+    let verify_duration = start.elapsed();
     let output = receipt.get_commit().unwrap();
     println!("{:?}", output);
     println!("{:?}", actual_amounts);
+    println!("Proof time taken: {:?}", proof_duration);
+    println!("Verify time taken: {:?}", verify_duration);
+
     // The receipt was verified at the end of proving, but the below code is an
     // example of how someone else could verify this receipt.
 }

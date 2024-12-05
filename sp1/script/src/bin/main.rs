@@ -20,6 +20,7 @@ use std::fmt;
 use std::fs::File;
 use std::io;
 use std::io::Read;
+use std::time::Instant;
 
 use ml_lib::{
     LinearRegressionModel, LinearRegressionParams, ModelInput, RidgeRegressionModel,
@@ -267,7 +268,7 @@ fn main() {
     let ridge_model_path = "./script/model/ridge_regression_params.json";
     let poly_ridge_model_path = "./script/model/polynomial_ridge_regression_params.json";
 
-    let Ok((x, actual_amounts)) = read_test_dataset(5) else {
+    let Ok((x, actual_amounts)) = read_test_dataset(10) else {
         todo!()
     };
 
@@ -304,14 +305,17 @@ fn main() {
 
     let client = ProverClient::new();
     let (pk, vk) = client.setup(ML_ELF);
+    
+    let mut start = Instant::now();
     let mut proof = client.prove(&pk, stdin).run().expect("proving failed");
-
+    let proof_duration = start.elapsed();
+    
     let val = proof.public_values.read::<Vec<f32>>();
     println!("Value of is {:?}", val);
-
-    let client = ProverClient::new();
-
+    start = Instant::now(); 
     client.verify(&proof, &vk).expect("verification failed");
-
+    let verify_duration = start.elapsed();
+    println!("Proof time taken: {:?}", proof_duration);
+    println!("Verify time taken: {:?}", verify_duration);
     println!("successfully generated and verified proof for the program!")
 }
