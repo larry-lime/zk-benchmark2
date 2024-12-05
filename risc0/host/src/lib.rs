@@ -23,7 +23,7 @@ impl OutputWithReceipt {
         }
 }
 
-pub fn test(input: ModelInput) -> Result<OutputWithReceipt> {
+pub fn run_model(input: ModelInput) -> Result<OutputWithReceipt> {
 
     let env = ExecutorEnv::builder().write(&input)?.build()?;
 
