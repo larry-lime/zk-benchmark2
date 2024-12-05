@@ -116,7 +116,7 @@ impl From<serde_json::Error> for MyError {
     }
 }
 
-pub fn read_test_dataset() -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
+pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
     match env::current_dir() {
         Ok(path) => println!("Current working directory: {}", path.display()),
         Err(e) => eprintln!("Error getting current directory: {}", e),
@@ -134,8 +134,11 @@ pub fn read_test_dataset() -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
 
     let mut test_features = Vec::new();
     let mut actual_amounts = Vec::new();
-
+    let mut cur: usize = 0;
     for result in rdr.deserialize() {
+        if cur == lines {
+            break;
+        }
         let record: TestData = result.expect("Failed to deserialize record.");
         // Collect features into a vector (excluding 'amount')
         test_features.push(vec![
@@ -202,6 +205,7 @@ pub fn read_test_dataset() -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
             record.IsClothing,
         ]);
         actual_amounts.push(record.amount);
+        cur += 1;
     }
 
     Ok((test_features, actual_amounts))
@@ -252,10 +256,10 @@ fn main() {
     let poly_ridge_model_path = "./host/model/polynomial_ridge_regression_params.json";
 
     // Read the test dataset
-    let Ok((x, actual_amounts)) = read_test_dataset() else {
+    let Ok((x, actual_amounts)) = read_test_dataset(5) else {
         todo!()
     };
-    // println!("test: {:?}", test_features);
+
     // Read the models
     let Ok((scaler, linear_model, ridge_model)) = read_models(
         scaler_path,
@@ -287,12 +291,6 @@ fn main() {
         .with_env_filter(tracing_subscriber::filter::EnvFilter::from_default_env())
         .init();
 
-    // For example:
-    let env = ExecutorEnv::builder()
-        .write(&model_input)
-        .unwrap()
-        .build()
-        .unwrap();
 
     // Obtain the default prover.
     let prover = default_prover();
@@ -303,6 +301,8 @@ fn main() {
 
     // For example:
     let output = receipt.get_commit().unwrap();
+    println!("{:?}", output);
+    println!("{:?}", actual_amounts);
     // The receipt was verified at the end of proving, but the below code is an
     // example of how someone else could verify this receipt.
 }
