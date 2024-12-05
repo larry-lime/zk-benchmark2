@@ -4,7 +4,7 @@ use methods::{
     ML_GUEST_ELF, ML_GUEST_ID
 };
 use risc0_zkvm::{default_prover, ExecutorEnv};
-
+use host::test;
 use serde::{Deserialize, Serialize};
 use std::fs::File;
 use std::io;
@@ -303,21 +303,12 @@ fn main() {
     println!("STARTING PROOF"); 
     // Proof information by proving the specified ELF binary.
     // This struct contains the receipt along with statistics about execution of the guest
-    let prove_info = prover
-        .prove(env, ML_GUEST_ELF)
-        .unwrap();
-
-    // extract the receipt.
-    let receipt = prove_info.receipt;
+    let receipt = test(model_input).unwrap();
 
     // TODO: Implement code for retrieving receipt journal here.
 
     // For example:
-    let _output: u32 = receipt.journal.decode().unwrap();
-
+    let output = receipt.get_commit().unwrap();
     // The receipt was verified at the end of proving, but the below code is an
     // example of how someone else could verify this receipt.
-    receipt
-        .verify(ML_GUEST_ID)
-        .unwrap();
 }
