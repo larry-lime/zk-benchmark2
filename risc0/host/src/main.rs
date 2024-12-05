@@ -334,4 +334,5 @@ fn main() {
     // example of how someone else could verify this receipt.
     println!("Verifying proof");
     receipt.verify(ML_GUEST_ID).unwrap();
+    Ok(())
 }
