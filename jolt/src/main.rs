@@ -9,6 +9,7 @@ use csv::ReaderBuilder;
 use std::fmt;
 use serde_json::from_str;
 use std::env;
+use std::time::Instant;
 
 mod models;
 
@@ -196,7 +197,7 @@ pub fn main() {
     let poly_ridge_model_path = "./guest/model/polynomial_ridge_regression_params.json";
 
     // Read the test dataset
-    let Ok((x, actual_amounts)) = read_test_dataset(1) else { todo!() };
+    let Ok((x, actual_amounts)) = read_test_dataset(10) else { todo!() };
     // println!("test: {:?}", test_features);
     // Read the models
     let Ok((scaler, linear_model, ridge_model)) =
@@ -217,19 +218,16 @@ pub fn main() {
         x 
     };
 
-    // guest::load_model(model_input);
-    
-    let (prove_alloc, verify_alloc) = guest::build_alloc();
     let (prove_model, verify_model) = guest::build_load_model();
-
+    let mut start = Instant::now();
     let (model_output, model_proof) = prove_model(model_input);
+    let proof_duration = start.elapsed();
+    start = Instant::now();
     let model_is_valid = verify_model(model_proof);
-
-    let (output, proof) = prove_alloc(41);
-    let is_valid = verify_alloc(proof);
-
-    println!("output: {:?}", output);
+    let verify_duration = start.elapsed();
+    println!("Proof time taken: {:?}", proof_duration);
+    println!("Verify time taken: {:?}", verify_duration);
+ 
     println!("output: {:?}", model_output);
     println!("output: {:?}", model_is_valid);
-    println!("valid: {}", is_valid);
 }
