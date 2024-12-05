@@ -299,7 +299,7 @@ fn main() {
 
     // Proof information by proving the specified ELF binary.
     // This struct contains the receipt along with statistics about execution of the guest
-    println!("Start generating proo}");
+    println!("Start generating proof");
     let receipt = run_model(model_input).unwrap();
 
     // For example:
