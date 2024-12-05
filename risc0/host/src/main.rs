@@ -321,7 +321,7 @@ fn main() {
     // Proof information by proving the specified ELF binary.
     // This struct contains the receipt along with statistics about execution of the guest
     // let prove_info = prover.prove(env, ML_GUEST_ELF).unwrap();
-    let receipt = prover.prove(env, ML_GUEST_ELF)?.receipt();
+    let receipt = prover.prove(env, ML_GUEST_ELF)?.receipt;
 
     // TODO: Implement code for retrieving receipt journal here.
 
