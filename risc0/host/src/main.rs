@@ -21,69 +21,15 @@ use ml_core::{
 };
 
 #[derive(Debug, Deserialize)]
-pub struct TestData {
-    pub quantity: f32,
-    pub price: f32,
-    pub discount_applied: f32,
-    pub IsAL: f32,
-    pub IsAK: f32,
-    pub IsAZ: f32,
-    pub IsAR: f32,
-    pub IsCA: f32,
-    pub IsCO: f32,
-    pub IsCT: f32,
-    pub IsDE: f32,
-    pub IsFL: f32,
-    pub IsGA: f32,
-    pub IsHI: f32,
-    pub IsID: f32,
-    pub IsIL: f32,
-    pub IsIN: f32,
-    pub IsIA: f32,
-    pub IsKS: f32,
-    pub IsKY: f32,
-    pub IsLA: f32,
-    pub IsME: f32,
-    pub IsMD: f32,
-    pub IsMA: f32,
-    pub IsMI: f32,
-    pub IsMN: f32,
-    pub IsMS: f32,
-    pub IsMO: f32,
-    pub IsMT: f32,
-    pub IsNE: f32,
-    pub IsNV: f32,
-    pub IsNH: f32,
-    pub IsNJ: f32,
-    pub IsNM: f32,
-    pub IsNY: f32,
-    pub IsNC: f32,
-    pub IsND: f32,
-    pub IsOH: f32,
-    pub IsOK: f32,
-    pub IsOR: f32,
-    pub IsPA: f32,
-    pub IsRI: f32,
-    pub IsSC: f32,
-    pub IsSD: f32,
-    pub IsTN: f32,
-    pub IsTX: f32,
-    pub IsUT: f32,
-    pub IsVT: f32,
-    pub IsVA: f32,
-    pub IsWA: f32,
-    pub IsWV: f32,
-    pub IsWI: f32,
-    pub IsWY: f32,
-    pub IsCash: f32,
-    pub IsPayPal: f32,
-    pub IsDebitCard: f32,
-    pub IsCreditCard: f32,
-    pub IsBooks: f32,
-    pub IsHomeDecor: f32,
-    pub IsElectronics: f32,
-    pub IsClothing: f32,
-    pub amount: f32, // Target variable
+struct TestData {
+    CustomerID: f32,
+    frequency: f32,
+    monetary: f32,
+    recency: f32,
+    Price: f32,
+    DiscountApplied: f32,
+    spend_90_flag: f32,
+    Actual_spend_90_days: f32,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -143,71 +89,16 @@ pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyEr
             break;
         }
         let record: TestData = result.expect("Failed to deserialize record.");
-        // Collect features into a vector (excluding 'amount')
         test_features.push(vec![
-            record.quantity,
-            record.price,
-            record.discount_applied,
-            record.IsAL,
-            record.IsAK,
-            record.IsAZ,
-            record.IsAR,
-            record.IsCA,
-            record.IsCO,
-            record.IsCT,
-            record.IsDE,
-            record.IsFL,
-            record.IsGA,
-            record.IsHI,
-            record.IsID,
-            record.IsIL,
-            record.IsIN,
-            record.IsIA,
-            record.IsKS,
-            record.IsKY,
-            record.IsLA,
-            record.IsME,
-            record.IsMD,
-            record.IsMA,
-            record.IsMI,
-            record.IsMN,
-            record.IsMS,
-            record.IsMO,
-            record.IsMT,
-            record.IsNE,
-            record.IsNV,
-            record.IsNH,
-            record.IsNJ,
-            record.IsNM,
-            record.IsNY,
-            record.IsNC,
-            record.IsND,
-            record.IsOH,
-            record.IsOK,
-            record.IsOR,
-            record.IsPA,
-            record.IsRI,
-            record.IsSC,
-            record.IsSD,
-            record.IsTN,
-            record.IsTX,
-            record.IsUT,
-            record.IsVT,
-            record.IsVA,
-            record.IsWA,
-            record.IsWV,
-            record.IsWI,
-            record.IsWY,
-            record.IsCash,
-            record.IsPayPal,
-            record.IsDebitCard,
-            record.IsCreditCard,
-            record.IsBooks,
-            record.IsHomeDecor,
-            record.IsElectronics,
-            record.IsClothing,
+            record.CustomerID,
+            record.frequency,
+            record.monetary,
+            record.recency,
+            record.Price,
+            record.DiscountApplied,
+            record.spend_90_flag
         ]);
-        actual_amounts.push(record.amount);
+        actual_amounts.push(record.Actual_spend_90_days);
         cur += 1;
     }
 
@@ -228,7 +119,6 @@ pub fn read_models(
         Err(e) => eprintln!("Error getting current directory: {}", e),
     }
     // Read and deserialize Scaler
-
     let mut scaler_file = File::open(scaler_path)?;
     let mut scaler_contents = String::new();
     scaler_file.read_to_string(&mut scaler_contents)?;
@@ -252,6 +142,51 @@ pub fn read_models(
     Ok((scaler, linear_model, ridge_model))
 }
 
+fn mean_squared_error(actual: &[f32], predicted: &[f32]) -> f32 {
+    assert_eq!(
+        actual.len(),
+        predicted.len(),
+        "The length of actual and predicted slices must be the same."
+    );
+
+    let mse = actual.iter()
+        .zip(predicted.iter())
+        .map(|(a, p)| (a - p).powi(2))
+        .sum::<f32>() / (actual.len() as f32);
+
+    mse
+}
+
+fn r2_score(actual: &[f32], predicted: &[f32]) -> f32 {
+    assert_eq!(
+        actual.len(),
+        predicted.len(),
+        "The length of actual and predicted slices must be the same."
+    );
+
+    let mean_actual = actual.iter().copied().sum::<f32>() / (actual.len() as f32);
+
+    let ss_tot = actual.iter()
+        .map(|&a| (a - mean_actual).powi(2))
+        .sum::<f32>();
+
+    let ss_res = actual.iter()
+        .zip(predicted.iter())
+        .map(|(a, p)| (a - p).powi(2))
+        .sum::<f32>();
+
+    if ss_tot == 0.0 {
+        // Avoid division by zero; return R² = 1 if predictions are perfect, else 0
+        if ss_res == 0.0 {
+            1.0
+        } else {
+            0.0
+        }
+    } else {
+        1.0 - (ss_res / ss_tot)
+    }
+}
+
 fn main() {
     let scaler_path = "./host/model/scaler_params.json";
     let linear_model_path = "./host/model/linear_regression_params.json";
@@ -259,7 +194,7 @@ fn main() {
     let poly_ridge_model_path = "./host/model/polynomial_ridge_regression_params.json";
 
     // Read the test dataset
-    let Ok((x, actual_amounts)) = read_test_dataset(10) else {
+    let Ok((x, actual_amounts)) = read_test_dataset(100) else {
         todo!()
     };
 
@@ -308,6 +243,13 @@ fn main() {
     let verify = receipt.verify();
     let verify_duration = start.elapsed();
     let output = receipt.get_commit().unwrap();
+
+    let mse = mean_squared_error(&output, &actual_amounts);
+    println!("mean squared error (mse): {:.4}", mse);
+
+    // calculate r²
+    let r2 = r2_score(&output, &actual_amounts);
+    println!("coefficient of determination (r²): {:.4}", r2);
     println!("{:?}", output);
     println!("{:?}", actual_amounts);
     println!("Proof time taken: {:?}", proof_duration);
