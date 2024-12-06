@@ -149,7 +149,7 @@ pub fn main() {
     let poly_ridge_model_path = "./guest/model/polynomial_ridge_regression_params.json";
 
     // Read the test dataset
-    let Ok((x, actual_amounts)) = read_test_dataset(1000) else {
+    let Ok((x, actual_amounts)) = read_test_dataset(10000) else {
         todo!()
     };
     // println!("test: {:?}", test_features);
