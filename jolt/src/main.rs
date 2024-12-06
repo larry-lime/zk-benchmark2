@@ -81,7 +81,7 @@ pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyEr
             record.DiscountApplied,
             record.spend_90_flag 
         ]);
-        actual_amounts.push(record.actual_spend_90_days);
+        actual_amounts.push(record.Actual_spend_90_days);
         cur += 1;
     }
 
