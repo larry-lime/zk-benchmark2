@@ -159,7 +159,7 @@ fn main() {
     let ridge_model_path = "./script/model/ridge_regression_params.json";
     let poly_ridge_model_path = "./script/model/polynomial_ridge_regression_params.json";
 
-    let Ok((x, actual_amounts)) = read_test_dataset(10) else {
+    let Ok((x, actual_amounts)) = read_test_dataset(100) else {
         todo!()
     };
 
