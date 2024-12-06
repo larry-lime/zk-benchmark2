@@ -58,15 +58,15 @@ pub struct ScalerParams {
 }
 
 #[derive(Debug, Deserialize)]
-struct TestData {
-    CustomerID: f32,
-    frequency: f32,
-    monetary: f32,
-    recency: f32,
-    Price: f32,
-    DiscountApplied: f32,
-    spend_90_flag: f32,
-    actual_spend_90_days: f32,
+pub struct TestData {
+    pub CustomerID: f32,
+    pub frequency: f32,
+    pub monetary: f32,
+    pub recency: f32,
+    pub Price: f32,
+    pub DiscountApplied: f32,
+    pub spend_90_flag: f32,
+    pub Actual_spend_90_days: f32,
 }
 
 

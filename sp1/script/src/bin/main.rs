@@ -39,15 +39,7 @@ struct TestData {
     Price: f32,
     DiscountApplied: f32,
     spend_90_flag: f32,
-    actual_spend_90_days: f32
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub enum MyError {
-    FileNotFound(String),
-    ParseError(String),
-    IoError(String),
-    InvalidInput(String),
+    Actual_spend_90_days: f32
 }
 
 impl fmt::Display for MyError {
@@ -56,7 +48,7 @@ impl fmt::Display for MyError {
             MyError::FileNotFound(msg) => write!(f, "File not found: {}", msg),
             MyError::ParseError(msg) => write!(f, "Parse error: {}", msg),
             MyError::IoError(msg) => write!(f, "IO error: {}", msg),
-            MyError::InvalidInput(msg) => write!(f, "Invlaid Input: {}", msg),
+            MyError::InvalidInput(msg) => write!(f, "Invalid Input: {}", msg),
         }
     }
 }
@@ -75,75 +67,12 @@ impl From<serde_json::Error> for MyError {
     }
 }
 
-pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
-    match env::current_dir() {
-        Ok(path) => println!("Current working directory: {}", path.display()),
-        Err(e) => eprintln!("Error getting current directory: {}", e),
-    }
-    let mut file =
-        File::open("./host/model/Test_Dataset.csv").expect("Test_Dataset.csv not found.");
-    let mut contents = String::new();
-    file.read_to_string(&mut contents)
-        .expect("Failed to read Test_Dataset.csv");
-
-    // Parse the CSV into a vector of TestData
-    let mut rdr = ReaderBuilder::new()
-        .has_headers(true)
-        .from_reader(contents.as_bytes());
-
-    let mut test_features = Vec::new(); let mut actual_amounts = Vec::new();
-    let mut cur: usize = 0;
-    for result in rdr.deserialize() {
-        if cur == lines {
-            break;
-        }
-        let record: TestData = result.expect("Failed to deserialize record.");
-        // Collect features into a vector (excluding 'amount')
-        test_features.push(vec![
-            record.CustomerID
-            record.frequency,
-            record.monetary,
-            record.recency,
-            record.Price,
-            record.DiscountApplied,
-            record.spend_90_flag
-        ]);
-        actual_amounts.push(record.actual_spend_90_days);
-        cur += 1;
-    }
-}
-
 #[derive(Debug, Serialize, Deserialize)]
 pub enum MyError {
     FileNotFound(String),
     ParseError(String),
     IoError(String),
     InvalidInput(String),
-}
-
-impl fmt::Display for MyError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            MyError::FileNotFound(msg) => write!(f, "File not found: {}", msg),
-            MyError::ParseError(msg) => write!(f, "Parse error: {}", msg),
-            MyError::IoError(msg) => write!(f, "IO error: {}", msg),
-            MyError::InvalidInput(msg) => write!(f, "Invlaid Input: {}", msg),
-        }
-    }
-}
-
-impl std::error::Error for MyError {}
-
-impl From<io::Error> for MyError {
-    fn from(error: io::Error) -> Self {
-        MyError::IoError(error.to_string())
-    }
-}
-
-impl From<serde_json::Error> for MyError {
-    fn from(error: serde_json::Error) -> Self {
-        MyError::ParseError(error.to_string())
-    }
 }
 
 pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyError> {
@@ -175,9 +104,11 @@ pub fn read_test_dataset(lines: usize) -> Result<(Vec<Vec<f32>>, Vec<f32>), MyEr
             record.frequency,
             record.monetary,
             record.recency,
-            if record.spend_90_flag { 1.0 } else { 0.0 },
+            record.Price,
+            record.DiscountApplied,
+            record.spend_90_flag,
         ]);
-        actual_amounts.push(record.actual_spend_90_days);
+        actual_amounts.push(record.Actual_spend_90_days);
         cur += 1;
     }
 
