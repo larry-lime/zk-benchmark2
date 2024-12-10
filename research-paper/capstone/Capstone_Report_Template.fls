@@ -412,6 +412,9 @@ INPUT ./Capstone_Report_Template.toc
 INPUT ./Capstone_Report_Template.toc
 INPUT Capstone_Report_Template.toc
 OUTPUT Capstone_Report_Template.toc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecsx1200.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm0900.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
@@ -432,7 +435,6 @@ INPUT ./graphics/certificates-log-archi.pdf
 INPUT ./graphics/certificates-log-archi.pdf
 INPUT ./graphics/certificates-log-archi.pdf
 INPUT ./graphics/certificates-log-archi.pdf
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecsx1200.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd

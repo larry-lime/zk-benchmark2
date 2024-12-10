@@ -81,6 +81,26 @@ This work addresses the challenge of securely processing sensitive data in priva
 
 Your introduction briefly explains the problem you address, and what you've achieved towards solving the problem. It's an edited and updated version of your context and objectives from your topic outline document.
 
+\subsection{Context}
+
+A \textbf{Zero Knowledge Proof (ZKP)} is a cryptographic method of proving a statement is true without revealing any other information besides the fact that the statement is true. ZKPs have three fundamental characteristics:
+
+\begin{itemize}
+    \item \textbf{Completeness:} If a statement is true, an honest prover can prove to an honest verifier that they have knowledge of the correct input.
+    \item \textbf{Soundness:} If a statement is false, a dishonest prover is unable to convince an honest verifier that they have knowledge of the correct input.
+    \item \textbf{Zero-knowledge:} No other information about the input is revealed to the verifier from the prover besides the fact that the statement is true.
+\end{itemize}
+
+The primary benefit of ZKPs is that they allow private data to be used in transparent systems, such as blockchain networks. Since all information on a blockchain is publicly accessible, proprietary data cannot be securely used without ZKP systems. This limitation restricts the full potential and advantages of blockchain technology.
+
+\subsection{Objective}
+
+Credit card data is highly sensitive and private. Current fintech platforms need to see sensitive user information such as credit history, transaction history, income, etc to make informed decisions on user’s personal financial information. This limits the scope and ability of these companies to build certain applications that serve users.
+
+We are proposing a service that, given access to personal credit, transaction, income information, we are able to generate a ZKP [1] that proves statements on their personal financial information. This way we can build a public and open ecosystem for app developers to build additional financial and loyalty ideas and more.
+
+We are able to get user financial data through Plaid and we are going to be using Succinct’'s SP1 zkVM [2] to generate proofs over this data proving statements relevant to the use cases of the data. For example, given user transaction history, we could generate a ZKP proving an algorithm ranking the user’s top 5 shopping preferences. This allows us to verify that the ranking algorithm was computed correctly and over the correct set of data without revealing the actual data points it was computed over. This is one of many use cases.
+
 \section{Related Work}
 
 Your related work section positions your problem and your approach with respect to other, maybe similar, projects you've found in the literature. 
