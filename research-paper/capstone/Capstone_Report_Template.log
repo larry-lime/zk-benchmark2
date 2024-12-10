@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  9 DEC 2024 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  10 DEC 2024 18:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -886,27 +886,14 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count370
 ))
+<graphics/nyush-logo.jpeg, id=10, 149.1171pt x 44.8074pt>
+File: graphics/nyush-logo.jpeg Graphic file (type jpg)
+<use graphics/nyush-logo.jpeg>
+Package pdftex.def Info: graphics/nyush-logo.jpeg  used on input line 15.
+(pdftex.def)             Requested size: 274.85652pt x 82.60248pt.
+ [1
 
-LaTeX Warning: File `nyush-logo.jpeg' not found on input line 15.
-
-
-./Capstone_Report_Template.tex:15: Package pdftex.def Error: File `nyush-logo.jpeg' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 ...hics[width=0.6\textwidth]{nyush-logo.jpeg}
-                                                  \par
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 15.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [1
-
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./graphics/nyush-logo.jpeg>]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -915,7 +902,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2] [3]
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 78.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 73.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) (./Capstone_Report_Template.toc)
@@ -923,68 +910,27 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \openout5 = `Capstone_Report_Template.toc'.
 
  [4]
-
-LaTeX Warning: Citation `byzantine-pki' on page 5 undefined on input line 95.
-
-
-LaTeX Warning: Citation `atomic-mcast-tcs01' on page 5 undefined on input line 95.
-
-
-LaTeX Warning: Citation `sybilattack' on page 5 undefined on input line 95.
-
-
-LaTeX Warning: Citation `psn-fail' on page 5 undefined on input line 95.
-
-
-LaTeX Warning: Citation `verisign-fail' on page 5 undefined on input line 95.
-
-
-LaTeX Warning: File `ascent-archi.pdf' not found on input line 106.
-
-
-./Capstone_Report_Template.tex:106: Package pdftex.def Error: File `ascent-archi.pdf' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.106 ...ludegraphics[scale=0.7]{ascent-archi.pdf}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `certificates-log-archi.pdf' not found on input line 116.
-
-
-./Capstone_Report_Template.tex:116: Package pdftex.def Error: File `certificates-log-archi.pdf' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 ...cs[scale=0.5]{certificates-log-archi.pdf}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5] [6]
-
-LaTeX Warning: File `perf-plot-1.pdf' not found on input line 163.
-
-
-./Capstone_Report_Template.tex:163: Package pdftex.def Error: File `perf-plot-1.pdf' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.163 ...cludegraphics[scale=0.9]{perf-plot-1.pdf}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7] [8] (./Capstone_Report_Template.bbl
+<graphics/ascent-archi.pdf, id=64, 293.095pt x 162.6075pt>
+File: graphics/ascent-archi.pdf Graphic file (type pdf)
+<use graphics/ascent-archi.pdf>
+Package pdftex.def Info: graphics/ascent-archi.pdf  used on input line 101.
+(pdftex.def)             Requested size: 205.16508pt x 113.82446pt.
+ [5 <./graphics/ascent-archi.pdf>]
+<graphics/certificates-log-archi.pdf, id=104, 750.805pt x 362.35374pt>
+File: graphics/certificates-log-archi.pdf Graphic file (type pdf)
+<use graphics/certificates-log-archi.pdf>
+Package pdftex.def Info: graphics/certificates-log-archi.pdf  used on input line 111.
+(pdftex.def)             Requested size: 375.40158pt x 181.17642pt.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 148.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [6 <./graphics/certificates-log-archi.pdf>]
+<graphics/perf-plot-1.pdf, id=139, 361.35pt x 252.945pt>
+File: graphics/perf-plot-1.pdf Graphic file (type pdf)
+<use graphics/perf-plot-1.pdf>
+Package pdftex.def Info: graphics/perf-plot-1.pdf  used on input line 158.
+(pdftex.def)             Requested size: 325.21199pt x 227.64839pt.
+ [7 <./graphics/perf-plot-1.pdf>] [8] (./Capstone_Report_Template.bbl
 Underfull \hbox (badness 2503) in paragraph at lines 35--36
 \T1/cmr/m/n/10.95 data theft,'' http://www.telegraph.co.uk/technology/news/8475728/ Millions-of-internet-
  []
@@ -1004,29 +950,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Capstone_Report_Template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39330 strings out of 474116
- 950517 string characters out of 5743682
+ 39246 strings out of 474116
+ 948353 string characters out of 5743682
  1934187 words of memory out of 5000000
- 61065 multiletter control sequences out of 15000+600000
+ 60981 multiletter control sequences out of 15000+600000
  577879 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,10n,110p,10941b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Capstone_Report_Template.pdf (9 pages, 300058 bytes).
+Output written on Capstone_Report_Template.pdf (9 pages, 564318 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
  31 named destinations out of 1000 (max. 500000)
- 100 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 120 words of extra memory for PDF output out of 10000 (max. 10000000)
 
