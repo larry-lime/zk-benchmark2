@@ -20,21 +20,39 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{byzantine-pki}
+\bibitem{Groth2016}
 \BIBentryALTinterwordspacing
-V.~Pathak and L.~Iftode, ``Byzantine fault tolerant public key authentication in peer-to-peer systems,'' \emph{Computer Networks}, vol.~50, no.~4, pp. 579--596, 2006. [Online]. Available: \url{http://dx.doi.org/10.1016/j.comnet.2005.07.007}
+J.~Groth, ``On the size of pairing-based non-interactive arguments,'' in \emph{Lecture Notes in Computer Science}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016, pp. 305--326. [Online]. Available: \url{https://doi.org/10.1007/978-3-662-49896-5_11}
 \BIBentrySTDinterwordspacing
 
-\bibitem{atomic-mcast-tcs01}
-R.~Guerraoui, ``Genuine atomic multicast in asynchronous distributed systems,'' \emph{Theoretical Computer Science}, vol. 254, pp. 297--316, 2001.
+\bibitem{Goldreich1991}
+O.~Goldreich, S.~Micali, and A.~Wigderson, ``Proofs that yield nothing but their validity or all languages in np have zero-knowledge proof systems,'' \emph{Journal of the ACM}, vol.~38, no.~3, pp. 690--728, 1991.
 
-\bibitem{sybilattack}
-J.~R. Douceur, ``The sybil attack,'' in \emph{Revised Papers from the First International Workshop on Peer-to-Peer Systems}, ser. {IPTPS} '01.\hskip 1em plus 0.5em minus 0.4em\relax London, {UK}: Springer, Berlin, 7-8 March 2002, pp. 251--260.
+\bibitem{BenSasson2018}
+\BIBentryALTinterwordspacing
+E.~Ben-Sasson, I.~Bentov, Y.~Horesh, and M.~Riabzev, ``Scalable, transparent, and post-quantum secure computational integrity,'' \emph{EPrint Archive}, 2018. [Online]. Available: \url{https://eprint.iacr.org/2018/046}
+\BIBentrySTDinterwordspacing
 
-\bibitem{psn-fail}
-S.~Richmond and C.~Williams, ``Millions of internet users hit by massive sony playstation data theft,'' http://www.telegraph.co.uk/technology/news/8475728/ Millions-of-internet-users-hit-by-massive-Sony-PlayStation-data-theft.html, 2011, the Telegraph.
+\bibitem{Aurora2019}
+\BIBentryALTinterwordspacing
+E.~Ben-Sasson, A.~Chiesa, M.~Riabzev, N.~Spooner, M.~Virza, and N.~P. Ward, ``Aurora: Transparent succinct arguments for r1cs,'' in \emph{Proceedings of Advances in Cryptology – EUROCRYPT 2019}, 2019. [Online]. Available: \url{https://eprint.iacr.org/2018/828.pdf}
+\BIBentrySTDinterwordspacing
 
-\bibitem{verisign-fail}
-J.~Menn, ``Key internet operator verisign hit by hackers,'' http://www.reuters.com/article/2012/02/02/us-hacking-verisign-idUSTRE8110Z820120202, 2012, reuters.
+\bibitem{Arun2024}
+A.~Arun, S.~Setty, and J.~Thaler, ``Jolt: Snarks for virtual machines via lookups,'' in \emph{Advances in Cryptology – EUROCRYPT 2024}.\hskip 1em plus 0.5em minus 0.4em\relax Springer Nature Switzerland, 2024, pp. 3--33.
+
+\bibitem{Bruestle2023}
+\BIBentryALTinterwordspacing
+J.~Bruestle and P.~Gafni, ``Risc zero zkvm: Scalable, transparent arguments of risc-v integrity,'' Technical Report, RiscZero Team, 2023. [Online]. Available: \url{https://www.risczero.com/proof-system-in-detail.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{RISCZeth2023}
+``Risc zero’s open source zeth proves ethereum blocks in minutes, instead of hours,'' \emph{Journal of Engineering}, pp. 2272--, 2023.
+
+\bibitem{Wang2024}
+H.~Wang, R.~Bie, and T.~D. Hoang, ``An efficient and zero-knowledge classical machine learning inference pipeline,'' \emph{IEEE Transactions on Dependable and Secure Computing}, pp. 1--18, 2024.
+
+\bibitem{Ganescu2024}
+B.~M. Ganescu and J.~Passerat-Palmbach, ``Trust the process: Zero-knowledge machine learning to enhance trust in generative ai interactions,'' in \emph{arXiv.Org}, 2024.
 
 \end{thebibliography}

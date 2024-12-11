@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  10 DEC 2024 19:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  11 DEC 2024 20:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Capstone_Report_Template.tex
-(./Capstone_Report_Template.tex
+**/Users/brandongao/zk-benchmark2/research-paper/capstone/Capstone_Report_Template.tex
+(/Users/brandongao/zk-benchmark2/research-paper/capstone/Capstone_Report_Template.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/koma-script/scrartcl.cls
@@ -416,8 +416,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box113
 \@float@everytoks=\toks35
 \@floatcapt=\box114
-)
-(/usr/local/texlive/2024/texmf-dist/tex/latex/keystroke/keystroke.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/keystroke/keystroke.sty
 Package: keystroke 2010/04/23 v1.6 3D keystrokes (SuSE GmbH/RN)
 \suse@key=\box115
 \keystroke@left=\box116
@@ -510,8 +509,7 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen189
 \pgfmath@count=\count332
 \pgfmath@box=\box120
@@ -562,8 +560,7 @@ File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -635,8 +632,7 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count345
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
-(/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks48
 \t@pgfplots@tokb=\toks49
 \t@pgfplots@tokc=\toks50
@@ -655,8 +651,7 @@ Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgfplotstable@a=\toks54
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count350
- (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
-(/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen284
 \pgfdecoratedremainingdistance=\dimen285
 \pgfdecoratedinputsegmentcompleteddistance=\dimen286
@@ -695,8 +690,7 @@ Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
-
-(/usr/local/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
@@ -909,29 +903,29 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \tf@toc=\write5
 \openout5 = `Capstone_Report_Template.toc'.
 
- [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<graphics/ascent-archi.pdf, id=74, 293.095pt x 162.6075pt>
+ [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6]
+<graphics/ascent-archi.pdf, id=90, 293.095pt x 162.6075pt>
 File: graphics/ascent-archi.pdf Graphic file (type pdf)
 <use graphics/ascent-archi.pdf>
-Package pdftex.def Info: graphics/ascent-archi.pdf  used on input line 121.
+Package pdftex.def Info: graphics/ascent-archi.pdf  used on input line 132.
 (pdftex.def)             Requested size: 205.16508pt x 113.82446pt.
- [6]
-<graphics/certificates-log-archi.pdf, id=90, 750.805pt x 362.35374pt>
+ [7]
+<graphics/certificates-log-archi.pdf, id=103, 750.805pt x 362.35374pt>
 File: graphics/certificates-log-archi.pdf Graphic file (type pdf)
 <use graphics/certificates-log-archi.pdf>
-Package pdftex.def Info: graphics/certificates-log-archi.pdf  used on input line 131.
+Package pdftex.def Info: graphics/certificates-log-archi.pdf  used on input line 142.
 (pdftex.def)             Requested size: 375.40158pt x 181.17642pt.
- [7 <./graphics/certificates-log-archi.pdf> <./graphics/ascent-archi.pdf>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 168.
+ [8 <./graphics/certificates-log-archi.pdf> <./graphics/ascent-archi.pdf>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 179.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-<graphics/perf-plot-1.pdf, id=148, 361.35pt x 252.945pt>
+<graphics/perf-plot-1.pdf, id=161, 361.35pt x 252.945pt>
 File: graphics/perf-plot-1.pdf Graphic file (type pdf)
 <use graphics/perf-plot-1.pdf>
-Package pdftex.def Info: graphics/perf-plot-1.pdf  used on input line 178.
+Package pdftex.def Info: graphics/perf-plot-1.pdf  used on input line 189.
 (pdftex.def)             Requested size: 325.21199pt x 227.64839pt.
- [8] [9 <./graphics/perf-plot-1.pdf>] (./Capstone_Report_Template.bbl) [10] (./Capstone_Report_Template.aux)
+ [9] [10 <./graphics/perf-plot-1.pdf>] (./Capstone_Report_Template.bbl) [11] (./Capstone_Report_Template.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -940,18 +934,18 @@ Package rerunfilecheck Info: File `Capstone_Report_Template.out' has not changed
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39258 strings out of 474116
- 948535 string characters out of 5743682
+ 39268 strings out of 474116
+ 948802 string characters out of 5743681
  1936187 words of memory out of 5000000
- 60988 multiletter control sequences out of 15000+600000
+ 60992 multiletter control sequences out of 15000+600000
  578220 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,10n,110p,10941b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,10n,110p,10997b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Capstone_Report_Template.pdf (10 pages, 569293 bytes).
+Output written on Capstone_Report_Template.pdf (11 pages, 579035 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 312 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
