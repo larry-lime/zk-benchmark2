@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  12 DEC 2024 21:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  12 DEC 2024 22:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -909,28 +909,28 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \tf@toc=\write5
 \openout5 = `Capstone_Report_Template.toc'.
 
- [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6]
-<graphics/ascent-archi.pdf, id=88, 293.095pt x 162.6075pt>
-File: graphics/ascent-archi.pdf Graphic file (type pdf)
-<use graphics/ascent-archi.pdf>
-Package pdftex.def Info: graphics/ascent-archi.pdf  used on input line 118.
-(pdftex.def)             Requested size: 205.16508pt x 113.82446pt.
-<graphics/certificates-log-archi.pdf, id=90, 750.805pt x 362.35374pt>
-File: graphics/certificates-log-archi.pdf Graphic file (type pdf)
-<use graphics/certificates-log-archi.pdf>
-Package pdftex.def Info: graphics/certificates-log-archi.pdf  used on input line 128.
-(pdftex.def)             Requested size: 375.40158pt x 181.17642pt.
- [7 <./graphics/ascent-archi.pdf>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 165.
+ [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6] [7]
+<graphics/zkVM-design.png, id=101, 1428.33624pt x 485.815pt>
+File: graphics/zkVM-design.png Graphic file (type png)
+<use graphics/zkVM-design.png>
+Package pdftex.def Info: graphics/zkVM-design.png  used on input line 159.
+(pdftex.def)             Requested size: 499.92517pt x 170.0378pt.
+
+Overfull \hbox (41.83562pt too wide) in paragraph at lines 159--160
+ [] 
+ []
+
+[8 <./graphics/zkVM-design.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 194.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [8 <./graphics/certificates-log-archi.pdf>]
-<graphics/perf-plot-1.pdf, id=156, 361.35pt x 252.945pt>
+)
+<graphics/perf-plot-1.pdf, id=110, 361.35pt x 252.945pt>
 File: graphics/perf-plot-1.pdf Graphic file (type pdf)
 <use graphics/perf-plot-1.pdf>
-Package pdftex.def Info: graphics/perf-plot-1.pdf  used on input line 175.
+Package pdftex.def Info: graphics/perf-plot-1.pdf  used on input line 204.
 (pdftex.def)             Requested size: 325.21199pt x 227.64839pt.
- [9 <./graphics/perf-plot-1.pdf>] [10] (./Capstone_Report_Template.bbl) [11] (./Capstone_Report_Template.aux)
+ [9] [10 <./graphics/perf-plot-1.pdf>] [11] (./Capstone_Report_Template.bbl) [12] (./Capstone_Report_Template.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -939,18 +939,18 @@ Package rerunfilecheck Info: File `Capstone_Report_Template.out' has not changed
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39235 strings out of 474116
- 948206 string characters out of 5743682
- 1934187 words of memory out of 5000000
- 60971 multiletter control sequences out of 15000+600000
+ 39229 strings out of 474116
+ 947867 string characters out of 5743682
+ 1935187 words of memory out of 5000000
+ 60964 multiletter control sequences out of 15000+600000
  573735 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,10n,110p,10941b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Capstone_Report_Template.pdf (11 pages, 544081 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on Capstone_Report_Template.pdf (12 pages, 498773 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 37 named destinations out of 1000 (max. 500000)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
