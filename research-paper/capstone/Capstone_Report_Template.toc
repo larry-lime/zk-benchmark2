@@ -5,10 +5,16 @@
 \contentsline {subsection}{\numberline {2.1}Virtual Machine-based ZK Systems}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Machine Learning in ZKPs}{6}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Solution}{7}{section.3}%
-\contentsline {section}{\numberline {4}Results and Discussion}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Experimentation protocol}{9}{subsection.4.1}%
+\contentsline {section}{\numberline {4}Results}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Experimentation Protocol}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Data tables}{9}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Graphs}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}ARM Benchmark}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}x86 Benchmark}{9}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Discussion}{12}{section.5}%
-\contentsline {section}{\numberline {6}Conclusion}{12}{section.6}%
+\contentsline {section}{\numberline {6}Personal Contributions}{12}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Siddhartha Tuladhar}{12}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Lawrence Lim}{12}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Brandon Gao}{12}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusion}{12}{section.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
