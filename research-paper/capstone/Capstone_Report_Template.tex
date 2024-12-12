@@ -5,7 +5,7 @@
 \input{File_Setup.tex}
 \hbadness=10000
 
-
+ 
 
 
 \begin{document}
@@ -54,9 +54,8 @@ We sincerely thank our advisor, Professor Promethee Spathis, for their guidance 
 
 \newpage
 
-
 \begin{abstract}
-This work addresses the challenge of securely processing sensitive data in privacy-critical applications like finance. Zero-knowledge virtual machines (zkVMs) offer a promising solution, but face issues with complexity and proof generation time . We benchmark three zkVMs—SP1, Jolt, and RISC-0—by training a ridge regression model on financial data, evaluating their performance and identifying key bottlenecks. Our findings highlight zkVMs’ potential for privacy-preserving computation and provide insights for improving their practical adoption.
+This work addresses the challenge of securely processing sensitive data in privacy-critical applications like finance. Zero-knowledge virtual machines (zkVMs) offer a promising solution, but face issues with complexity and proof generation time. We benchmark three zkVMs—SP1, Jolt, and RISC-0—by training a ridge regression model on financial data, evaluating their performance and identifying key bottlenecks. Our findings highlight zkVMs’ potential for privacy-preserving computation and provide insights for improving their practical adoption.
 \end{abstract}
 \vspace{1cm}
 
@@ -91,15 +90,14 @@ A \textbf{Zero Knowledge Proof (ZKP)} is a cryptographic method of proving a sta
     \item \textbf{Zero-knowledge:} No other information about the input is revealed to the verifier from the prover besides the fact that the statement is true.
 \end{itemize}
 
-The primary benefit of ZKPs is that they allow private data to be used in transparent systems, such as blockchain networks. Since all information on a blockchain is publicly accessible, proprietary data cannot be securely used without ZKP systems. This limitation restricts the full potential and advantages of blockchain technology.
 
 \subsection{Objective}
 
 Credit card data is highly sensitive and private. Current fintech platforms need to see sensitive user information such as credit history, transaction history, income, etc to make informed decisions on user’s personal financial information. This limits the scope and ability of these companies to build certain applications that serve users.
 
-We are proposing a service that, given access to personal credit, transaction, income information, we are able to generate a ZKP [1] that proves statements on their personal financial information. This way we can build a public and open ecosystem for app developers to build additional financial and loyalty ideas and more.
+We propose a service that, given access to personal credit, transaction, income information, we are able to generate a ZKP\cite{Groth2016} that proves statements on their personal financial information. This way we can build a public and open ecosystem for app developers to build additional financial services wihout sacrificing privacy.
 
-We are able to get user financial data through Plaid and we are going to be using Succinct’'s SP1 zkVM [2] to generate proofs over this data proving statements relevant to the use cases of the data. For example, given user transaction history, we could generate a ZKP proving an algorithm ranking the user’s top 5 shopping preferences. This allows us to verify that the ranking algorithm was computed correctly and over the correct set of data without revealing the actual data points it was computed over. This is one of many use cases.
+We are able to interface user financial data by using the same API values as Plaid, a service that provides credit card history data. We generate a ZKP on three zero-knowledge virtual machines (zkVMs): SP1\cite{Roy2024}, Risc0\cite{bruestle2023risc}, and Jolt\cite{arun2024jolt} going to be using Succinct’'s SP1 zkVM\cite{Roy2024} to generate proofs over this data proving statements relevant to the use cases of the data. For example, given user transaction history, we could generate a ZKP proving an algorithm ranking the user’s top 5 shopping preferences. This allows us to verify that the ranking algorithm was computed correctly and over the correct set of data without revealing the actual data points it was computed over. This is one of many use cases.
 
 \section{Related Work}
 
@@ -107,7 +105,7 @@ Your related work section positions your problem and your approach with respect 
 It "\textit{should not only explain what research others have done, but in each case should compare and contrast that to your work and also to other related work. After reading this section, a reader should understand the key idea and contribution of each significant piece of related work, how they fit together, and how your work differs.}"\footnote{\href{https://homes.cs.washington.edu/~mernst/advice/write-technical-paper.html\#related-work}{Michael Ernst - How to write a technical paper}} 
 %%%% DO NOT write a related work section that is just a laundry list of other papers, with a sentence about each one that was lifted from its abstract, and without any critical analysis nor deep comparison to other work.
 
-It's an edited and updated version of your literature review. Here are a few examples of how to insert citations like~\cite{byzantine-pki}, \cite{atomic-mcast-tcs01}, and also~\cite{sybilattack}, or even~\cite{psn-fail, verisign-fail}.
+It's an edited and updated version of your literature review. Here are a few examples of how to insert citations like~\cite{Groth2016}, \cite{Roy2024}, and also~\cite{goldreich1991proofs}, or even~\cite{arun2024jolt}
 
 \section{Solution}
 
