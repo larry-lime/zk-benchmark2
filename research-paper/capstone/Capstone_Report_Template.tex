@@ -130,29 +130,31 @@ Objective = \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{m} \beta_j^
 
 where \( m \) represents the number of polynomial features. This regularization prevents overfitting by penalizing large coefficients. This combination enables the model to capture nonlinear relationships while controlling for overfitting through regularization.
 
-\begin{table}[ht!]
+\begin{table}[h!]
 \centering
-\begin{tabular}{| l | p{10cm} |}
+\begin{tabular}{|l|p{10cm}|}
 \hline
 \textbf{Field} & \textbf{Description} \\
 \hline
-\textbf{amount} & The total transaction amount, used as the target variable in our prediction model. \\
+\textbf{CustomerID} & Unique identifier for a customer, used to track and differentiate individuals in the dataset. \\
 \hline
-\textbf{payment\_channel} & Indicates if the transaction was conducted online or in-store, capturing behavioral differences across channels. This field was converted to a binary variable. \\
+\textbf{Frequency} & Number of transactions a customer made during the first three quarters. \\
 \hline
-\textbf{category} & Transaction type, such as "Electronics" or "Clothing". Distinct patterns in spending appear across categories, making this an important predictor. This field was also converted to a binary variable. \\
+\textbf{Monetary} & Total monetary value of a customer's transactions during the first three quarters. \\
 \hline
-\textbf{location\_state} & Geographical information for regional spending variations. Each state was represented as a binary variable to capture local economic influences. \\
+\textbf{Recency} & Number of days since the customer's last transaction during the first three quarters. \\
 \hline
-\textbf{quantity} & Number of items or services purchased in the transaction, affecting the total amount spent. \\
+\textbf{Price} & Price per unit for each transaction item. \\
 \hline
-\textbf{price} & Price per unit for each transaction item, contributing to total transaction value, particularly in retail transactions. \\
+\textbf{DiscountApplied} & Percentage of discount applied to the transaction. \\
 \hline
-\textbf{discount\_applied} & Discount applied to the transaction, reflecting promotional effects on spending. This feature helps the model account for changes in customer spending behavior during promotions. \\
+\textbf{spend\_90\_flag} & Binary flag indicating whether the customer made any transaction in the past 90 days. \\
+\hline
+\textbf{actual\_spend\_90\_days} & Total amount spent by the customer in the last 90 days(quarter). \\
 \hline
 \end{tabular}
-\caption{Feature descriptions for transaction data}
-\label{tab:transaction_data}
+\caption{Description of fields in the customer transaction dataset.}
+\label{tab:dataset_description}
 \end{table}
 
 \begin{figure}[H]
