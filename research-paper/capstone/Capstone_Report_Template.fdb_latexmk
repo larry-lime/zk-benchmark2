@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex Capstone_Report_Template"] 1734015562.00254 "Capstone_Report_Template.aux" "Capstone_Report_Template.bbl" "Capstone_Report_Template" 1734015564.53912 0
+["bibtex Capstone_Report_Template"] 1734017295.6177 "Capstone_Report_Template.aux" "Capstone_Report_Template.bbl" "Capstone_Report_Template" 1734017298.47234 0
   "./references.bib" 1734014519.44605 2663 d01835a97f7168a1c1ef660c94185d39 ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "Capstone_Report_Template.aux" 1734015564.19204 6435 c0ff6b577b4d080e960a0d0d0d513380 "pdflatex"
+  "Capstone_Report_Template.aux" 1734017298.13153 6654 eeba864fc8ff4c8c1db0b67aeff3ec12 "pdflatex"
   (generated)
   "Capstone_Report_Template.bbl"
   "Capstone_Report_Template.blg"
   (rewritten before read)
-["pdflatex"] 1734015562.1161 "Capstone_Report_Template.tex" "Capstone_Report_Template.pdf" "Capstone_Report_Template" 1734015564.53924 0
+["pdflatex"] 1734017295.71861 "Capstone_Report_Template.tex" "Capstone_Report_Template.pdf" "Capstone_Report_Template" 1734017298.47246 0
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -260,14 +260,17 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1733643835.31871 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1733643739 8221429 8835cb9ac942d30569ce2977833e0a31 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Capstone_Report_Template.aux" 1734015564.19204 6435 c0ff6b577b4d080e960a0d0d0d513380 "pdflatex"
-  "Capstone_Report_Template.bbl" 1734015562.11289 2490 5fe840529e245eedadc0aac525e931c0 "bibtex Capstone_Report_Template"
-  "Capstone_Report_Template.out" 1734015563.79582 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Capstone_Report_Template.tex" 1734015557.89381 17400 361fb54df47fe9f44d8b3fddd2dfcee8 ""
-  "Capstone_Report_Template.toc" 1734015564.19537 1052 9fc045a08b275a2a853c6e49c942ecca "pdflatex"
+  "Capstone_Report_Template.aux" 1734017298.13153 6654 eeba864fc8ff4c8c1db0b67aeff3ec12 "pdflatex"
+  "Capstone_Report_Template.bbl" 1734017295.71544 2490 5fe840529e245eedadc0aac525e931c0 "bibtex Capstone_Report_Template"
+  "Capstone_Report_Template.out" 1734017297.44657 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Capstone_Report_Template.tex" 1734017291.09775 17316 13b5a09ed7df1e0481951708942e6851 ""
+  "Capstone_Report_Template.toc" 1734017298.13492 1052 1a6d48013dacbc50c489b16d165d3436 "pdflatex"
   "File_Setup.tex" 1734008585.30963 2605 2a4b332622ea850c3eedc74a0b9befbe ""
+  "graphics/ARM-Proving-Time.png" 1734016852.82118 72260 0a5d61099f67e2d586fd089d2f77f816 ""
+  "graphics/ARM-Verification-Time.png" 1734016852.82153 73864 e6aeca0f8500071ae0d16f812981f574 ""
   "graphics/nyush-logo.jpeg" 1734008585.31372 77300 e2a26d5b70e0a1ee96aaa56c6db0ab9d ""
-  "graphics/perf-plot-1.pdf" 1734008585.31397 19220 fd840bc5f206f49487f3e90972000365 ""
+  "graphics/x86-Proving-Time.png" 1734016852.82245 74096 5344241b3f54486c5d1a4dcdd2bf1c97 ""
+  "graphics/x86-Verification-Time.png" 1734016852.82278 78624 aff6363b624962dd4107d1221ca2ddca ""
   "graphics/zkVM-design.png" 1734014400.30264 173555 cd1cfa1fa63f08a6af027802a363db06 ""
   (generated)
   "Capstone_Report_Template.aux"
