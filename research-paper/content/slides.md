@@ -1,198 +1,109 @@
 ---
-title: "Assessing and Benchmarking zkVMs: Insights into Performance and Scalability"
+title: "Benchmarking ZK Virtual Machines for Privacy-Preserving Machine Learning Applications"
 date: "2024-05-13"
-author: "Lawrence Lim, Nihar Shah"
+author: "Lawrence Lim, Siddhartha Tuladhar, Brandon Gao"
 bibliography: "bibliography.bib"
 link-citations: true
 urlcolor: "blue"
+institute: "NYU Shanghai"
+topic: "Pandoc how-to"
+theme: "Frankfurt"
+colortheme: "default"
+fonttheme: "professionalfonts"
+fontsize: 10pt
+urlcolor: red
+linkstyle: bold
+aspectratio: 169
+date:
+lang: en-US
+section-titles: false
+toc: false
 ---
 
-# Presentation Structure
+# Overview
 
-- [Introduction](#introduction)
-  - [What is a zkVM?](#what-is-a-zkvm)
-  - [Table 1 - zkVM Architecture](#table-1---zkvm-architecture)
-  - [The zkVM Landscape](#the-zkvm-landscape)
-  - [Why RISC-V?](#why-risc-v)
-- [zkVM Technical Overview](#zkvm-technical-overview)
-  - [Frontends and Backends of zkVMs](#frontends-and-backends-of-zkvms)
-  - [Why do we care?](#why-do-we-care)
-  - [How to optimize zkVM performance](#how-to-optimize-zkvm-performance)
-- [zkVM Comparison](#zkvm-comparison)
-  - [Table 2 - Component Comparison](#table-2---component-comparison)
-  - [Design Tradeoff Comparison](#design-tradeoff-comparison)
-  - [Benchmarking Rationale](#benchmarking-rationale)
-  - [Benchmarking Results](#benchmarking-results)
-- [Conclusion](#conclusion)
-- [References](#references)
+## Background
 
-# Introduction
+![Flowchart Diagram](Benchmarking%20ZK%20Virtual%20Machines%20for%20Privacy-Prese%20ba4fa15d6b214cb49a7fa5ff852ffce4/Screenshot_2024-12-07_at_3.09.50_AM.png){width=95%}
 
-Our project is an analysis and evaluation of zkVM construction and performance, benchmarking how the performance of different zkVMs scales with the memory usage of applications.
+## Purpose
 
-# What is a zkVM?
+- zkVMs allow you to generate proofs for the execution of arbitrary instructions
+- Identify: Which zkVM on the market is best equipped to handle computationally intensive workloads
+- Highlight: Real-world ML application that leverages the succinctness property of zkVMs
+- Compare: How underlying zkVM architecture impacts present / future performance, development experience
 
-A zkVM, is simply a VM implemented as a circuit for a zero-knowledge proof (zkp) system. So, instead of proving the execution of a program, as one would normally do in zkp systems, you prove the execution of the bytecode of a given Instruction Set Architecture (ISA).
+## Additional Details
 
-There are a few types of zkVMs available on the market targeting different ISAs with various practical tradeoffs.
+- It’s hard to verify the performance of AI models trained on private data
+- Without the private test data, there is no way to verify the accuracy of the model
+- However, with zkVMs, we can create a proof that attests to the models accuracy that is fast to verify
+- There is a lack of up-to-date third party benchmarks on zkVM performance on real-world workloads
 
-# Table 1 - zkVM Architecture
+## Project Overview
 
-|                                    | Existing Expertise / Tooling | Blockchain Focused | Performant |
-| ---------------------------------- | ---------------------------- | ------------------ | ---------- |
-| Mainstream ISAs RISC-V, WASM, MIPS | Lots                         | No                 | Maybe      |
-| EVM-Equivalent EVM Bytecode        | Some                         | Yes                | No         |
-| ZK-optimized New Instruction Set   | No                           | Yes                | Yes        |
+- Python & Rust codebase, comparative analysis paper
+- Train a regression model on real world transaction data
+- Export model weights, test data and do inference on test data in zkVM
+- Benchmark proof time, verification time on different architectures with different input sizes
 
-# The zkVM Landscape
+# Implementation
 
-EVM Equivalent:
+## Data Source
 
-- Type 1: Taiko
-- Type 2-3: Scroll, Polygon zkEVM
-- Type 4: zkSync
+- Retail Transaction Data: Kaggle dataset that collects retail transaction all across the US.
+- Features: CustomerID, frequency, monetary, recency, Price DiscountApplied(%)
+- Feature to predict: spend_90_days: spending in the next quarter
 
-Mainstream ISAs
+## Models
 
-- RISC-V: Succinct’s SP1, a16z’s Jolt, RISC-0
-- WASM: zkWASM
-- MIPS: zkMIPS
+- Goal : Predicting the spending of the next quarter, based on previous quarter
+- Linear Regression: explores the linear relationship between features and the target.
+  $$
+  y = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b
+  $$
+- Ridge Regression: A regularized version of linear regression that penalizes large coefficients to avoid overfitting
 
-ZK Optimized
+$$
+\text{Loss} = \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{n} w_j^2
+$$
 
-- Polygon Miden, Starknet Cairo
+- Polynomial Ridge Regression: Explore non-linear relationships between features and the target, but with a regularization term that prevents overfitting by shrinking the model's coefficients
+- R^2 Means Error: 0.8, Mean Square Error: 21
 
-# Why RISC-V?
+## Rust Implementation
 
-Extremely popular compile target for many programing languages (Rust, C++, LLVM). Open sourced. RISC vs. CISC → RISC has less instructions and is therefore easier to arithmetize and prove than x86 assembly for example.
+- Implemented in Rust without the Standard Library (stdlib includes I/O, additional data structures)
+- Manual implementation of Ridge Regression
+- Cannot implement more complex models because using stdlib significantly increases proving 
 
-# zkVM Technical Overview
+## Different ZKVMs
 
-Now let's take a closer look at the frontend and backend components of zkVMs.
+- Risc0: First production ready zkVM, optimized for use on GPUs, as well as a remote prover service
+- SP1: Builds off the architecture of Risc0 with performance improvements through precompiles (manual optimizations)
+- Jolt: Newest zkVM that runs precomputes a large lookup table to optimize performance
 
-# Frontends and Backends of zkVMs
+# Results & Insights
 
-![Untitled](Assessing%20and%20Benchmarking%20zkVMs%20Insights%20into%20Per%206019f117aad64ef997d876aba33c4de5/Untitled.png)
+## x86 Proving Time
 
-# Frontend - Arithmetization Scheme
+![x86 Proving Time.png](Benchmarking%20ZK%20Virtual%20Machines%20for%20Privacy-Prese%20ba4fa15d6b214cb49a7fa5ff852ffce4/x86_Proving_Time.png){width=80%}
 
-In general, arithmetization cannot be done manually except for elementary programs. Besides, the use of naïve arithmetization can lead to significant overhead. To deal with this, dedicated compilers accepting high-level programming languages have been developed.
+## x86 Verifying Time
 
-# Frontend - Precompiles
+![x86 Verifying Time.png](Benchmarking%20ZK%20Virtual%20Machines%20for%20Privacy-Prese%20ba4fa15d6b214cb49a7fa5ff852ffce4/x86_Verifying_Time.png){width=80%}
 
-- Performance Issue: zkVMs operate significantly slower compared to running programs without proving overhead.
-- Use of Precompiles: To improve efficiency, deployed zkVMs utilize "precompiles" — hand-optimized protocols for frequently used computations like hashing and signature verification.
-- Risks of Overreliance: Relying heavily on precompiles can be problematic as designing these optimized protocols is the exact labor-intensive and error-prone process zkVMs aim to eliminate.
+## ARM Proving Time
 
-# Backend - PCS & PIOP
+![ARM Proving Time.png](Benchmarking%20ZK%20Virtual%20Machines%20for%20Privacy-Prese%20ba4fa15d6b214cb49a7fa5ff852ffce4/ARM_Proving_Time.png){width=80%}
 
-The backend for proof system involves what we have learned in class, composed of two components: a PCS and a PIOP. Something notable about the interaction between the frontend and backend: most SNARKs can be easily tweaked to support both Plonkish and AIR with the exception of Groth16 which can only support R1CS.
+## ARM Verification
 
-# Backend - Field Sizes
+![ARM Verification Time.png](Benchmarking%20ZK%20Virtual%20Machines%20for%20Privacy-Prese%20ba4fa15d6b214cb49a7fa5ff852ffce4/ARM_Verification_Time.png){width=80%}
 
-- Field Size Trade-offs: Operations in smaller fields are generally faster than in larger fields.
-- Small vs. Large Fields: Using fields slightly smaller than 256 bits, like Goldilocks, can complicate operations with 256-bit numbers, requiring two field elements per value and roughly doubling prover costs.
-- R1CS and Field Size: Currently, the R1CS system is constrained to larger fields, limiting flexibility in field size choice.
+## Next Steps
 
-# Backend - FRI Expansion Factor
-
-The FRI blowup factor is a tunable parameter that allows you to adjust the cost to be more on the proving side or verifying side. A relatively low blowup factor leads to less prover time with larger proofs and a larger blowup factor leads to high cost to prove with smaller proof size.
-
-# Backend - Lookup Arguments
-
-- Precomputed Outputs: This technique involves precomputing outputs for all possible inputs of a bitwise instruction.
-- Efficient Verification: In a zkVM, a cost-effective SNARK operation, known as "the lookup," verifies that the current instruction matches an entry in the precomputed table.
-- Reduced Costs: Using lookup arguments decreases the cost of proving the instruction.
-
-# Why do we care?
-
-It’s important to distinguish between the backend and frontends of SNARKs to make clear assertions of the performance tradeoffs between various arithmetization schemes and SNARK backends. Failure to distinguish between them can results in misconceptions about performance and other characteristics of SNARKs
-
-# How to optimize zkVM performance
-
-By efficient, we are almost always referring to proof generation time. Verifier time is about the same because we can use recursion to quickly verify proofs. Here are the options:
-
-- Lookup tables.
-- SNARK-friendly cryptographic primitives (such as Rescue, SAVER or Poseidon).
-- Concurrent proof generation.
-- Hardware acceleration (such as using GPU or FPGA).
-
-# zkVM Comparison
-
-![Untitled](Assessing%20and%20Benchmarking%20zkVMs%20Insights%20into%20Per%206019f117aad64ef997d876aba33c4de5/Untitled%201.png)
-
-# Table 2 - Component Comparison
-
-|                   | RISC0               | SP1                   | Jolt     |
-| ----------------- | ------------------- | --------------------- | -------- |
-| PCS               | FRI                 | FRI                   | Hyrax    |
-| Lookups           | Plookup             | Plookup?              | Lasso    |
-| Field Size        | ~31-bit (baby bear) | ~64-big (goldilocks)? | ~256-bit |
-| Recursive Proofs  | Yes                 | Yes                   | No       |
-| Precompiles       | No?                 | Yes                   | No       |
-| Optimized for GPU | Yes                 | No                    | No       |
-| Arithmetization   | AIR                 | AIR                   | R1CS     |
-| FRI Exp. Rate     | 4                   | 2                     | N/A      |
-| SNARK Prover      | Plonky2 STARK?      | Plonky3 STARK         | Spartan  |
-
-# Design Tradeoff Comparison
-### **Jolt**
-
-In the frontend, Jolt uses Rank-1 Constraint System (R1CS). The backend employs Spartan and Hyrax, with Hyrax incurring larger prover costs. It operates over an approximately 256-bit field, although efforts are being made to use smaller fields. The system utilizes Spice-based memory checking and currently does not support recursion for aggregate proofs. For lookups, Jolt relies on Spice.
-
-# Design Tradeoff Comparison Continue
-### **SP1**
-
-In the frontend, SP1 uses Algebraic Intermediate Representation (AIR) which requires expensive Fast Fourier Transforms (FFTs). The backend incorporates Plonky3 STARKs and Hyrax, with Hyrax incurring larger prover costs. It operates over smaller fields, either approximately 31-bit or 64-bit (Baby Bear, Goldilocks). SP1 supports recursion for aggregate proofs. The Fast Reed-Solomon Interactive Oracle Proof (FRI) blowup factor is 2, leading to faster proofs, larger proofs, and more expensive recursion. For lookups, SP1 uses Plookup. Notably, SP1 implements AIRs for each RISC-V instruction compatible with the Plonky3 prover and is optimized for CPU performance.
-
-# Design Tradeoff Comparison Continue
-### **RISC0**
-
-In the frontend, RISC0 employs AIR, which also requires expensive FFTs. The backend utilizes Plonky3 STARKs and operates over a smaller, approximately 32-bit field (Baby Bear). RISC0 supports recursion for aggregate proofs, with a FRI blowup factor of 4, resulting in slower proofs, smaller proofs, and less expensive recursion. For lookups, RISC0 uses Plookup. This system is optimized for GPU performance.
-
-# Benchmarking Rationale
-Jolt, RISC0, SP1 use different memory checking techniques which affects the proving time of programs as they scale with memory usage. The memory checking techniques are closely tied with the lookup arguments they use, with Jolt claiming to have improvements in this area. We need to breakdown the papers more to analyze the intricacies of these memory checks. 
-
-Benchmark Setup: The experimental setup, including hardware and software configurations, will be detailed, along with a description of the benchmarking methodology and specific memory-intensive operations tested. 
-
-Results: Findings from the benchmarks will be presented, focusing on memory usage, proving time, and verification time across different zkVM implementations.
-
-# Benchmarking Results
-
-| zkVM | Execution Time | Fibonacci Output | User Time | System Time | CPU Usage |
-|------|----------------|------------------|-----------|-------------|-----------|
-| RISC0 | 5.222s | n=10: 55 | 50.71s | 0.32s | 977% |
-| RISC0 | 5.224s | n=100: 3594 | 50.75s | 0.30s | 977% |
-| RISC0 | 10.128s | n=1000: 5965 | 103.04s | 0.40s | 1021% |
-| RISC0 | 1:20.80 | n=10000: 5721 | 812.55s | 4.85s | 1011% |
-| Jolt | 1.477s | n=10: 55 | 2.44s | 0.85s | 223% |
-| Jolt | 1.338s | n=100: 3594 | 3.42s | 1.09s | 337% |
-
-
-# Benchmarking Results continue
-
-| zkVM | Execution Time | Fibonacci Output | User Time | System Time | CPU Usage |
-|------|----------------|------------------|-----------|-------------|-----------|
-| Jolt | 2.678s | n=1000: 5965 | 10.80s | 2.03s | 478% |
-| Jolt | 22.720s | n=10000: 5721 | 117.09s | 35.91s | 673% |
-| SP1 | 1.217s | n=10: 55 | 5.11s | 0.67s | 475% |
-| SP1 | 1.221s | n=100: 3594 | 5.29s | 0.64s | 486% |
-| SP1 | 1.877s | n=1000: 5965 | 10.79s | 0.81s | 618% |
-| SP1 | 8.553s | n=10000: 5721 | 68.06s | 1.74s | 816% |
-
-# Conclusion
-
-- Benchmarks are misleading
-- Precompiles are complicated
-- Naming is hard
-- Recursion is helpful
-
-# References
-
-1. SP1 book. Introduction. (n.d.). https://succinctlabs.github.io/sp1/ 
-2. Jolt: Snarks for Virtual Machines . (n.d.). https://eprint.iacr.org/2023/1217.pdf 
-3. Unlocking the lookup singularity with lasso. (n.d.-c). 
-https://people.cs.georgetown.edu/jthaler/Lasso-paper.pdf 
-4. RISC Zero zkVM: Scalable, transparent arguments of RISC-v integrity. (n.d.-b). https://dev.risczero.com/proof-system-in-detail.pdf 
-5. LambdaClass. (2023, May 16). Arithmetization schemes for ZK-SNARKs. LambdaClass Blog. https://blog.lambdaclass.com/arithmetization-schemes-for-zk-snarks/ 
- 
+- Benchmarking without precompiles
+- CPU vs. GPU performance
+- Memory usage benchmarking
+- Qualitative analysis
