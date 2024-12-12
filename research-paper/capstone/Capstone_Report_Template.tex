@@ -113,7 +113,7 @@ It explains in detail each contribution, if possible with figures/schematics.
 
 Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
 
-
+To benchmark the zkVMs,
 
 \textbf{Polynomial Ridge Regression} is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
 
@@ -174,26 +174,7 @@ It is of the utmost importance to describe how you came up with the measurements
 
 Every data table should be numbered, have a brief description as its title, and specify the units used. 
 
-As an example, Table~\ref{tab:my_label} compares the average latencies of native application calls to networked services. The experiments were conducted on an Apple MacBook Air 2010 with a CPU speed of 1.4GHz and a bus speed of 800MHz. Each data point is a mean over 20 instances of each call, after discarding both the lowest and the highest measurement.
-
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{llr}
-\hline
-\multicolumn{2}{c}{Network Applications} \\
-\cline{1-2}
-Service    & Protocol & Latency (\si{\ms}) \\
-\hline
-DNS         & UDP       & \SI{13.65}{\ms}      \\
-            & TCP       & \SI{0.01}{\ms}       \\
-NTP         & UDP       & \SI{92.50}{\ms}      \\
-SMTP        & TCP       & \SI{33.33}{\ms}      \\
-HTTP        & TCP       & \SI{8.99}{\ms}       \\
-\hline
-\end{tabular}
-    \caption{Comparison of latencies between services running on \texttt{localhost}.}
-    \label{tab:my_label}
-\end{table}
+As an example, Table compares the average latencies of native application calls to networked services. The experiments were conducted on an Apple MacBook Air 2010 with a CPU speed of 1.4GHz and a bus speed of 800MHz. Each data point is a mean over 20 instances of each call, after discarding both the lowest and the highest measurement.
 
 \subsection{Graphs}
 
@@ -201,13 +182,37 @@ Graphs are often the most important information in your report; you should desig
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.9]{perf-plot-1.pdf}
+		\includegraphics[scale=0.3]{ARM-Proving-Time.png}
 	\end{center}
-	\caption{Probability of including [k] faulty/malicious nodes in the service}
-	\label{graph:faulty-proportion-plot}
+	\caption{ARM Proving Time}
+	\label{graph:arm-proving-time}
 \end{figure}
 
-For example, Figure~\ref{graph:faulty-proportion-plot} compares the efficiency of three different service architectures in eliminating adversarial behaviors. Every data point gives the probability that $k$ faulty/malicious nodes managed to participate in a computation that involves 32 nodes. In the absence of at least one reliable node ($k = 32$), the failure will go undetected ; but the results show that this case is extremely unlikely, regardless of the architecture. The most significant result pertains to $k = 16$: the reliable nodes detect the failure, but cannot reach a majority to recover. The graph shows that the \texttt{CORPS 5\%} architecture is much more resilient than the \texttt{DHT 30\%} architecture, by a magnitude of $10^{11}$.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.3]{ARM-Verification-Time.png}
+	\end{center}
+	\caption{ARM Proving Time}
+	\label{graph:arm-verification-time}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.3]{x86-Proving-Time.png}
+	\end{center}
+	\caption{x86 Proving Time}
+	\label{graph:x86-proving-time}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.3]{x86-Verification-Time.png}
+	\end{center}
+	\caption{x86 Verification Time}
+	\label{graph:x86-verification-time}
+\end{figure}
+For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of three different service architectures in eliminating adversarial behaviors. Every data point gives the probability that $k$ faulty/malicious nodes managed to participate in a computation that involves 32 nodes. In the absence of at least one reliable node ($k = 32$), the failure will go undetected ; but the results show that this case is extremely unlikely, regardless of the architecture. The most significant result pertains to $k = 16$: the reliable nodes detect the failure, but cannot reach a majority to recover. The graph shows that the \texttt{CORPS 5\%} architecture is much more resilient than the \texttt{DHT 30\%} architecture, by a magnitude of $10^{11}$.
 
 
 \section{Discussion}
