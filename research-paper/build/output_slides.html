@@ -1,0 +1,225 @@
+\section{Overview}\label{overview}
+
+\begin{frame}{Background}
+\phantomsection\label{background}
+\begin{figure}
+\centering
+\includegraphics{Benchmarking ZK Virtual Machines for Privacy-Prese ba4fa15d6b214cb49a7fa5ff852ffce4/Screenshot_2024-12-07_at_3.09.50_AM.png}
+\caption{Screenshot 2024-12-07 at 3.09.50\,AM.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Purpose}
+\phantomsection\label{purpose}
+\begin{itemize}
+\tightlist
+\item
+  Identify: Which zkVM on the market is best equipped to handle
+  moderately computationally intensive workloads
+\item
+  Highlight: Real-world ML application that leverages the succinctness
+  property of zkSNARKs
+\item
+  Compare: How underlying zkVM architecture impacts present / future
+  performance, development experience
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Motivation}
+\phantomsection\label{motivation}
+\begin{itemize}
+\tightlist
+\item
+  It's hard to verify the performance of AI models trained on private
+  data
+\item
+  To benchmark their performance, you need access to highly sensitive
+  test data
+\item
+  With zkSNARKs, we can create a cryptographic proof that attests to the
+  models accuracy that is verifiable in logarithmic or constant time
+\item
+  zkVMs allows you to generate proofs for the execution of arbitrary
+  instructions. The ISA is RISC-V for all our examples
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Project Overview}
+\phantomsection\label{project-overview}
+\begin{itemize}
+\tightlist
+\item
+  Python \& Rust codebase, comparative analysis paper
+\item
+  Train a regression model on real world transaction data in Jupyter
+  Notebook
+\item
+  Export model weights, test data and do inference on test data in zkVM
+\item
+  Benchmark proof time, verification time on different architectures
+  with different input sizes
+\end{itemize}
+\end{frame}
+
+\section{Implementation}\label{implementation}
+
+\begin{frame}{Data Source}
+\phantomsection\label{data-source}
+\begin{itemize}
+\tightlist
+\item
+  Retail Transaction Data: Kaggle dataset that collects retail
+  transaction all across the US.
+\item
+  Features: CustomerID, frequency, monetary, recency, Price
+  DiscountApplied(\%)
+\item
+  Feature to predict: spend\_90\_days: spending in the next quarter
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Models}
+\phantomsection\label{models}
+\begin{itemize}
+\tightlist
+\item
+  Goal : Predicting the spending of the next quarter, based on previous
+  quarter
+\item
+  Linear Regression: explores the linear relationship between features
+  and the target. \[
+  y = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b
+  \]
+\item
+  Ridge Regression: A regularized version of linear regression that
+  penalizes large coefficients to avoid overfitting
+\end{itemize}
+
+\[
+\text{Loss} = \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{n} w_j^2
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Polynomial Ridge Regression: Explore non-linear relationships between
+  features and the target, but with a regularization term that prevents
+  overfitting by shrinking the model's coefficients
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rust Implementation}
+\phantomsection\label{rust-implementation}
+\begin{itemize}
+\tightlist
+\item
+  Implemented in Rust without the Standard Library (stdlib includes I/O,
+  additional data structures)
+\item
+  Low-level implementation of Ridge Regression
+\item
+  Cannot implement more complex ML models because using STDLIB decreases
+  build and run time significantly
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Different ZKVMs}
+\phantomsection\label{different-zkvms}
+\begin{itemize}
+\tightlist
+\item
+  Jolt: Jolt is a zkVM (zero-knowledge virtual machine) for RISC-V, it
+  is built for highly efficient proofs that can be validated quickly,
+  reducing blockchain bloat.
+\item
+  SP1: SP1 emphasizes a high level of security, often used in
+  conjunction with specialized proofs for privacy-preserving
+  transactions and computations.
+\item
+  Risc-0: RISC0 leverages a RISC-based architecture, enabling it to run
+  general-purpose programs in a way that scales well with cryptographic
+  proofs.
+\end{itemize}
+\end{frame}
+
+\section{Results \& Insights}\label{results-insights}
+
+\begin{frame}{Results}
+\phantomsection\label{results}
+\begin{itemize}
+\tightlist
+\item
+  R\^{}2 Means Squared Error
+\item
+  zkVM benchmarking time
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Insights}
+\phantomsection\label{insights}
+\begin{itemize}
+\tightlist
+\item
+  zkVMs are still limited by
+\item
+  Jolt vs.~SP1 vs.~Risc0
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Mention that architecture differences and optimizations has
+    contributed to the performance differences between the two
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Next Steps}
+\phantomsection\label{next-steps}
+\begin{itemize}
+\tightlist
+\item
+  Running the zkVMs without hand-written optimizations (precompiles) to
+  more fairly compare intrinsic performance profiles of different proof
+  systems
+\item
+  Parallel inference - performance differences still factor in
+\item
+  CPU vs.~GPU performance
+\end{itemize}
+\end{frame}
+
+\begin{frame}{x86 Proving Time}
+\phantomsection\label{x86-proving-time}
+\begin{figure}
+\centering
+\includegraphics{Benchmarking ZK Virtual Machines for Privacy-Prese ba4fa15d6b214cb49a7fa5ff852ffce4/x86_Proving_Time.png}
+\caption{x86 Proving Time.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{x86 Verifying Time}
+\phantomsection\label{x86-verifying-time}
+\begin{figure}
+\centering
+\includegraphics{Benchmarking ZK Virtual Machines for Privacy-Prese ba4fa15d6b214cb49a7fa5ff852ffce4/x86_Verifying_Time.png}
+\caption{x86 Verifying Time.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{ARM Proving Time}
+\phantomsection\label{arm-proving-time}
+\begin{figure}
+\centering
+\includegraphics{Benchmarking ZK Virtual Machines for Privacy-Prese ba4fa15d6b214cb49a7fa5ff852ffce4/ARM_Proving_Time.png}
+\caption{ARM Proving Time.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{ARM Verification}
+\phantomsection\label{arm-verification}
+\begin{figure}
+\centering
+\includegraphics{Benchmarking ZK Virtual Machines for Privacy-Prese ba4fa15d6b214cb49a7fa5ff852ffce4/ARM_Verification_Time.png}
+\caption{ARM Verification Time.png}
+\end{figure}
+\end{frame}
