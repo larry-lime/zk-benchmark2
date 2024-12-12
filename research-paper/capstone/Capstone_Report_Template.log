@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  12 DEC 2024 23:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.8)  12 DEC 2024 23:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -910,58 +910,58 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \openout5 = `Capstone_Report_Template.toc'.
 
  [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6] [7]
-<graphics/zkVM-design.png, id=101, 1428.33624pt x 485.815pt>
+<graphics/zkVM-design.png, id=113, 1428.33624pt x 485.815pt>
 File: graphics/zkVM-design.png Graphic file (type png)
 <use graphics/zkVM-design.png>
-Package pdftex.def Info: graphics/zkVM-design.png  used on input line 159.
+Package pdftex.def Info: graphics/zkVM-design.png  used on input line 160.
 (pdftex.def)             Requested size: 499.92517pt x 170.0378pt.
 
-Overfull \hbox (41.83562pt too wide) in paragraph at lines 159--160
+Overfull \hbox (41.83562pt too wide) in paragraph at lines 160--161
  [] 
  []
 
 [8 <./graphics/zkVM-design.png>]
-<graphics/ARM-Proving-Time.png, id=109, 1541.76pt x 1003.75pt>
+<graphics/ARM-Proving-Time.png, id=121, 1541.76pt x 1003.75pt>
 File: graphics/ARM-Proving-Time.png Graphic file (type png)
 <use graphics/ARM-Proving-Time.png>
-Package pdftex.def Info: graphics/ARM-Proving-Time.png  used on input line 185.
+Package pdftex.def Info: graphics/ARM-Proving-Time.png  used on input line 188.
 (pdftex.def)             Requested size: 462.53157pt x 301.12732pt.
 
-Overfull \hbox (4.44202pt too wide) in paragraph at lines 185--186
+Overfull \hbox (4.44202pt too wide) in paragraph at lines 188--189
  [] 
  []
 
-<graphics/ARM-Verification-Time.png, id=110, 1541.76pt x 1003.75pt>
+<graphics/ARM-Verification-Time.png, id=122, 1541.76pt x 1003.75pt>
 File: graphics/ARM-Verification-Time.png Graphic file (type png)
 <use graphics/ARM-Verification-Time.png>
-Package pdftex.def Info: graphics/ARM-Verification-Time.png  used on input line 194.
+Package pdftex.def Info: graphics/ARM-Verification-Time.png  used on input line 197.
 (pdftex.def)             Requested size: 462.53157pt x 301.12732pt.
 
-Overfull \hbox (4.44202pt too wide) in paragraph at lines 194--195
+Overfull \hbox (4.44202pt too wide) in paragraph at lines 197--198
  [] 
  []
 
-<graphics/x86-Proving-Time.png, id=111, 1541.76pt x 1003.75pt>
+<graphics/x86-Proving-Time.png, id=123, 1541.76pt x 1003.75pt>
 File: graphics/x86-Proving-Time.png Graphic file (type png)
 <use graphics/x86-Proving-Time.png>
-Package pdftex.def Info: graphics/x86-Proving-Time.png  used on input line 202.
+Package pdftex.def Info: graphics/x86-Proving-Time.png  used on input line 207.
 (pdftex.def)             Requested size: 462.53157pt x 301.12732pt.
 
-Overfull \hbox (4.44202pt too wide) in paragraph at lines 202--203
+Overfull \hbox (4.44202pt too wide) in paragraph at lines 207--208
  [] 
  []
 
-<graphics/x86-Verification-Time.png, id=112, 1541.76pt x 1003.75pt>
+<graphics/x86-Verification-Time.png, id=124, 1541.76pt x 1003.75pt>
 File: graphics/x86-Verification-Time.png Graphic file (type png)
 <use graphics/x86-Verification-Time.png>
-Package pdftex.def Info: graphics/x86-Verification-Time.png  used on input line 210.
+Package pdftex.def Info: graphics/x86-Verification-Time.png  used on input line 215.
 (pdftex.def)             Requested size: 462.53157pt x 301.12732pt.
 
-Overfull \hbox (4.44202pt too wide) in paragraph at lines 210--211
+Overfull \hbox (4.44202pt too wide) in paragraph at lines 215--216
  [] 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 215.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 220.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [9] [10 <./graphics/ARM-Proving-Time.png> <./graphics/ARM-Verification-Time.png>] [11 <./graphics/x86-Proving-Time.png> <./graphics/x86-Verification-Time.png>] [12] (./Capstone_Report_Template.bbl) [13] (./Capstone_Report_Template.aux)
@@ -973,18 +973,18 @@ Package rerunfilecheck Info: File `Capstone_Report_Template.out' has not changed
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39261 strings out of 474116
- 948973 string characters out of 5743682
+ 39273 strings out of 474116
+ 949088 string characters out of 5743682
  1935187 words of memory out of 5000000
- 60993 multiletter control sequences out of 15000+600000
+ 60999 multiletter control sequences out of 15000+600000
  573735 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,10n,110p,10941b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Capstone_Report_Template.pdf (13 pages, 609254 bytes).
+Output written on Capstone_Report_Template.pdf (13 pages, 613194 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 41 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 
