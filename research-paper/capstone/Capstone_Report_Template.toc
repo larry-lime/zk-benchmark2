@@ -2,11 +2,14 @@
 \contentsline {subsection}{\numberline {1.1}Context}{5}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Objective}{6}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Related Work}{6}{section.2}%
-\contentsline {section}{\numberline {3}Solution}{6}{section.3}%
-\contentsline {section}{\numberline {4}Results and Discussion}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Experimentation protocol}{7}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Data tables}{8}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Graphs}{8}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Discussion}{9}{section.5}%
-\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}%
+\contentsline {subsection}{\numberline {2.1}Cryptographic Protocols and Foundational Theories}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Virtual Machine-based ZK Systems}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Machine Learning in ZKPs}{7}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Solution}{8}{section.3}%
+\contentsline {section}{\numberline {4}Results and Discussion}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Experimentation protocol}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Data tables}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Graphs}{10}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Discussion}{11}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{11}{section.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
