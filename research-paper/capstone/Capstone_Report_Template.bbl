@@ -30,15 +30,10 @@ J.~Groth, ``On the size of pairing-based non-interactive arguments,'' in \emph{L
 U.~Roy. Introducing sp1: A performant, 100\% open-source, contributor-friendly zkvm. [Online]. Available: \url{https://blog.succinct.xyz/introducing-sp1/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{bruestle2023risc}
-\BIBentryALTinterwordspacing
-J.~Bruestle and P.~Gafni, ``Risc zero zkvm: Scalable, transparent arguments of {RISC-V} integrity,'' RiscZero Team, Tech. Rep., 2023. [Online]. Available: \url{https://www.risczero.com/proof-system-in-detail.pdf}
-\BIBentrySTDinterwordspacing
+\bibitem{goldreich1991proofs}
+O.~Goldreich, S.~Micali, and A.~Wigderson, ``Proofs that yield nothing but their validity or all languages in {NP} have zero-knowledge proof systems,'' \emph{Journal of the ACM}, vol.~38, no.~3, pp. 690--728, 1991.
 
 \bibitem{arun2024jolt}
 A.~Arun, S.~Setty, and J.~Thaler, ``Jolt: Snarks for virtual machines via lookups,'' in \emph{Advances in Cryptology -- {EUROCRYPT} 2024}.\hskip 1em plus 0.5em minus 0.4em\relax Springer Nature Switzerland, 2024, pp. 3--33.
-
-\bibitem{goldreich1991proofs}
-O.~Goldreich, S.~Micali, and A.~Wigderson, ``Proofs that yield nothing but their validity or all languages in {NP} have zero-knowledge proof systems,'' \emph{Journal of the ACM}, vol.~38, no.~3, pp. 690--728, 1991.
 
 \end{thebibliography}
