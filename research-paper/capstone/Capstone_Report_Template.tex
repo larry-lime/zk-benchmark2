@@ -82,7 +82,7 @@ Your introduction briefly explains the problem you address, and what you've achi
 
 \subsection{Context}
 
-A \textbf{Zero Knowledge Proof (ZKP)} is a cryptographic method of proving a statement is true without revealing any other information besides the fact that the statement is true. ZKPs have three fundamental characteristics:
+Currently, there exists a large amount of sensitive customer data that is extremely valuable but not being monetized to its fullest extent due to a combination of compliance and ethical concerns. An essential category of this data is personal financial data. Due to the sensitive nature of this data and strict compliance laws, current Fintech platforms require users’ explicit permission to access sensitive information like credit history, transaction history, and income. However, \textbf{Zero Knowledge Proof (ZKP)} can be utilized to develop services and algorithms that utilize the sensitive data without explicitly revealing it. A ZKP is a cryptographic method of proving a statement is true without revealing any other information besides the fact that the statement is true. ZKPs have three fundamental characteristics:
 
 \begin{itemize}
     \item \textbf{Completeness:} If a statement is true, an honest prover can prove to an honest verifier that they have knowledge of the correct input.
@@ -90,14 +90,11 @@ A \textbf{Zero Knowledge Proof (ZKP)} is a cryptographic method of proving a sta
     \item \textbf{Zero-knowledge:} No other information about the input is revealed to the verifier from the prover besides the fact that the statement is true.
 \end{itemize}
 
+Currently, the most-friendly way of generating a ZKP is through the use of zero-knowledge virtual machines (zkVMs). A zkVM, is simply a VM implemented as a circuit for a ZKP system. So, instead of proving the execution of a program, as one would normally do in ZKP systems, you prove the execution of the bytecode of a given Instruction Set Architecture (ISA). However, the zkVM landscape is in early development, and proof generation is bottlenecked by the complexity of the program and hardware limitations. In this paper, we provide a quantatitve and qualitative analysis on the current state of zkVMs on a real-world use case by generating a proof of a machine learning algorithm on dummy financial data.
 
 \subsection{Objective}
 
-Credit card data is highly sensitive and private. Current fintech platforms need to see sensitive user information such as credit history, transaction history, income, etc to make informed decisions on user’s personal financial information. This limits the scope and ability of these companies to build certain applications that serve users.
-
-We propose a service that, given access to personal credit, transaction, income information, we are able to generate a ZKP\cite{Groth2016} that proves statements on their personal financial information. This way we can build a public and open ecosystem for app developers to build additional financial services wihout sacrificing privacy.
-
-We are able to interface user financial data by using the same API values as Plaid, a service that provides credit card history data. We generate a ZKP on three zero-knowledge virtual machines (zkVMs): SP1\cite{Roy2024}, Risc0\cite{bruestle2023risc}, and Jolt\cite{arun2024jolt} going to be using Succinct’'s SP1 zkVM\cite{Roy2024} to generate proofs over this data proving statements relevant to the use cases of the data. For example, given user transaction history, we could generate a ZKP proving an algorithm ranking the user’s top 5 shopping preferences. This allows us to verify that the ranking algorithm was computed correctly and over the correct set of data without revealing the actual data points it was computed over. This is one of many use cases.
+We propose a service that, given access to personal credit, transaction, income information, we are able to generate a ZKP\cite{Groth2016} that proves statements on their personal financial information. This way we can build a public and open ecosystem for app developers to build additional financial services wihout sacrificing privacy. To implement this, we interface user financial data by using the same API values as Plaid, a service that provides credit card history data. We generate a ZKP using the financial data as input on three zero-knowledge virtual machines (zkVMs): SP1\cite{Roy2024}, Risc0\cite{bruestle2023risc}, and Jolt\cite{arun2024jolt}.to generate proofs over this data proving statements relevant to the use cases of the data.
 
 \section{Related Work}
 
