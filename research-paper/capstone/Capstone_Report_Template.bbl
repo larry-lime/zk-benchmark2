@@ -20,20 +20,38 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Groth2016}
-\BIBentryALTinterwordspacing
-J.~Groth, ``On the size of pairing-based non-interactive arguments,'' in \emph{Lecture Notes in Computer Science}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016, pp. 305--326. [Online]. Available: \url{https://doi.org/10.1007/978-3-662-49896-5_11}
-\BIBentrySTDinterwordspacing
-
 \bibitem{Roy2024}
 \BIBentryALTinterwordspacing
 U.~Roy. Introducing sp1: A performant, 100\% open-source, contributor-friendly zkvm. [Online]. Available: \url{https://blog.succinct.xyz/introducing-sp1/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{goldreich1991proofs}
-O.~Goldreich, S.~Micali, and A.~Wigderson, ``Proofs that yield nothing but their validity or all languages in {NP} have zero-knowledge proof systems,'' \emph{Journal of the ACM}, vol.~38, no.~3, pp. 690--728, 1991.
+\bibitem{bruestle2023risc}
+\BIBentryALTinterwordspacing
+J.~Bruestle and P.~Gafni, ``Risc zero zkvm: Scalable, transparent arguments of {RISC-V} integrity,'' RiscZero Team, Tech. Rep., 2023. [Online]. Available: \url{https://www.risczero.com/proof-system-in-detail.pdf}
+\BIBentrySTDinterwordspacing
 
 \bibitem{arun2024jolt}
 A.~Arun, S.~Setty, and J.~Thaler, ``Jolt: Snarks for virtual machines via lookups,'' in \emph{Advances in Cryptology -- {EUROCRYPT} 2024}.\hskip 1em plus 0.5em minus 0.4em\relax Springer Nature Switzerland, 2024, pp. 3--33.
+
+\bibitem{Groth2016}
+\BIBentryALTinterwordspacing
+J.~Groth, ``On the size of pairing-based non-interactive arguments,'' in \emph{Lecture Notes in Computer Science}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016, pp. 305--326. [Online]. Available: \url{https://doi.org/10.1007/978-3-662-49896-5_11}
+\BIBentrySTDinterwordspacing
+
+\bibitem{goldreich1991proofs}
+O.~Goldreich, S.~Micali, and A.~Wigderson, ``Proofs that yield nothing but their validity or all languages in {NP} have zero-knowledge proof systems,'' \emph{Journal of the ACM}, vol.~38, no.~3, pp. 690--728, 1991.
+
+\bibitem{ben2018scalable}
+\BIBentryALTinterwordspacing
+E.~Ben-Sasson, I.~Bentov, Y.~Horesh, and M.~Riabzev, ``Scalable, transparent, and post-quantum secure computational integrity,'' \emph{EPrint Archive}, 2018. [Online]. Available: \url{https://eprint.iacr.org/2018/046}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ben2019aurora}
+\BIBentryALTinterwordspacing
+E.~Ben-Sasson, A.~Chiesa, M.~Riabzev, N.~Spooner, M.~Virza, and N.~Ward, ``Aurora: Transparent succinct arguments for {R1CS},'' \emph{EPrint Archive}, 2019. [Online]. Available: \url{https://eprint.iacr.org/2018/828.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{risc2023zeth}
+``Risc zero’s open source zeth proves ethereum blocks in minutes, instead of hours,'' \emph{Journal of Engineering}, vol. 2272, 2023.
 
 \end{thebibliography}
