@@ -104,7 +104,7 @@ The objective of this paper is to provide researchers, developers, and industry 
 
 \subsection{Machine Learning in ZKPs}
 
-Machine learning is a highly relevant use case for ZKPs. There are multiple articles on the various use cases of ML in ZKPs. Wang et al.\cite{wang2024efficient} developed an efficient ZKP-based pipeline for classical machine learning inference, focusing on privacy-preserving inference that ensures model accuracy without exposing sensitive model information. This system optimizes zero-knowledge inference, making it highly applicable to real-world ML applications where data privacy is paramount. Our paper uses the same inference technique within the zkVM as a real world application. Similarly, Sathe et al.\cite{sathe2024survey} provide a comprehensive survey of ZKP applications in machine learning, covering a range of cryptographic techniques and their applicability to neural networks, decision trees, and other ML models. Their survey offers a broader comparison of ZKP techniques in the ML space, providing essential context for more specific systems like that of Wang et al. However, their paper does not provide details on the performance or real-world use case. Lastly, Ganescu and Passerat-Palmbach\cite{ganescu2024trust} extend the application of ZKPs to generative AI models, by proposing a system that enhances trust in AI by allowing for the verification of generative models without exposing underlying data, which is critical in AI-driven environments where sensitive inputs and outputs must be safeguarded while still proving the model’s validity. This paper is similar to Wang et al., where it provides a real-world use case, but it utilizes generating ZKPs through tools that are inaccessible to developers and require high development overhead. By using zkVMs, most of the ZKP logic is abstracted away, which allows developers easier access to converting their programs into ZKPs.
+Machine learning is a highly relevant use case for ZKPs. There are multiple articles on the various use cases of ML in ZKPs. Wang et al.\cite{wang2024efficient} developed an efficient ZKP-based pipeline for classical machine learning inference, focusing on privacy-preserving inference that ensures model accuracy without exposing sensitive model information. This system optimizes zero-knowledge inference, making it highly applicable to real-world ML applications where data privacy is paramount. Our paper uses the same inference technique within the zkVM as a real world application. Similarly, Sathe et al.\cite{sathe2024survey} provide a comprehensive survey of ZKP applications in machine learning, covering a range of cryptographic techniques and their applicability to neural networks, decision trees, and other ML models. Their survey offers a broader comparison of ZKP techniques in the ML space, providing essential context for more specific systems like that of Wang et al. However, their paper does not provide details on the performance or real-world use case. Lastly, Ganescu and Passerat-Palmbach\cite{ganescu2024trust} extend the application of ZKPs to generative AI models, by proposing a system that enhances trust in AI by allowing for the verification of generative models without exposing underlying data, which is critical in AI-driven environments where sensitive inputs and outputs must be safeguarded while still proving the model’s validity. This paper is similar to Wang et al., where it provides a real-world use case, but it utilizes generating ZKPs through tools that are inaccessible to developers and require high development overhead. By using zkVMs, most of the ZKP logic is abstracted away, which provides developers easier access to converting their programs into ZKPs.
 
 \section{Solution}
 
@@ -113,25 +113,54 @@ It explains in detail each contribution, if possible with figures/schematics.
 
 Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
 
+
+
+\textbf{Polynomial Ridge Regression} is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
+
+\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_{n+1} x_1^2 + \beta_{n+2} x_2^2 + \beta_{k} (x_i \times x_j) + \epsilon
+\]
+
+Ridge regularization is then applied to these expanded features, controlling overfitting while accommodating non-linear relationships. The objective function becomes:
+
+\[
+Objective = \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{m} \beta_j^2
+\]
+
+where \( m \) represents the number of polynomial features. This regularization prevents overfitting by penalizing large coefficients. This combination enables the model to capture nonlinear relationships while controlling for overfitting through regularization.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{| l | p{10cm} |}
+\hline
+\textbf{Field} & \textbf{Description} \\
+\hline
+\textbf{amount} & The total transaction amount, used as the target variable in our prediction model. \\
+\hline
+\textbf{payment\_channel} & Indicates if the transaction was conducted online or in-store, capturing behavioral differences across channels. This field was converted to a binary variable. \\
+\hline
+\textbf{category} & Transaction type, such as "Electronics" or "Clothing". Distinct patterns in spending appear across categories, making this an important predictor. This field was also converted to a binary variable. \\
+\hline
+\textbf{location\_state} & Geographical information for regional spending variations. Each state was represented as a binary variable to capture local economic influences. \\
+\hline
+\textbf{quantity} & Number of items or services purchased in the transaction, affecting the total amount spent. \\
+\hline
+\textbf{price} & Price per unit for each transaction item, contributing to total transaction value, particularly in retail transactions. \\
+\hline
+\textbf{discount\_applied} & Discount applied to the transaction, reflecting promotional effects on spending. This feature helps the model account for changes in customer spending behavior during promotions. \\
+\hline
+\end{tabular}
+\caption{Feature descriptions for transaction data}
+\label{tab:transaction_data}
+\end{table}
+
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{ascent-archi.pdf}
+		\includegraphics[scale=0.35]{zkVM-design.png}
 	\end{center}
-	\caption{Architecture of our distributed certification service}
+	\caption{Architecture of our benchmark procedure}
 	\label{fig:ascent}
 \end{figure}
-
-Figure~\ref{fig:log-archi} is a pretty good example of a figure that is completely useless unless it is not accompanied by a textual explanation.
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[scale=0.5]{certificates-log-archi.pdf}
-	\end{center}
-	\caption{Try to guess what this figure illustrates; I double-dare you...}
-	\label{fig:log-archi}
-\end{figure}
-
-
 
 \section{Results and Discussion}
 
