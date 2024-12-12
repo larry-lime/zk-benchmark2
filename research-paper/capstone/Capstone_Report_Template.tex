@@ -170,17 +170,17 @@ The results section details your metrics and experiments for the assessment of y
 \subsection{Experimentation Protocol}
 
 It is of the utmost importance to describe how you came up with the measurements and results that support your evaluation.
-
-\subsection{Data tables}
-
-Every data table should be numbered, have a brief description as its title, and specify the units used. 
-
-As an example, Table compares the average latencies of native application calls to networked services. The experiments were conducted on an Apple MacBook Air 2010 with a CPU speed of 1.4GHz and a bus speed of 800MHz. Each data point is a mean over 20 instances of each call, after discarding both the lowest and the highest measurement.
-
-\subsection{Graphs}
-
-Graphs are often the most important information in your report; you should design and plot them with great care. A graph contains a lot of information in a short space. Graphs should be numbered and have a title. Their axes should be labelled, with the quantities and units specified. Make sure that individual data points (your measurements) stand out clearly. And of course, always associate your graph with text that explains your results, and outlines the conclusions you draw from these results.
-
+%
+% \subsection{Data tables}
+%
+% Every data table should be numbered, have a brief description as its title, and specify the units used. 
+%
+% As an example, Table compares the average latencies of native application calls to networked services. The experiments were conducted on an Apple MacBook Air 2010 with a CPU speed of 1.4GHz and a bus speed of 800MHz. Each data point is a mean over 20 instances of each call, after discarding both the lowest and the highest measurement.
+%
+% \subsection{Graphs}
+%
+% Graphs are often the most important information in your report; you should design and plot them with great care. A graph contains a lot of information in a short space. Graphs should be numbered and have a title. Their axes should be labelled, with the quantities and units specified. Make sure that individual data points (your measurements) stand out clearly. And of course, always associate your graph with text that explains your results, and outlines the conclusions you draw from these results.
+%
 \subsection{ARM Benchmark}
 
 \begin{figure}
@@ -191,6 +191,7 @@ Graphs are often the most important information in your report; you should desig
 	\label{graph:arm-proving-time}
 \end{figure}
 
+For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of three different service architectures in eliminating adversarial behaviors. Every data point gives the probability that $k$ faulty/malicious nodes managed to participate in a computation that involves 32 nodes. In the absence of at least one reliable node ($k = 32$), the failure will go undetected ; but the results show that this case is extremely unlikely, regardless of the architecture. The most significant result pertains to $k = 16$: the reliable nodes detect the failure, but cannot reach a majority to recover. The graph shows that the \texttt{CORPS 5\%} architecture is much more resilient than the \texttt{DHT 30\%} architecture, by a magnitude of $10^{11}$.
 
 \begin{figure}
 	\begin{center}
@@ -217,7 +218,6 @@ Graphs are often the most important information in your report; you should desig
 	\caption{x86 Verification Time}
 	\label{graph:x86-verification-time}
 \end{figure}
-For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of three different service architectures in eliminating adversarial behaviors. Every data point gives the probability that $k$ faulty/malicious nodes managed to participate in a computation that involves 32 nodes. In the absence of at least one reliable node ($k = 32$), the failure will go undetected ; but the results show that this case is extremely unlikely, regardless of the architecture. The most significant result pertains to $k = 16$: the reliable nodes detect the failure, but cannot reach a majority to recover. The graph shows that the \texttt{CORPS 5\%} architecture is much more resilient than the \texttt{DHT 30\%} architecture, by a magnitude of $10^{11}$.
 
 
 \section{Discussion}
