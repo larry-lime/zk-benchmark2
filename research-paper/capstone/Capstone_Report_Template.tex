@@ -188,15 +188,13 @@ The benchmarking process for all three zkVMs involved measuring the time require
 
 \section{Results}
 
-The results section details your metrics and experiments for the assessment of your solution. It then provides experimental validation for your approach with visual aids such as data tables and graphs. In particular, it allows you to compare your idea with other approaches you've tested, for example solutions you've mentioned in your related work section.
-
 The results are categorized based on the architecture of the machines utilized to run the zkVMs. \subsection{ARM Benchmark}
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{ARM-Proving-Time.png}
 	\end{center}
-	\caption{ARM Proving Time}
+	\caption{Proof Generation Benchmark for Jolt, SP1, and RISC-0 on ARM chip}
 	\label{graph:arm-proving-time}
 \end{figure}
 
@@ -206,7 +204,7 @@ The ARM benchmarks were conducted on an M1 Max Apple Mini, a RISC-based system e
 	\begin{center}
 		\includegraphics[width=\linewidth]{ARM-Verification-Time.png}
 	\end{center}
-	\caption{ARM Verification Time}
+	\caption{Proof Verification Benchmark for Jolt, SP1, and RISC-0 on ARM chip}
 	\label{graph:arm-verification-time}
 \end{figure}
 
@@ -220,7 +218,7 @@ The x86 benchmarks were performed on an Intel Cascade Lake Platinum 8268 process
 	\begin{center}
 		\includegraphics[width=\linewidth]{x86-Proving-Time.png}
 	\end{center}
-	\caption{x86 Proving Time}
+	\caption{Proof Generation Benchmark for Jolt, SP1, and RISC-0 on x86 chip}
 	\label{graph:x86-proving-time}
 \end{figure}
 
@@ -230,9 +228,16 @@ The benchmark results for proof verification on the x86 architecture are present
 	\begin{center}
 		\includegraphics[width=\linewidth]{x86-Verification-Time.png}
 	\end{center}
-	\caption{x86 Verification Time}
+	\caption{Proof Verification Benchmark for Jolt, SP1, and RISC-0 on x86 chip}
 	\label{graph:x86-verification-time}
 \end{figure}
+
+
+\subsection{Analysis on Benchmark Results}
+
+Looking at the results from the benchmark, we can first see that in Jolt is objectively the fastest at proof generation across both ARM and x86 architecture, which shows it is the most capable when it comes to real-world applications. Although Risc-0 is the first production-ready zkVM, it is the worse performing at larger test cases. Additionally, RISC-0 is almost 2x faster on the ARM chip due to the fact that it is the same architecture. When looking at SP1's performance, it almost always performs between Jolt and RISC-0.
+
+Verification time is not a bottleneck when it comes to real-world applicability. The verification benchmark gives almost a complete opposite result compared since   
 
 \section{Discussion}
 The discussion section focuses on the main challenges/issues you had to overcome during the project. Outline what your approach does better than the ones you mentioned in your related work, and explain why. Do the same with issues where other solutions  outperform your own. Are there limitations to your approach? If so, what would you recommend towards removing/mitigating them? Given the experience you've gathered working on this project, are there other approaches that you feel are worth exploring?
