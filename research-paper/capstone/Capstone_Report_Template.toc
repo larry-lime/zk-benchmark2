@@ -6,18 +6,18 @@
 \contentsline {subsection}{\numberline {2.2}Machine Learning in ZKPs}{6}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Solution}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}ML Setup}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}zkVM Implementation}{8}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Results}{8}{section.4}%
+\contentsline {subsection}{\numberline {3.2}zkVM Implementation}{9}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Results}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}ARM Benchmark}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}x86 Benchmark}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}x86 Benchmark}{12}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Performance Metrics}{12}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Discussion}{12}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Limitations of the Approach}{12}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Recommendations for Mitigation}{13}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Next Steps}{13}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Personal Contributions}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Siddhartha Tuladhar}{14}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Lawrence Lim}{14}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Brandon Gao}{14}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}%
+\contentsline {section}{\numberline {6}Personal Contributions}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Siddhartha Tuladhar}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Lawrence Lim}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Brandon Gao}{13}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

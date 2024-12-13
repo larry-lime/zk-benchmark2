@@ -110,7 +110,7 @@ It explains in detail each contribution, if possible with figures/schematics.
 
 Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
 
-To benchmark the zkVMs, we trialed three machine learning algorithms.
+The methodology for achieving our objective is structured into two key phases. The first phase involves developing and training a machine learning algorithm on a given dataset to attain satisfactory accuracy levels. The second phase entails exporting the trained model and test data into Rust, where the inference process is meticulously implemented by manually translating the logic from Python to Rust.
 
 \subsection{ML Setup}
 
@@ -153,9 +153,22 @@ For the machine learning algorithm, we used the Ridge Regression Model due to th
 
 where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance. The accuracy in 
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|p{8cm}|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+\( R^2 \)(R-Squared) & 0.8  \\
+\hline
+Mean Square Error (MSE) & 21 \\
+\hline
+\end{tabular}
+\caption{Model performance metrics.}
+\label{tab:model-performance}
+\end{table}
+
 \subsection{zkVM Implementation}
-
-
 
 \begin{figure}[H]
 	\begin{center}
@@ -181,24 +194,6 @@ The results section details your metrics and experiments for the assessment of y
 %
 \subsection{ARM Benchmark}
 
-\begin{table}[h!]
-	\centering
-	\caption{Proving and Verifying Times for Different zkVMs on ARM}
-	\begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Framework} & \textbf{10} & \textbf{100} & \textbf{1000} \\ \hline
-	\multicolumn{4}{|c|}{\textbf{Proving}} \\ \hline
-	SP1 & 7.46 & 18.94 & 132.13 \\ \hline
-	RISCO & 4.92 & 18.66 & 167.85 \\ \hline
-	Jolt & 13.57 & 19.61 & 75.10 \\ \hline
-	\multicolumn{4}{|c|}{\textbf{Verifying}} \\ \hline
-	SP1 & 167.40 & 170.68 & 818.74 \\ \hline
-	RISCO & 22.73 & 25.41 & 124.53 \\ \hline
-	Jolt & 259.08 & 280.71 & 345.82 \\ \hline
-	\end{tabular}
-	\label{tab:proving-verifying-times}
-	\end{table}
-
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{ARM-Proving-Time.png}
@@ -218,24 +213,6 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 \end{figure}
 
 \subsection{x86 Benchmark}
-\begin{table}[h!]
-	\centering
-	\caption{Proving and Verifying Times for Different zkVMs on X86}
-	\begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Framework} & \textbf{10} & \textbf{100} & \textbf{1000} \\ \hline
-	\multicolumn{4}{|c|}{\textbf{Proving}} \\ \hline
-	SP1 & 11.93 & 30.83 & 117.45 \\ \hline
-	RISCO & 9.62 & 36.37 & 309.14 \\ \hline
-	Jolt & 13.62 & 19.31 & 69.36 \\ \hline
-	\multicolumn{4}{|c|}{\textbf{Verifying}} \\ \hline
-	SP1 & 230.40 & 219.54 & 372.52 \\ \hline
-	RISCO & 19.86 & 21.34 & 101.21 \\ \hline
-	Jolt & 489.86 & 281.02 & 555.56 \\ \hline
-	\end{tabular}
-	\label{tab:proving-verifying-times}
-	\end{table}
-	
 
 \begin{figure}
 	\begin{center}
@@ -261,20 +238,6 @@ The \(R^2\) value measures the proportion of variance in the target variable tha
 The MSE represents the average squared difference between the predicted and actual values. It provides a measure of the model's prediction error, with lower values indicating better performance.
 
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|c|p{8cm}|}
-\hline
-\textbf{Metric} & \textbf{Value} \\
-\hline
-\( R^2 \)(R-Squared) & 0.8  \\
-\hline
-Mean Square Error (MSE) & 21 \\
-\hline
-\end{tabular}
-\caption{Model performance metrics.}
-\label{tab:model-performance}
-\end{table}
 
 \subsection*{Analysis}
 
