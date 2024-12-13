@@ -253,7 +253,7 @@ The section will compare the underlying proof systems of Jolt, SP1, and RISC-0. 
 
 First, we'll compare the arithmetization schemes of the zkVMs. This is the process of converting VM instructions to circuit format, necessary for ZKPs. In general, arithmetization cannot be done manually except for elementary programs. Besides, the use of naïve arithmetization can lead to significant overhead. To deal with this, dedicated compilers accepting high-level programming languages have been developed.
 
-Next, we'll discuss the use of precompiles. Compared to running a program without any proving overhead, zkVMs are incredibly slow. This poor performance is why all deployed zkVMs today use “precompiles,” or hand-optimized protocols for specific computations that come up over and over again, like SHA2 or Keccak evaluations. But over-reliance on precompiles is dangerous: designing pre-complies is *exactly* the error-prone and time-intensive process that zkVMs are meant to obviate.
+Next, we'll discuss the use of precompiles. Compared to running a program without any proving overhead, zkVMs are incredibly slow. This poor performance is why all deployed zkVMs today use “precompiles,” or hand-optimized protocols for specific computations that come up over and over again, like SHA2 or Keccak evaluations. But over-reliance on precompiles is dangerous: designing pre-complies is exactly the error-prone and time-intensive process that zkVMs are meant to obviate.
 
 \subsubsection{Backend}
 
@@ -263,7 +263,7 @@ There are additional tradeoffs to consider here such as field size and and FRI e
 
 The FRI blowup factor is a tunable parameter that allows you to adjust the cost to be more on the proving side or verifying side. A relatively low blowup factor leads to less prover time with larger proofs and a larger blowup factor leads to high cost to prove with smaller proof size.
 
-So to address this problem, researchers often use a technique known as a “lookup argument”. Rather than compute the bitwise instruction directly via additions and multiplications, lookup arguments precompute the outputs of the bitwise instruction on all possible inputs. Then, a zkVM applies a relatively cheap SNARK operation – aka “the lookup” – to verify that the current instruction lives within the pre-computed table. Doing so decreases the cost of the instruction.
+So to address this problem, researchers often use a technique known as a “lookup argument”. Rather than compute the bitwise instruction directly via additions and multiplications, lookup arguments precompute the outputs of the bitwise instruction on all possible inputs. Then, a zkVM applies a relatively cheap SNARK operation – aka "the lookup" – to verify that the current instruction lives within the pre-computed table. Doing so decreases the cost of the instruction.
 
 \subsubsection{Recap}
 
@@ -292,21 +292,23 @@ In the frontend, RISC-0 employs AIR, which also requires expensive FFTs. The bac
 Our work differs from related work in that we focus on a holistic comparable analysis of zkVMs for real world applications. We believe our approach is more relevant than referenced papers because us focusing on zkVMs and real world applications is the most relevant for development use cases compared to other work whose results do not give you much practical insight. Additionally, compared to publicly available benchmarks, our work is unbiased and also accompanied by a qualitative architecture comparison; publicly available benchmarks do not provide such analysis.
 
 \subsection{Limitations \& Next Steps}
-Our approach had some limitations. First, we were limited by time constraints which made it difficult for us to benchmark more complicated ML models, as we would have had to implement them all from scratch for most of the VMs. We would also loved to compared more metrics such as memory usage. However, we are yet to find a publicly available benchmark that provides this comparison. Additionally, diving even deeper into the architectural design differences would have been very interesting. Finally, it would have been good for us to benchmark these VMs with and without precompiles to properly analyze the performance of the underlying design. This is an idea proposed by Justin Thaler, Professor at Georgetown University, who is a leading expert in this field. These improvements are all worth exploring in the near future.
+This study faced several limitations that warrant consideration. First, the benchmarking process was constrained by hardware limitations, as scaling to 10,000 test cases resulted in excessive runtime or timeouts. This issue was particularly pronounced for Jolt, which exhibited high memory demands and would terminate itself when insufficient memory was available. Additionally, the implementation was challenged by the requirement to avoid using Rust’s standard library and most external libraries, including essential utilities such as I/O operations and data structures like strings. This was the main reason why we were unable to implement poly ridge regression algorithm. While the zkVMs allow the use of the standard library, its inclusion significantly slows proof generation, rendering benchmarking infeasible in practice.
 
-\section{Personal Contributions}
+Furthermore, our study was limited in its scope of metrics, as we could not compare aspects such as memory usage due to the lack of publicly available benchmarks for such evaluations. A deeper analysis of architectural design differences among the zkVMs would also have been valuable, as it could provide more nuanced insights into their performance characteristics. Lastly, benchmarking the zkVMs both with and without precompiles would have offered a clearer understanding of the performance impact of the underlying designs. This approach, suggested by Justin Thaler, Professor at Georgetown University and a leading expert in the field, represents a promising direction for future research. These limitations and potential areas for improvement highlight opportunities for further exploration in subsequent studies.
 
-\subsection{Siddhartha Tuladhar}
-
-Siddhartha contributed to the serialization of the machine learning model for compatibility with Rust, the implementation of the logic required to generate zero-knowledge proofs (ZKPs) across all three zkVMs, and the development of benchmarking utilities to evaluate performance.
-
-\subsection{Lawrence Lim}
-
-Lawrence contributed on the ideation side in the beginning, did the cryptography research, qualitative comparisons, contributed to the ML research and led the benchmarking on the x86 and ARM HPCs.
-
-\subsection{Brandon Gao}
-
-Brandon analyzed the dataset, compared it with similar Kaggle datasets, and tested various models, with ridge regression performing best. Ridge regression was selected for its ability to handle multicollinearity and generalize well.
+% \section{Personal Contributions}
+%
+% \subsection{Siddhartha Tuladhar}
+%
+% Siddhartha contributed to the serialization of the machine learning model for compatibility with Rust, the implementation of the logic required to generate zero-knowledge proofs (ZKPs) across all three zkVMs, and the development of benchmarking utilities to evaluate performance.
+%
+% \subsection{Lawrence Lim}
+%
+% Lawrence contributed on the ideation side in the beginning, did the cryptography research, qualitative comparisons, contributed to the ML research and led the benchmarking on the x86 and ARM HPCs.
+%
+% \subsection{Brandon Gao}
+%
+% Brandon analyzed the dataset, compared it with similar Kaggle datasets, and tested various models, with ridge regression performing best. Ridge regression was selected for its ability to handle multicollinearity and generalize well.
 
 \section{Conclusion}
 
