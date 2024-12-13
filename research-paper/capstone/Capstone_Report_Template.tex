@@ -119,10 +119,27 @@ It explains in detail each contribution, if possible with figures/schematics.
 
 Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
 
-To benchmark the zkVMs,
+To benchmark the zkVMs, we trialed three machine learning algorithms.
+\section*{Linear Regression}
+Linear Regression is a fundamental statistical method used to model the linear relationship between one or more independent variables (features) and a dependent variable (target). The mathematical representation of a linear regression model is given as:
 
+\[
+y = w_1x_1 + w_2x_2 + \dots + w_nx_n + b
+\]
 
-\textbf{Polynomial Ridge Regression} is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
+where \( y \) is the target variable, \( x_1, x_2, \dots, x_n \) are the features, \( w_1, w_2, \dots, w_n \) are the corresponding coefficients (weights), and \( b \) is the bias term. The coefficients are estimated by minimizing the residual sum of squares between the observed target values \( y \) and the predicted values \( \hat{y} \).
+
+\section*{Ridge Regression}
+Ridge Regression, also known as \( L_2 \)-regularized regression, extends linear regression by adding a penalty term to the loss function to prevent overfitting. Overfitting occurs when a model captures noise in the training data, leading to poor generalization performance on unseen data. Ridge Regression achieves this by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
+
+\[
+\text{Loss} = \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 + \lambda \sum_{j=1}^{n} w_j^2
+\]
+
+where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance.
+
+\section*{Polynomial Ridge Regression}
+Polynomial Ridge Regression is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
 
 \[
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_{n+1} x_1^2 + \beta_{n+2} x_2^2 + \beta_{k} (x_i \times x_j) + \epsilon
@@ -136,29 +153,31 @@ Objective = \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{m} \beta_j^
 
 where \( m \) represents the number of polynomial features. This regularization prevents overfitting by penalizing large coefficients. This combination enables the model to capture nonlinear relationships while controlling for overfitting through regularization.
 
-\begin{table}[ht!]
+\begin{table}[h!]
 \centering
-\begin{tabular}{| l | p{10cm} |}
+\begin{tabular}{|l|p{10cm}|}
 \hline
 \textbf{Field} & \textbf{Description} \\
 \hline
-\textbf{amount} & The total transaction amount, used as the target variable in our prediction model. \\
+\textbf{CustomerID} & Unique identifier for a customer, used to track and differentiate individuals in the dataset. \\
 \hline
-\textbf{payment\_channel} & Indicates if the transaction was conducted online or in-store, capturing behavioral differences across channels. This field was converted to a binary variable. \\
+\textbf{Frequency} & Number of transactions a customer made during the first three quarters. \\
 \hline
-\textbf{category} & Transaction type, such as "Electronics" or "Clothing". Distinct patterns in spending appear across categories, making this an important predictor. This field was also converted to a binary variable. \\
+\textbf{Monetary} & Total monetary value of a customer's transactions during the first three quarters. \\
 \hline
-\textbf{location\_state} & Geographical information for regional spending variations. Each state was represented as a binary variable to capture local economic influences. \\
+\textbf{Recency} & Number of days since the customer's last transaction during the first three quarters. \\
 \hline
-\textbf{quantity} & Number of items or services purchased in the transaction, affecting the total amount spent. \\
+\textbf{Price} & Price per unit for each transaction item. \\
 \hline
-\textbf{price} & Price per unit for each transaction item, contributing to total transaction value, particularly in retail transactions. \\
+\textbf{DiscountApplied} & Percentage of discount applied to the transaction. \\
 \hline
-\textbf{discount\_applied} & Discount applied to the transaction, reflecting promotional effects on spending. This feature helps the model account for changes in customer spending behavior during promotions. \\
+\textbf{spend\_90\_flag} & Binary flag indicating whether the customer made any transaction in the past 90 days. \\
+\hline
+\textbf{actual\_spend\_90\_days} & Total amount spent by the customer in the last 90 days(quarter). \\
 \hline
 \end{tabular}
-\caption{Feature descriptions for transaction data}
-\label{tab:transaction_data}
+\caption{Description of fields in the customer transaction dataset.}
+\label{tab:dataset_description}
 \end{table}
 
 \begin{figure}[H]
@@ -191,7 +210,7 @@ It is of the utmost importance to describe how you came up with the measurements
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{ARM-Proving-Time.png}
+		\includegraphics[width=\linewidth]{ARM-Proving-Time.png}
 	\end{center}
 	\caption{ARM Proving Time}
 	\label{graph:arm-proving-time}
@@ -201,7 +220,7 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{ARM-Verification-Time.png}
+		\includegraphics[width=\linewidth]{ARM-Verification-Time.png}
 	\end{center}
 	\caption{ARM Verification Time}
 	\label{graph:arm-verification-time}
@@ -211,7 +230,7 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{x86-Proving-Time.png}
+		\includegraphics[width=\linewidth]{x86-Proving-Time.png}
 	\end{center}
 	\caption{x86 Proving Time}
 	\label{graph:x86-proving-time}
@@ -219,15 +238,39 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{x86-Verification-Time.png}
+		\includegraphics[width=\linewidth]{x86-Verification-Time.png}
 	\end{center}
 	\caption{x86 Verification Time}
 	\label{graph:x86-verification-time}
 \end{figure}
 
 
+
+
 \section{Discussion}
 The discussion section focuses on the main challenges/issues you had to overcome during the project. Outline what your approach does better than the ones you mentioned in your related work, and explain why. Do the same with issues where other solutions  outperform your own. Are there limitations to your approach? If so, what would you recommend towards removing/mitigating them? Given the experience you've gathered working on this project, are there other approaches that you feel are worth exploring?
+\subsection{Limitations of the Approach}
+One major limitation of the current implementation is its reliance on Rust without the Standard Library (stdlib). While this choice allows for reduced build and runtime, it significantly limits the ability to implement more complex machine learning models. This low-level implementation, while efficient for simpler models like Ridge Regression, imposes constraints on usability and feature expansion. For instance, without stdlib, basic functionalities like I/O and access to additional data structures are unavailable, reducing the flexibility of the implementation.
+
+\subsection{Recommendations for Mitigation}
+To overcome these limitations, it is recommended to:
+\begin{itemize}
+    \item Explore ways to selectively incorporate necessary parts of stdlib without significantly impacting performance.
+    \item Investigate low-level optimization techniques to support complex models while maintaining efficiency.
+    \item Utilize external libraries or frameworks designed for Rust to enhance capabilities without reintroducing excessive overhead.
+\end{itemize}
+
+\subsection{Next Steps}
+Based on the current implementation and findings, the following steps are proposed for future work:
+\begin{itemize}
+    \item Perform benchmarking without precompiles to evaluate raw performance.
+    \item Compare CPU vs. GPU performance to understand hardware utilization.
+    \item Conduct memory usage benchmarking to optimize resource management.
+    \item Carry out a qualitative analysis of the trade-offs between low-level implementation and stdlib inclusion.
+\end{itemize}
+
+These steps will provide deeper insights into the strengths and limitations of the approach and inform potential improvements in future iterations.
+
 
 \section{Personal Contributions}
 
