@@ -190,6 +190,24 @@ The results section details your metrics and experiments for the assessment of y
 %
 \subsection{ARM Benchmark}
 
+\begin{table}[h!]
+	\centering
+	\caption{Proving and Verifying Times for Different zkVMs on ARM}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Framework} & \textbf{10} & \textbf{100} & \textbf{1000} \\ \hline
+	\multicolumn{4}{|c|}{\textbf{Proving}} \\ \hline
+	SP1 & 7.46 & 18.94 & 132.13 \\ \hline
+	RISCO & 4.92 & 18.66 & 167.85 \\ \hline
+	Jolt & 13.57 & 19.61 & 75.10 \\ \hline
+	\multicolumn{4}{|c|}{\textbf{Verifying}} \\ \hline
+	SP1 & 167.40 & 170.68 & 818.74 \\ \hline
+	RISCO & 22.73 & 25.41 & 124.53 \\ \hline
+	Jolt & 259.08 & 280.71 & 345.82 \\ \hline
+	\end{tabular}
+	\label{tab:proving-verifying-times}
+	\end{table}
+
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{ARM-Proving-Time.png}
@@ -209,6 +227,24 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 \end{figure}
 
 \subsection{x86 Benchmark}
+\begin{table}[h!]
+	\centering
+	\caption{Proving and Verifying Times for Different zkVMs on X86}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Framework} & \textbf{10} & \textbf{100} & \textbf{1000} \\ \hline
+	\multicolumn{4}{|c|}{\textbf{Proving}} \\ \hline
+	SP1 & 11.93 & 30.83 & 117.45 \\ \hline
+	RISCO & 9.62 & 36.37 & 309.14 \\ \hline
+	Jolt & 13.62 & 19.31 & 69.36 \\ \hline
+	\multicolumn{4}{|c|}{\textbf{Verifying}} \\ \hline
+	SP1 & 230.40 & 219.54 & 372.52 \\ \hline
+	RISCO & 19.86 & 21.34 & 101.21 \\ \hline
+	Jolt & 489.86 & 281.02 & 555.56 \\ \hline
+	\end{tabular}
+	\label{tab:proving-verifying-times}
+	\end{table}
+	
 
 \begin{figure}
 	\begin{center}
@@ -225,6 +261,34 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 	\caption{x86 Verification Time}
 	\label{graph:x86-verification-time}
 \end{figure}
+
+\subsection{Performance Metrics}
+\textbf{\(R^2\) (Coefficient of Determination):} 
+The \(R^2\) value measures the proportion of variance in the target variable that is explained by the independent variables in the model. It ranges from 0 to 1, where higher values indicate a better fit of the model to the data.
+
+\textbf{Mean Square Error (MSE):} 
+The MSE represents the average squared difference between the predicted and actual values. It provides a measure of the model's prediction error, with lower values indicating better performance.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|p{8cm}|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+\( R^2 \)(R-Squared) & 0.8  \\
+\hline
+Mean Square Error (MSE) & 21 \\
+\hline
+\end{tabular}
+\caption{Model performance metrics.}
+\label{tab:model-performance}
+\end{table}
+
+\subsection*{Analysis}
+
+The \(R^2\) value of 0.8 demonstrates that the model explains a substantial portion of the variance in the target variable, effectively capturing the relationships in the data.
+The MSE value of 21 is acceptable because it aligns well with the scale of the target variable.
 
 
 \section{Discussion}
