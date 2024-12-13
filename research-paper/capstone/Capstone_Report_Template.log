@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 13:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -770,37 +770,41 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip78
 ))
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 11.
- (./Capstone_Report_Template.aux)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 17.
+ (./Capstone_Report_Template.aux
+
+LaTeX Warning: Label `tab:proving-verifying-times' multiply defined.
+
+)
 \openout1 = `Capstone_Report_Template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-Package scrbase Info: activating english \abstractname on input line 11.
-Package scrbase Info: activating english \partname on input line 11.
-Package scrbase Info: activating english \figurename on input line 11.
-Package scrbase Info: activating english \tablename on input line 11.
-Package scrbase Info: activating english \contentsname on input line 11.
-Package scrbase Info: activating english \listfigurename on input line 11.
-Package scrbase Info: activating english \listtablename on input line 11.
-Package scrbase Info: activating english \refname on input line 11.
-Package scrbase Info: activating english \indexname on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+Package scrbase Info: activating english \abstractname on input line 17.
+Package scrbase Info: activating english \partname on input line 17.
+Package scrbase Info: activating english \figurename on input line 17.
+Package scrbase Info: activating english \tablename on input line 17.
+Package scrbase Info: activating english \contentsname on input line 17.
+Package scrbase Info: activating english \listfigurename on input line 17.
+Package scrbase Info: activating english \listtablename on input line 17.
+Package scrbase Info: activating english \refname on input line 17.
+Package scrbase Info: activating english \indexname on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -839,7 +843,7 @@ Package scrbase Info: activating english \indexname on input line 11.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 11.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 17.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count364
@@ -861,7 +865,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
 
-Package hyperref Info: Link coloring OFF on input line 11.
+Package hyperref Info: Link coloring OFF on input line 17.
 (./Capstone_Report_Template.out) (./Capstone_Report_Template.out)
 \@outlinefile=\write4
 \openout4 = `Capstone_Report_Template.out'.
@@ -873,7 +877,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message adding:
 (scrartcl)             \usepackage{bookmark}
-(scrartcl)           before \begin{document} on input line 11.
+(scrartcl)           before \begin{document} on input line 17.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
@@ -883,87 +887,94 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 <graphics/nyush-logo.jpeg, id=10, 149.1171pt x 44.8074pt>
 File: graphics/nyush-logo.jpeg Graphic file (type jpg)
 <use graphics/nyush-logo.jpeg>
-Package pdftex.def Info: graphics/nyush-logo.jpeg  used on input line 15.
+Package pdftex.def Info: graphics/nyush-logo.jpeg  used on input line 21.
 (pdftex.def)             Requested size: 274.85652pt x 82.60248pt.
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./graphics/nyush-logo.jpeg>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2] [3]
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 72.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 78.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) (./Capstone_Report_Template.toc)
 \tf@toc=\write5
 \openout5 = `Capstone_Report_Template.toc'.
 
- [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6] [7]
+ [4] [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Citation `rehman2023retail' on page 7 undefined on input line 126.
 
-<graphics/zkVM-design.png, id=115, 1428.33624pt x 485.815pt>
+[7]
+<graphics/zkVM-design.png, id=121, 1428.33624pt x 485.815pt>
 File: graphics/zkVM-design.png Graphic file (type png)
 <use graphics/zkVM-design.png>
-Package pdftex.def Info: graphics/zkVM-design.png  used on input line 179.
+Package pdftex.def Info: graphics/zkVM-design.png  used on input line 171.
 (pdftex.def)             Requested size: 499.92517pt x 170.0378pt.
 
-Overfull \hbox (41.83562pt too wide) in paragraph at lines 179--180
+Overfull \hbox (41.83562pt too wide) in paragraph at lines 171--172
  [] 
  []
 
-[8]
-<graphics/ARM-Proving-Time.png, id=124, 1541.76pt x 1003.75pt>
+[8 <./graphics/zkVM-design.png>]
+<graphics/ARM-Proving-Time.png, id=128, 1541.76pt x 1003.75pt>
 File: graphics/ARM-Proving-Time.png Graphic file (type png)
 <use graphics/ARM-Proving-Time.png>
-Package pdftex.def Info: graphics/ARM-Proving-Time.png  used on input line 207.
+Package pdftex.def Info: graphics/ARM-Proving-Time.png  used on input line 213.
 (pdftex.def)             Requested size: 458.08955pt x 298.2326pt.
- [9 <./graphics/zkVM-design.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 213.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 219.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-<graphics/ARM-Verification-Time.png, id=132, 1541.76pt x 1003.75pt>
+) [9 <./graphics/ARM-Proving-Time.png>]
+<graphics/ARM-Verification-Time.png, id=137, 1541.76pt x 1003.75pt>
 File: graphics/ARM-Verification-Time.png Graphic file (type png)
 <use graphics/ARM-Verification-Time.png>
-Package pdftex.def Info: graphics/ARM-Verification-Time.png  used on input line 217.
+Package pdftex.def Info: graphics/ARM-Verification-Time.png  used on input line 223.
 (pdftex.def)             Requested size: 458.08955pt x 298.2326pt.
-<graphics/x86-Proving-Time.png, id=133, 1541.76pt x 1003.75pt>
+<graphics/x86-Proving-Time.png, id=138, 1541.76pt x 1003.75pt>
 File: graphics/x86-Proving-Time.png Graphic file (type png)
 <use graphics/x86-Proving-Time.png>
-Package pdftex.def Info: graphics/x86-Proving-Time.png  used on input line 227.
+Package pdftex.def Info: graphics/x86-Proving-Time.png  used on input line 251.
 (pdftex.def)             Requested size: 458.08955pt x 298.2326pt.
-<graphics/x86-Verification-Time.png, id=134, 1541.76pt x 1003.75pt>
+<graphics/x86-Verification-Time.png, id=139, 1541.76pt x 1003.75pt>
 File: graphics/x86-Verification-Time.png Graphic file (type png)
 <use graphics/x86-Verification-Time.png>
-Package pdftex.def Info: graphics/x86-Verification-Time.png  used on input line 235.
+Package pdftex.def Info: graphics/x86-Verification-Time.png  used on input line 259.
 (pdftex.def)             Requested size: 458.08955pt x 298.2326pt.
- [10 <./graphics/ARM-Proving-Time.png>] [11 <./graphics/ARM-Verification-Time.png> <./graphics/x86-Proving-Time.png>] [12 <./graphics/x86-Verification-Time.png>] [13] [14] (./Capstone_Report_Template.bbl) [15] (./Capstone_Report_Template.aux)
+ [10 <./graphics/ARM-Verification-Time.png>] [11 <./graphics/x86-Proving-Time.png> <./graphics/x86-Verification-Time.png>] [12] [13] [14] (./Capstone_Report_Template.bbl) [15] (./Capstone_Report_Template.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `Capstone_Report_Template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39285 strings out of 474116
- 949337 string characters out of 5743681
- 1937187 words of memory out of 5000000
- 61002 multiletter control sequences out of 15000+600000
+ 39294 strings out of 474116
+ 949514 string characters out of 5743681
+ 1936187 words of memory out of 5000000
+ 61008 multiletter control sequences out of 15000+600000
  575265 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,10n,110p,10989b,1014s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,10n,110p,10989b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on Capstone_Report_Template.pdf (15 pages, 623490 bytes).
+Output written on Capstone_Report_Template.pdf (15 pages, 617891 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 256 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 269 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 
