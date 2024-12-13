@@ -120,38 +120,10 @@ It explains in detail each contribution, if possible with figures/schematics.
 Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
 
 To benchmark the zkVMs, we trialed three machine learning algorithms.
-\section*{Linear Regression}
-Linear Regression is a fundamental statistical method used to model the linear relationship between one or more independent variables (features) and a dependent variable (target). The mathematical representation of a linear regression model is given as:
 
-\[
-y = w_1x_1 + w_2x_2 + \dots + w_nx_n + b
-\]
+\subsection{ML Setup}
 
-where \( y \) is the target variable, \( x_1, x_2, \dots, x_n \) are the features, \( w_1, w_2, \dots, w_n \) are the corresponding coefficients (weights), and \( b \) is the bias term. The coefficients are estimated by minimizing the residual sum of squares between the observed target values \( y \) and the predicted values \( \hat{y} \).
-
-\section*{Ridge Regression}
-Ridge Regression, also known as \( L_2 \)-regularized regression, extends linear regression by adding a penalty term to the loss function to prevent overfitting. Overfitting occurs when a model captures noise in the training data, leading to poor generalization performance on unseen data. Ridge Regression achieves this by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
-
-\[
-\text{Loss} = \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 + \lambda \sum_{j=1}^{n} w_j^2
-\]
-
-where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance.
-
-\section*{Polynomial Ridge Regression}
-Polynomial Ridge Regression is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
-
-\[
-y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_{n+1} x_1^2 + \beta_{n+2} x_2^2 + \beta_{k} (x_i \times x_j) + \epsilon
-\]
-
-Ridge regularization is then applied to these expanded features, controlling overfitting while accommodating non-linear relationships. The objective function becomes:
-
-\[
-Objective = \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{m} \beta_j^2
-\]
-
-where \( m \) represents the number of polynomial features. This regularization prevents overfitting by penalizing large coefficients. This combination enables the model to capture nonlinear relationships while controlling for overfitting through regularization.
+The dummy transaction data we used was taken from a Kaggle dataset\cite{rehman2023retail}. %explain what we did with the data and how you formatted it.
 
 \begin{table}[h!]
 \centering
@@ -180,6 +152,18 @@ where \( m \) represents the number of polynomial features. This regularization 
 \label{tab:dataset_description}
 \end{table}
 
+For the machine learning algorithm, we decided to use the Ridge Regression Model due to the model's accuracy and the complexity constraints of the zkVMs. Ridge Regression is an extension of linear regression by adding a penalty term to the loss function to prevent overfitting.  Ridge Regression prevents overfitting by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
+
+\[
+\text{Loss} = \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 + \lambda \sum_{j=1}^{n} w_j^2
+\]
+
+where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance. The accuracy in 
+
+\subsection{zkVM Implementation}
+
+
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.35]{zkVM-design.png}
@@ -192,10 +176,6 @@ where \( m \) represents the number of polynomial features. This regularization 
 
 The results section details your metrics and experiments for the assessment of your solution. It then provides experimental validation for your approach with visual aids such as data tables and graphs. In particular, it allows you to compare your idea with other approaches you've tested, for example solutions you've mentioned in your related work section.
 
-\subsection{Experimentation Protocol}
-
-It is of the utmost importance to describe how you came up with the measurements and results that support your evaluation.
-%
 % \subsection{Data tables}
 %
 % Every data table should be numbered, have a brief description as its title, and specify the units used. 
@@ -243,8 +223,6 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 	\caption{x86 Verification Time}
 	\label{graph:x86-verification-time}
 \end{figure}
-
-
 
 
 \section{Discussion}
