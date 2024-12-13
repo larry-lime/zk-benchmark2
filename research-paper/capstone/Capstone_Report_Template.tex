@@ -235,7 +235,15 @@ The benchmark results for proof verification on the x86 architecture are present
 \end{figure}
 
 \section{Discussion}
-The discussion section focuses on the main challenges/issues you had to overcome during the project. Outline what your approach does better than the ones you mentioned in your related work, and explain why. Do the same with issues where other solutions  outperform your own. Are there limitations to your approach? If so, what would you recommend towards removing/mitigating them? Given the experience you've gathered working on this project, are there other approaches that you feel are worth exploring?
+% The discussion section focuses on the main challenges/issues you had to overcome during the project.
+%
+% - Outline what your approach does better than the ones you mentioned in your related work, and explain why.
+% - Do the same with issues where other solutions outperform your own.
+% - Are there limitations to your approach? If so, what would you recommend towards removing/mitigating them?
+% - Given the experience you've gathered working on this project, are there other approaches that you feel are worth exploring?
+
+Our work differs from related work in that we focus on a holistic comparable analysis of zkVMs for real world applications. We believe our approach is more relevant than referenced papers because us focusing on zkVMs and real world applications is the most relevant for development use cases compared to other work whose results do not give you much practical insight. Additionally, compared to publicly available benchmarks, our work is unbiased and also accompanied by a qualitative architecture comparison; publicly available benchmarks do not provide such analysis. Our approach had some limitations. First, we were limited by time constraints which made it difficult for us to benchmark more complicated ML models, as we would have had to implement them all from scratch for most of the VMs. We also did not compare memory usage which would have been an interesting metric to focus on. However, we are yet to find a publicly available benchmark that provides this comparison. Additionally, diving even deeper into the architectural design differences would have been very interesting. These improvements are all worth exploring in the near future.
+
 
 \subsection{Limitations}
 One major limitation of the current implementation is its reliance on Rust without the Standard Library (stdlib). While this choice allows for reduced build and runtime, it significantly limits the ability to implement more complex machine learning models. This low-level implementation, while efficient for simpler models like Ridge Regression, imposes constraints on usability and feature expansion. For instance, without stdlib, basic functionalities like I/O and access to additional data structures are unavailable, reducing the flexibility of the implementation.
