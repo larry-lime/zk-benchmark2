@@ -44,4 +44,7 @@ A.~Sathe, V.~Saxena, P.~A. Bharadwaj, and S.~Sandosh, ``State of the art in zero
 B.-M. Ganescu and J.~Passerat-Palmbach, ``Trust the process: Zero-knowledge machine learning to enhance trust in generative {AI} interactions,'' \emph{arXiv}, 2024. [Online]. Available: \url{https://arxiv.org/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{rehman2023retail}
+F.~Rehman, ``Retail transaction dataset,'' \url{ https://www.kaggle.com/datasets/fahadrehman07/retail-transaction-dataset }, 2023, accessed: 2023-12-03.
+
 \end{thebibliography}
