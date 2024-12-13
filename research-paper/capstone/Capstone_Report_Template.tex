@@ -125,7 +125,7 @@ To benchmark the zkVMs, we trialed three machine learning algorithms.
 
 The dummy transaction data we used was taken from a Kaggle dataset\cite{rehman2023retail}. %explain what we did with the data and how you formatted it.
 
-\begin{table}[h!]
+\begin{table}[ht!]
 \centering
 \begin{tabular}{|l|p{10cm}|}
 \hline
@@ -152,7 +152,9 @@ The dummy transaction data we used was taken from a Kaggle dataset\cite{rehman20
 \label{tab:dataset_description}
 \end{table}
 
-For the machine learning algorithm, we decided to use the Ridge Regression Model due to the model's accuracy and the complexity constraints of the zkVMs. Ridge Regression is an extension of linear regression by adding a penalty term to the loss function to prevent overfitting.  Ridge Regression prevents overfitting by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
+After preprocessing, the features that are left in the dataset are shown in Table \ref{tab:dataset_description}.
+
+For the machine learning algorithm, we used the Ridge Regression Model due to the model's accuracy and the complexity constraints of the zkVMs. Ridge Regression is an extension of linear regression by adding a penalty term to the loss function to prevent overfitting.  Ridge Regression prevents overfitting by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
 
 \[
 \text{Loss} = \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 + \lambda \sum_{j=1}^{n} w_j^2
