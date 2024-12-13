@@ -243,6 +243,43 @@ Based on the benchmark results, Jolt demonstrates itself to be the most efficien
 
 Verification time does not present a significant bottleneck in real-world applications, as it is typically less critical than proof generation. Interestingly, the verification benchmarks yield almost inverse results compared to proof generation. Jolt consistently exhibits the slowest verification times across both architectures and all test cases. In contrast, Risc0 leads in verification efficiency, maintaining the fastest times regardless of architecture or test size. SP1 again performs between Jolt and Risc0, but with an anomaly in the ARM architecture at 1000 test cases, where its verification time was more than twice as slow as Jolt and nearly eight times slower than Risc0. This unexpected result may indicate a scalability issue specific to SP1 under high verification loads.
 
+\section{Qualitative Results}
+
+\subsection{Background}
+
+The section will compare the underlying proof systems of Jolt, SP1, and RISC-0. Before diving into the comparison, we'll briefly discuss the design of zkVMs. We break it up into the frontend and the backend.
+
+\subsubsection{Frontend}
+
+First, we'll compare the arithmetization schemes of the zkVMs. This is the process of converting VM instructions to circuit format, necessary for ZKPs. In general, arithmetization cannot be done manually except for elementary programs. Besides, the use of naïve arithmetization can lead to significant overhead. To deal with this, dedicated compilers accepting high-level programming languages have been developed.
+
+Next, we'll discuss the use of precompiles. Compared to running a program without any proving overhead, zkVMs are incredibly slow. This poor performance is why all deployed zkVMs today use “precompiles,” or hand-optimized protocols for specific computations that come up over and over again, like SHA2 or Keccak evaluations. But over-reliance on precompiles is dangerous: designing pre-complies is *exactly* the error-prone and time-intensive process that zkVMs are meant to obviate.
+
+\subsubsection{Backend}
+
+The backend for proof systems is composed of two components: a Polynomial Commitment Scheme (PCS) and a Polynomial Interactive Oracle Proof (PIOP) made non-interactive through the Fiat-Shamir Transform. Noteably, certain PCS's use a trusted setup whereas others like FRI use an untrusted setup. Something notable about the interaction between the frontend and backend: most SNARKs can be easily tweaked to support both Plonkish (a common SNARK standard) and AIR with the exception of Groth16 which can only support R1CS.
+
+There are additional tradeoffs to consider here such as field size and and FRI expansion rate (or blowup factor) for FRI based SNARKs. Some considerations when choosing a field size is that field operations over a small group are substantially faster than field operations over a large group. It’s generally good to have the option to use a small field, but some operations like operating over 256 bit numbers get very annoying over small fields just under 256 bits like Goldilocks. You need to allocate two field elements for one value and it roughly doubles the prover costs. R1CS is constrained to larger fields (for now).
+
+The FRI blowup factor is a tunable parameter that allows you to adjust the cost to be more on the proving side or verifying side. A relatively low blowup factor leads to less prover time with larger proofs and a larger blowup factor leads to high cost to prove with smaller proof size.
+
+So to address this problem, researchers often use a technique known as a “lookup argument”. Rather than compute the bitwise instruction directly via additions and multiplications, lookup arguments precompute the outputs of the bitwise instruction on all possible inputs. Then, a zkVM applies a relatively cheap SNARK operation – aka “the lookup” – to verify that the current instruction lives within the pre-computed table. Doing so decreases the cost of the instruction.
+
+\subsubsection{Recap}
+
+It’s important to distinguish between the backend and frontends of SNARKs to make clear assertions of the performance tradeoffs between various arithmetization schemes and SNARK backends. Failure to distinguish between them can results in misconceptions about performance and other characteristics of SNARKs
+
+\subsection{Comparison}
+
+\subsubsection{Jolt}
+In the frontend, Jolt uses Rank-1 Constraint System (R1CS). The backend employs Spartan and Hyrax, with Hyrax incurring larger prover costs. It operates over an approximately 256-bit field, although efforts are being made to use smaller fields. The system utilizes Spice-based memory checking and currently does not support recursion for aggregate proofs. For lookups, Jolt relies on Spice.
+
+\subsubsection{SP1}
+In the frontend, SP1 uses Algebraic Intermediate Representation (AIR) which requires expensive Fast Fourier Transforms (FFTs). The backend incorporates Plonky3 STARKs and Hyrax, with Hyrax incurring larger prover costs. It operates over smaller fields, either approximately 31-bit or 64-bit (Baby Bear, Goldilocks). SP1 supports recursion for aggregate proofs. The Fast Reed-Solomon Interactive Oracle Proof (FRI) blowup factor is 2, leading to faster proofs, larger proofs, and more expensive recursion. For lookups, SP1 uses Plookup. Notably, SP1 implements AIRs for each RISC-V instruction compatible with the Plonky3 prover and is optimized for CPU performance.
+
+\subsubsection{RISC-0}
+In the frontend, RISC-0 employs AIR, which also requires expensive FFTs. The backend utilizes Plonky3 STARKs and operates over a smaller, approximately 32-bit field (Baby Bear). RISC0 supports recursion for aggregate proofs, with a FRI blowup factor of 4, resulting in slower proofs, smaller proofs, and less expensive recursion. For lookups, RISC0 uses Plookup. This system is optimized for GPU performance.
+
 \section{Discussion}
 % The discussion section focuses on the main challenges/issues you had to overcome during the project.
 %
