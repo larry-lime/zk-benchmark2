@@ -188,7 +188,13 @@ The benchmarking process for all three zkVMs involved measuring the time require
 
 \section{Results}
 
-The results are categorized based on the architecture of the machines utilized to run the zkVMs. \subsection{ARM Benchmark}
+\subsection{Quantatitve Results}
+
+The results section details your metrics and experiments for the assessment of your solution. It then provides experimental validation for your approach with visual aids such as data tables and graphs. In particular, it allows you to compare your idea with other approaches you've tested, for example solutions you've mentioned in your related work section.
+
+The results are categorized based on the architecture of the machines utilized to run the zkVMs.
+
+\subsubsection{ARM Benchmark}
 
 \begin{figure}
 	\begin{center}
@@ -233,11 +239,19 @@ The benchmark results for proof verification on the x86 architecture are present
 \end{figure}
 
 
-\subsection{Analysis on Benchmark Results}
+\subsubsection{Analysis on Benchmark Results}
 
 Based on the benchmark results, Jolt demonstrates itself to be the most efficient zkVM in terms of proof generation across both ARM and x86 architectures. Its consistent performance highlights its suitability for real-world applications requiring rapid proof generation. While Risc0 is recognized as the first production-ready zkVM, it exhibits the poorest performance for larger test cases, particularly in proof generation. Notably, Risc0 achieves nearly twice the performance on the ARM architecture compared to x86, likely due to its architectural alignment with ARM’s RISC-based design. SP1 consistently performs between Jolt and Risc0 across both architectures, offering predictable and reliable results, with minimal variation between platforms.
 
 Verification time does not present a significant bottleneck in real-world applications, as it is typically less critical than proof generation. Interestingly, the verification benchmarks yield almost inverse results compared to proof generation. Jolt consistently exhibits the slowest verification times across both architectures and all test cases. In contrast, Risc0 leads in verification efficiency, maintaining the fastest times regardless of architecture or test size. SP1 again performs between Jolt and Risc0, but with an anomaly in the ARM architecture at 1000 test cases, where its verification time was more than twice as slow as Jolt and nearly eight times slower than Risc0. This unexpected result may indicate a scalability issue specific to SP1 under high verification loads.\section{Discussion}
+
+\subsection{Qualitative Results}
+
+\subsubsection{Background}
+
+\subsubsection{Comparison}
+
+\section{Discussion}
 % The discussion section focuses on the main challenges/issues you had to overcome during the project.
 %
 % - Outline what your approach does better than the ones you mentioned in your related work, and explain why.
