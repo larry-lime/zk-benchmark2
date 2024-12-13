@@ -271,17 +271,34 @@ Lawrence contributed on the ideation side in the beginning, did the cryptography
 
 \subsection{Brandon Gao}
 
+Brandon analyzed the dataset, compared it with similar Kaggle datasets, and tested various models, with ridge regression performing best. Ridge regression was selected for its ability to handle multicollinearity and generalize well.
+
 \section{Conclusion}
 
-Our paper provides a quantative and qualitative analysis on the performance of zkVMs: Jolt, SP1, and RISC-0 by generating a zero-knowledge proof of a ridge regression algorithm.  
+Our paper\cite{zkbenchmark} provides a quantative and qualitative analysis on the performance of zkVMs: Jolt, SP1, and RISC-0 by generating a zero-knowledge proof of a ridge regression algorithm.
 
-Give a clear, short, and informative summary of all your important results. Answer the initial question(s) or respond to what you wanted to do, as stated in your introduction. It can be a short table or a list, and possibly one or two short comments or explanations.
+\begin{itemize}
+    \item \textbf{Jolt:} 
+    \begin{itemize}
+        \item Demonstrated the fastest performance across both ARM and x86 architectures, particularly excelling in large-scale inference tasks.
+        \item \textbf{10 test cases:} 13.57s (ARM), 13.62s (x86).
+        \item \textbf{1000 test cases:} 15.10s (ARM), 69.36s (x86).
+    \end{itemize}
+    \item \textbf{Risc0:} 
+    \begin{itemize}
+        \item Achieved the fastest times for small-scale inference but performed poorly for larger workloads, particularly on x86.
+        \item \textbf{10 test cases:} 7.46s (ARM), 9.62s (x86).
+        \item \textbf{1000 test cases:} 132.13s (ARM), 309.14s (x86).
+    \end{itemize}
+    \item \textbf{SP1:}
+    \begin{itemize}
+        \item Consistently performed between Jolt and Risc0, with minimal variation across architectures.
+        \item \textbf{10 test cases:} 7.46s (ARM), 10.21s (x86).
+        \item \textbf{1000 test cases:} 20.83s (ARM), 108.63s (x86).
+    \end{itemize}
+\end{itemize}
 
-Target a reader who may not have time to read the whole report yet, but needs the results or the conclusions immediately. This is a typical situation in real life. Some readers will read your introduction and skip to your conclusion first, and read the whole report only later (if at all).
-
-You may also draw perspectives. What's missing? In what directions could your work be extended?
-
-
+The benchmarking conducted in this study did not incorporate GPU acceleration, presenting a potential avenue for future work to explore the impact of hardware acceleration on the performance of zkVMs.
 
 \newpage
 \singlespacing
