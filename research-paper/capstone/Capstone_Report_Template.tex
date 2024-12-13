@@ -276,27 +276,29 @@ Brandon analyzed the dataset, compared it with similar Kaggle datasets, and test
 Our paper\cite{zkbenchmark} provides a quantative and qualitative analysis on the performance of zkVMs: Jolt, SP1, and RISC-0 by generating a zero-knowledge proof of a ridge regression algorithm.
 
 \begin{itemize}
-    \item \textbf{Jolt:} 
-    \begin{itemize}
-        \item Demonstrated the fastest performance across both ARM and x86 architectures, particularly excelling in large-scale inference tasks.
-        \item \textbf{10 test cases:} 13.57s (ARM), 13.62s (x86).
-        \item \textbf{1000 test cases:} 15.10s (ARM), 69.36s (x86).
-    \end{itemize}
-    \item \textbf{Risc0:} 
-    \begin{itemize}
-        \item Achieved the fastest times for small-scale inference but performed poorly for larger workloads, particularly on x86.
-        \item \textbf{10 test cases:} 7.46s (ARM), 9.62s (x86).
-        \item \textbf{1000 test cases:} 132.13s (ARM), 309.14s (x86).
-    \end{itemize}
-    \item \textbf{SP1:}
-    \begin{itemize}
-        \item Consistently performed between Jolt and Risc0, with minimal variation across architectures.
-        \item \textbf{10 test cases:} 7.46s (ARM), 10.21s (x86).
-        \item \textbf{1000 test cases:} 20.83s (ARM), 108.63s (x86).
-    \end{itemize}
+	\item \textbf{Jolt:}
+	      \begin{itemize}
+		      \item Demonstrated the fastest performance across both ARM and x86 architectures, particularly excelling in large-scale inference tasks.
+		      \item \textbf{10 test cases:} 13.57s (ARM), 13.62s (x86).
+		      \item \textbf{1000 test cases:} 15.10s (ARM), 69.36s (x86).
+	      \end{itemize}
+	\item \textbf{Risc0:}
+	      \begin{itemize}
+		      \item Achieved the fastest times for small-scale inference but performed poorly for larger workloads, particularly on x86.
+		      \item \textbf{10 test cases:} 7.46s (ARM), 9.62s (x86).
+		      \item \textbf{1000 test cases:} 132.13s (ARM), 309.14s (x86).
+	      \end{itemize}
+	\item \textbf{SP1:}
+	      \begin{itemize}
+		      \item Consistently performed between Jolt and Risc0, with minimal variation across architectures.
+		      \item \textbf{10 test cases:} 7.46s (ARM), 10.21s (x86).
+		      \item \textbf{1000 test cases:} 20.83s (ARM), 108.63s (x86).
+	      \end{itemize}
 \end{itemize}
 
 The benchmarking conducted in this study did not incorporate GPU acceleration, presenting a potential avenue for future work to explore the impact of hardware acceleration on the performance of zkVMs.
+
+Also, the performance tradeoffs we detailed in the qualitative comparison section are reflected in the benchmark performance. Jolt's proving time was the fastest across all our benchmarks and generally slower for verification. SP1's proving time was also slightly higher than RISC-0's, showing the advantage of precompiles.
 
 \newpage
 \singlespacing
