@@ -184,13 +184,14 @@ Mean Square Error (MSE) & 21 \\
 \label{tab:model-performance}
 \end{table}
 
-The \(R^2\) value measures the proportion of variance in the target variable that is explained by the independent variables in the model. It ranges from 0 to 1, where higher values indicate a better fit of the model to the data.
+The \(R^2\) value measures the proportion of variance in the target variable that is explained by the independent variables in the model. It ranges from 0 to 1, where higher values indicate a better fit of the model to the data. The \(R^2\) value of 0.8 demonstrates that the model explains a substantial portion of the variance in the target variable, effectively capturing the relationships in the data.
 
-The MSE represents the average squared difference between the predicted and actual values. It provides a measure of the model's prediction error, with lower values indicating better performance.
+The MSE represents the average squared difference between the predicted and actual values. It provides a measure of the model's prediction error, with lower values indicating better performance. The MSE value of 21 is acceptable because it aligns well with the scale of the target variable.
 
 \subsection{zkVM Implementation}
 
-The zkVM implementation for all three included exporting the model (as a JSON file) and inference dataset. The inference dataset was parsed, 
+Figure \ref{fig:architecture} illustrates the high-level architecture of the zkVM implementation. In this framework, the ML model and inference data serve as inputs to each of the three zkVMs. Using the provided ML model, the zkVMs predict a specific customer’s transaction amount and generate a ZKP that ensures the integrity of the inputs and outputs. Users can access the output by referencing the corresponding ZKP object. To validate the correctness of the output, each zkVM incorporates a verification function that enables users to confirm whether the output was accurately derived from the ML algorithm.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.35]{zkVM-design.png}
@@ -198,6 +199,8 @@ The zkVM implementation for all three included exporting the model (as a JSON fi
 	\caption{Architecture of our benchmark procedure}
 	\label{fig:architecture}
 \end{figure}
+
+Eac
 
 \section{Results}
 
@@ -255,9 +258,6 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 
 \subsection*{Analysis}
-
-The \(R^2\) value of 0.8 demonstrates that the model explains a substantial portion of the variance in the target variable, effectively capturing the relationships in the data.
-The MSE value of 21 is acceptable because it aligns well with the scale of the target variable.
 
 
 \section{Discussion}
