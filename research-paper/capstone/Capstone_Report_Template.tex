@@ -105,11 +105,11 @@ Machine learning is a highly relevant use case for ZKPs. There are multiple pape
 
 \section{Solution}
 
-The methodology for achieving our objective is structured into two key phases. The first phase involves developing and training a machine learning algorithm on a given dataset to attain satisfactory accuracy levels. The second phase entails exporting the trained model and test data into Rust, where the inference process is meticulously implemented by manually translating the logic from Python to Rust.
+The methodology for achieving our objective is structured into two key phases. The first phase involves developing and training a machine learning algorithm on a given dataset to attain satisfactory accuracy levels. The second phase required us to export the trained model and test data into Rust, where the inference process is implemented by manually translating the logic from Python to Rust. Finally, we set different test input sizes and benchmarked the proving and verification of the algorithm in the three zkVMs and on different machines.
 
-\subsection{ML Setup}
+\subsection{Machine Learning Setup}
 
-In order to simulate real-world transaction data, dummy transaction data was taken from a Kaggle dataset\cite{rehman2023retail}. The dataset comprised of customer transactions, with each record containing information on the transaction date, product price, quantity purchased, and customer ID. The first step in the data preparation process involved determining a cutoff date that would separate the historical data used for training from the future data we wish to predict. We defined this cutoff date as 90 days before the latest transaction in the dataset. This allowed us to segment the data into two parts:
+In order to simulate real-world transaction data, historical transaction data was taken from a Kaggle dataset\cite{rehman2023retail}. The dataset comprised of customer transactions, with each record containing information on the transaction date, product price, quantity purchased, and customer ID. The first step in the data preparation process involved determining a cutoff date that would separate the historical data used for training from the future data we wish to predict. We defined this cutoff date as 90 days before the latest transaction in the dataset. This allowed us to segment the data into two parts:
 
 \begin{itemize}
 	\item \textbf{Training Data (First Three Quarters):} Transactions occurring before the cutoff date, which we used to derive customer behavior features (recency, frequency, and monetary values).
