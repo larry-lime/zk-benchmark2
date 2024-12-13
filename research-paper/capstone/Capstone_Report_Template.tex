@@ -113,10 +113,27 @@ It explains in detail each contribution, if possible with figures/schematics.
 
 Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
 
-To benchmark the zkVMs,
+To benchmark the zkVMs, we trialed three machine learning algorithms.
+\section*{Linear Regression}
+Linear Regression is a fundamental statistical method used to model the linear relationship between one or more independent variables (features) and a dependent variable (target). The mathematical representation of a linear regression model is given as:
 
+\[
+y = w_1x_1 + w_2x_2 + \dots + w_nx_n + b
+\]
 
-\textbf{Polynomial Ridge Regression} is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
+where \( y \) is the target variable, \( x_1, x_2, \dots, x_n \) are the features, \( w_1, w_2, \dots, w_n \) are the corresponding coefficients (weights), and \( b \) is the bias term. The coefficients are estimated by minimizing the residual sum of squares between the observed target values \( y \) and the predicted values \( \hat{y} \).
+
+\section*{Ridge Regression}
+Ridge Regression, also known as \( L_2 \)-regularized regression, extends linear regression by adding a penalty term to the loss function to prevent overfitting. Overfitting occurs when a model captures noise in the training data, leading to poor generalization performance on unseen data. Ridge Regression achieves this by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
+
+\[
+\text{Loss} = \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 + \lambda \sum_{j=1}^{n} w_j^2
+\]
+
+where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance.
+
+\section*{Polynomial Ridge Regression}
+Polynomial Ridge Regression is a nonlinear extension of ridge regression that leverages polynomial feature transformation to capture complex relationships between variables. Polynomial ridge regression enhances ridge regression by generating polynomial terms to capture nonlinear patterns. In this model, polynomial features are created, such as:
 
 \[
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_{n+1} x_1^2 + \beta_{n+2} x_2^2 + \beta_{k} (x_i \times x_j) + \epsilon
