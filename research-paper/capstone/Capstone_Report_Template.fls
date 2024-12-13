@@ -1,8 +1,8 @@
-PWD /Users/brandongao/zknew2/research-paper/capstone
+PWD /Users/siddharthatuladhar/VSProjects/zk-benchmark2/research-paper/capstone
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/brandongao/zknew2/research-paper/capstone/Capstone_Report_Template.tex
+INPUT Capstone_Report_Template.tex
 OUTPUT Capstone_Report_Template.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/koma-script/scrartcl.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/koma-script/scrartcl.cls
