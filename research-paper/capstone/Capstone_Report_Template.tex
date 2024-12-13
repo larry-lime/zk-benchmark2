@@ -243,7 +243,9 @@ The benchmark results for proof verification on the x86 architecture are present
 
 Based on the benchmark results, Jolt demonstrates itself to be the most efficient zkVM in terms of proof generation across both ARM and x86 architectures. Its consistent performance highlights its suitability for real-world applications requiring rapid proof generation. While Risc0 is recognized as the first production-ready zkVM, it exhibits the poorest performance for larger test cases, particularly in proof generation. Notably, Risc0 achieves nearly twice the performance on the ARM architecture compared to x86, likely due to its architectural alignment with ARM’s RISC-based design. SP1 consistently performs between Jolt and Risc0 across both architectures, offering predictable and reliable results, with minimal variation between platforms.
 
-Verification time does not present a significant bottleneck in real-world applications, as it is typically less critical than proof generation. Interestingly, the verification benchmarks yield almost inverse results compared to proof generation. Jolt consistently exhibits the slowest verification times across both architectures and all test cases. In contrast, Risc0 leads in verification efficiency, maintaining the fastest times regardless of architecture or test size. SP1 again performs between Jolt and Risc0, but with an anomaly in the ARM architecture at 1000 test cases, where its verification time was more than twice as slow as Jolt and nearly eight times slower than Risc0. This unexpected result may indicate a scalability issue specific to SP1 under high verification loads.\section{Discussion}
+Verification time does not present a significant bottleneck in real-world applications, as it is typically less critical than proof generation. Interestingly, the verification benchmarks yield almost inverse results compared to proof generation. Jolt consistently exhibits the slowest verification times across both architectures and all test cases. In contrast, Risc0 leads in verification efficiency, maintaining the fastest times regardless of architecture or test size. SP1 again performs between Jolt and Risc0, but with an anomaly in the ARM architecture at 1000 test cases, where its verification time was more than twice as slow as Jolt and nearly eight times slower than Risc0. This unexpected result may indicate a scalability issue specific to SP1 under high verification loads.
+
+\section{Discussion}
 % The discussion section focuses on the main challenges/issues you had to overcome during the project.
 %
 % - Outline what your approach does better than the ones you mentioned in your related work, and explain why.
@@ -261,6 +263,8 @@ Our approach had some limitations. First, we were limited by time constraints wh
 
 \subsection{Siddhartha Tuladhar}
 
+Siddhartha contributed to the serialization of the machine learning model for compatibility with Rust, the implementation of the logic required to generate zero-knowledge proofs (ZKPs) across all three zkVMs, and the development of benchmarking utilities to evaluate performance.
+
 \subsection{Lawrence Lim}
 
 Lawrence contributed on the ideation side in the beginning, did the cryptography research, qualitative comparisons, contributed to the ML research and led the benchmarking on the x86 and ARM HPCs.
@@ -269,11 +273,15 @@ Lawrence contributed on the ideation side in the beginning, did the cryptography
 
 \section{Conclusion}
 
+Our paper provides a quantative and qualitative analysis on the performance of zkVMs: Jolt, SP1, and RISC-0 by generating a zero-knowledge proof of a ridge regression algorithm.  
+
 Give a clear, short, and informative summary of all your important results. Answer the initial question(s) or respond to what you wanted to do, as stated in your introduction. It can be a short table or a list, and possibly one or two short comments or explanations.
 
 Target a reader who may not have time to read the whole report yet, but needs the results or the conclusions immediately. This is a typical situation in real life. Some readers will read your introduction and skip to your conclusion first, and read the whole report only later (if at all).
 
 You may also draw perspectives. What's missing? In what directions could your work be extended?
+
+
 
 \newpage
 \singlespacing
