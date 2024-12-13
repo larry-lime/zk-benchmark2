@@ -107,34 +107,18 @@ Machine learning is a highly relevant use case for ZKPs. There are multiple arti
 
 The methodology for achieving our objective is structured into two key phases. The first phase involves developing and training a machine learning algorithm on a given dataset to attain satisfactory accuracy levels. The second phase entails exporting the trained model and test data into Rust, where the inference process is meticulously implemented by manually translating the logic from Python to Rust.
 
+\subsection{ML Setup}
 
-\subsection{Data Preparation}
-In this study, we aimed to predict customer spending for the next 90-day period (i.e., the last quarter) based on historical transaction data. The methodology consists of several key steps, including data preprocessing, feature engineering, model training, and evaluation. Below, we detail each step of the process.
-
-The dataset comprises customer transactions, with each record containing information on the transaction date, product price, quantity purchased, and customer ID. The first step in the data preparation process involved determining a cutoff date that would separate the historical data used for training from the future data we wish to predict. We defined this cutoff date as 90 days before the latest transaction in the dataset. This allowed us to segment the data into two parts:
+In order to simulate real-world transaction data, dummy transaction data was taken from a Kaggle dataset\cite{rehman2023retail}. The dataset comprised of customer transactions, with each record containing information on the transaction date, product price, quantity purchased, and customer ID. The first step in the data preparation process involved determining a cutoff date that would separate the historical data used for training from the future data we wish to predict. We defined this cutoff date as 90 days before the latest transaction in the dataset. This allowed us to segment the data into two parts:
 
 \begin{itemize}
     \item \textbf{Training Data (First Three Quarters):} Transactions occurring before the cutoff date, which we used to derive customer behavior features (recency, frequency, and monetary values).
     \item \textbf{Target Data (Fourth Quarter):} Transactions occurring after the cutoff date, which were used to calculate the target variable, customer spending in the last quarter (\texttt{actual\_spend\_90\_days}).
 \end{itemize}
 
-To align the data with fiscal years, we defined the quarters as follows:
+We aimed to predict customer spending for the next 90-day period (i.e., the last quarter) based on historical transaction data. We used these defined fiscal quarters to organize the data, aggregating customer spending within each quarter to track how spending evolves over time. The ultimate goal was to use the data from Q1, Q2, and Q3 to predict customer spending in Q4.
 
-\begin{itemize}
-    \item \textbf{Q1 (Fiscal):} April 29 -- July 31, 2023
-    \item \textbf{Q2 (Fiscal):} August 1 -- October 31, 2023
-    \item \textbf{Q3 (Fiscal):} November 1, 2023 -- January 31, 2024
-    \item \textbf{Q4 (Fiscal):} February 1 -- April 28, 2024
-\end{itemize}
-
-These fiscal quarters allow us to capture patterns that could impact customer spending. For example, Q1 includes spring and early summer, while Q4 spans the winter and early spring periods.
-
-We used these defined fiscal quarters to organize the data, aggregating customer spending within each quarter to track how spending evolves over time. The ultimate goal was to use the data from Q1, Q2, and Q3 to predict customer spending in Q4.
-
-\subsection{ML Setup}
-
-In order to simulate real-world transaction data, dummy transaction data was taken from a Kaggle dataset\cite{rehman2023retail}. The dataset was processed to extract key features such as recency, frequency, monetary value (RFM), and spending activity, which is depicted in Table \ref{tab:dataset_description}. RFM serves as a foundation for predictive modeling, where these metrics can be combined with other features to enhance the accuracy of customer spending predictions. 
-
+Next, the dataset was processed to extract key features such as recency, frequency, monetary value (RFM), and spending activity, which is depicted in Table \ref{tab:dataset_description}. RFM serves as a foundation for predictive modeling, where these metrics can be combined with other features to enhance the accuracy of customer spending predictions. 
 
 \begin{table}[ht!]
 \centering
@@ -169,7 +153,7 @@ For the machine learning algorithm, we used the Ridge Regression Model due to th
 \]
 where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance. The accuracy of the model is shown in Table \ref{tab:model-performance}.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{|l|c|p{8cm}|}
 \hline
@@ -200,7 +184,7 @@ Figure \ref{fig:architecture} illustrates the high-level architecture of the zkV
 	\label{fig:architecture}
 \end{figure}
 
-Eac
+The benchmarking process for all three zkVMs involved measuring the time required for proof generation and verification. Timing was recorded by initiating a timer at the start and end of each process. This evaluation was conducted across varying numbers of inference test cases and was performed on both ARM-based and x86-based computing platforms to compare performance across architectures.
 
 \section{Results}
 
