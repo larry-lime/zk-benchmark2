@@ -204,7 +204,7 @@ It is of the utmost importance to describe how you came up with the measurements
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{ARM-Proving-Time.png}
+		\includegraphics[width=\linewidth]{ARM-Proving-Time.png}
 	\end{center}
 	\caption{ARM Proving Time}
 	\label{graph:arm-proving-time}
@@ -214,7 +214,7 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{ARM-Verification-Time.png}
+		\includegraphics[width=\linewidth]{ARM-Verification-Time.png}
 	\end{center}
 	\caption{ARM Verification Time}
 	\label{graph:arm-verification-time}
@@ -224,7 +224,7 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{x86-Proving-Time.png}
+		\includegraphics[width=\linewidth]{x86-Proving-Time.png}
 	\end{center}
 	\caption{x86 Proving Time}
 	\label{graph:x86-proving-time}
@@ -232,15 +232,39 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.3]{x86-Verification-Time.png}
+		\includegraphics[width=\linewidth]{x86-Verification-Time.png}
 	\end{center}
 	\caption{x86 Verification Time}
 	\label{graph:x86-verification-time}
 \end{figure}
 
 
+
+
 \section{Discussion}
 The discussion section focuses on the main challenges/issues you had to overcome during the project. Outline what your approach does better than the ones you mentioned in your related work, and explain why. Do the same with issues where other solutions  outperform your own. Are there limitations to your approach? If so, what would you recommend towards removing/mitigating them? Given the experience you've gathered working on this project, are there other approaches that you feel are worth exploring?
+\subsection{Limitations of the Approach}
+One major limitation of the current implementation is its reliance on Rust without the Standard Library (stdlib). While this choice allows for reduced build and runtime, it significantly limits the ability to implement more complex machine learning models. This low-level implementation, while efficient for simpler models like Ridge Regression, imposes constraints on usability and feature expansion. For instance, without stdlib, basic functionalities like I/O and access to additional data structures are unavailable, reducing the flexibility of the implementation.
+
+\subsection{Recommendations for Mitigation}
+To overcome these limitations, it is recommended to:
+\begin{itemize}
+    \item Explore ways to selectively incorporate necessary parts of stdlib without significantly impacting performance.
+    \item Investigate low-level optimization techniques to support complex models while maintaining efficiency.
+    \item Utilize external libraries or frameworks designed for Rust to enhance capabilities without reintroducing excessive overhead.
+\end{itemize}
+
+\subsection{Next Steps}
+Based on the current implementation and findings, the following steps are proposed for future work:
+\begin{itemize}
+    \item Perform benchmarking without precompiles to evaluate raw performance.
+    \item Compare CPU vs. GPU performance to understand hardware utilization.
+    \item Conduct memory usage benchmarking to optimize resource management.
+    \item Carry out a qualitative analysis of the trade-offs between low-level implementation and stdlib inclusion.
+\end{itemize}
+
+These steps will provide deeper insights into the strengths and limitations of the approach and inform potential improvements in future iterations.
+
 
 \section{Personal Contributions}
 
