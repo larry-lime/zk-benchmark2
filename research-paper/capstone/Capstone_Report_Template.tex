@@ -105,20 +105,12 @@ Machine learning is a highly relevant use case for ZKPs. There are multiple arti
 
 \section{Solution}
 
-The solution section covers all of your contributions (architecture, algorithms, formulas, findings).
-It explains in detail each contribution, if possible with figures/schematics.
-
-Don't forget that a figure goes a long way towards helping your reader understand your work. For instance, Figure~\ref{fig:ascent} outlines the layers involved in a distributed certification service, and how they articulate together. Nevertheless, a figure must always come with at least one paragraph of explanation. The rule is that anyone should be able to understand your solution from reading the text in this section, even if they skip the figures.
-
 The methodology for achieving our objective is structured into two key phases. The first phase involves developing and training a machine learning algorithm on a given dataset to attain satisfactory accuracy levels. The second phase entails exporting the trained model and test data into Rust, where the inference process is meticulously implemented by manually translating the logic from Python to Rust.
 
 \subsection{ML Setup}
 
-The dummy transaction data we used was taken from a Kaggle dataset\cite{rehman2023retail}. %TODO: explain what we did with the data and how you formatted it.
+In order to simulate real-world transaction data, dummy transaction data was taken from a Kaggle dataset\cite{rehman2023retail}. The dataset was processed to extract key features such as recency, frequency, monetary value (RFM), and spending activity, which is depicted in Table \ref{tab:dataset_description}. RFM serves as a foundation for predictive modeling, where these metrics can be combined with other features to enhance the accuracy of customer spending predictions. 
 
-To enhance modeling effectiveness, the dataset was processed to extract key features such as recency, frequency, monetary value (RFM), and spending activity. 
-RFM serves as a foundation for predictive modeling, where these metrics can be combined with other features to enhance the accuracy of customer spending predictions.
-In a real world business scenario, we can segment customers into actionable groups, such as loyal customers, recent but low-frequency buyers, or high-value customers. This segmentation aids in personalizing marketing strategies, optimizing resource allocation, and improving customer lifetime value (CLV). 
 \begin{table}[ht!]
 \centering
 \begin{tabular}{|l|p{10cm}|}
@@ -146,15 +138,11 @@ In a real world business scenario, we can segment customers into actionable grou
 \label{tab:dataset_description}
 \end{table}
 
-After preprocessing, the features that are left in the dataset are shown in Table \ref{tab:dataset_description}.
-
 For the machine learning algorithm, we used the Ridge Regression Model due to the model's accuracy and the complexity constraints of the zkVMs. Ridge Regression is an extension of linear regression by adding a penalty term to the loss function to prevent overfitting.  Ridge Regression prevents overfitting by penalizing large coefficient values, thereby shrinking them towards zero. The Ridge Regression loss function is formulated as:
-
 \[
 \text{Loss} = \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 + \lambda \sum_{j=1}^{n} w_j^2
 \]
-
-where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance. The accuracy in 
+where \( m \) is the number of samples, \( n \) is the number of features, \( \hat{y}_i \) represents the predicted value for the \( i \)-th sample, \( \lambda \) is the regularization parameter controlling the strength of the penalty, and \( w_j \) are the model coefficients. The second term \( \lambda \sum_{j=1}^{n} w_j^2 \) is the regularization term, which discourages large coefficients and helps reduce the model's variance. The accuracy of the model is shown in Table \ref{tab:model-performance}.
 
 \begin{table}[h!]
 \centering
@@ -171,14 +159,19 @@ Mean Square Error (MSE) & 21 \\
 \label{tab:model-performance}
 \end{table}
 
+The \(R^2\) value measures the proportion of variance in the target variable that is explained by the independent variables in the model. It ranges from 0 to 1, where higher values indicate a better fit of the model to the data.
+
+The MSE represents the average squared difference between the predicted and actual values. It provides a measure of the model's prediction error, with lower values indicating better performance.
+
 \subsection{zkVM Implementation}
 
+The zkVM implementation for all three included exporting the model (as a JSON file) and inference dataset. The inference dataset was parsed, 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.35]{zkVM-design.png}
 	\end{center}
 	\caption{Architecture of our benchmark procedure}
-	\label{fig:ascent}
+	\label{fig:architecture}
 \end{figure}
 
 \section{Results}
@@ -234,12 +227,6 @@ For example, Figure~\ref{graph:arm-proving-time} compares the efficiency of thre
 \end{figure}
 
 \subsection{Performance Metrics}
-\textbf{\(R^2\) (Coefficient of Determination):} 
-The \(R^2\) value measures the proportion of variance in the target variable that is explained by the independent variables in the model. It ranges from 0 to 1, where higher values indicate a better fit of the model to the data.
-
-\textbf{Mean Square Error (MSE):} 
-The MSE represents the average squared difference between the predicted and actual values. It provides a measure of the model's prediction error, with lower values indicating better performance.
-
 
 
 \subsection*{Analysis}
