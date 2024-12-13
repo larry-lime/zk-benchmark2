@@ -243,13 +243,27 @@ The benchmark results for proof verification on the x86 architecture are present
 
 Based on the benchmark results, Jolt demonstrates itself to be the most efficient zkVM in terms of proof generation across both ARM and x86 architectures. Its consistent performance highlights its suitability for real-world applications requiring rapid proof generation. While Risc0 is recognized as the first production-ready zkVM, it exhibits the poorest performance for larger test cases, particularly in proof generation. Notably, Risc0 achieves nearly twice the performance on the ARM architecture compared to x86, likely due to its architectural alignment with ARM’s RISC-based design. SP1 consistently performs between Jolt and Risc0 across both architectures, offering predictable and reliable results, with minimal variation between platforms.
 
-Verification time does not present a significant bottleneck in real-world applications, as it is typically less critical than proof generation. Interestingly, the verification benchmarks yield almost inverse results compared to proof generation. Jolt consistently exhibits the slowest verification times across both architectures and all test cases. In contrast, Risc0 leads in verification efficiency, maintaining the fastest times regardless of architecture or test size. SP1 again performs between Jolt and Risc0, but with an anomaly in the ARM architecture at 1000 test cases, where its verification time was more than twice as slow as Jolt and nearly eight times slower than Risc0. This unexpected result may indicate a scalability issue specific to SP1 under high verification loads.\section{Discussion}
+Verification time does not present a significant bottleneck in real-world applications, as it is typically less critical than proof generation. Interestingly, the verification benchmarks yield almost inverse results compared to proof generation. Jolt consistently exhibits the slowest verification times across both architectures and all test cases. In contrast, Risc0 leads in verification efficiency, maintaining the fastest times regardless of architecture or test size. SP1 again performs between Jolt and Risc0, but with an anomaly in the ARM architecture at 1000 test cases, where its verification time was more than twice as slow as Jolt and nearly eight times slower than Risc0. This unexpected result may indicate a scalability issue specific to SP1 under high verification loads.
+
+\section{Discussion}
 
 \subsection{Qualitative Results}
 
 \subsubsection{Background}
 
 \subsubsection{Comparison}
+
+Jolt
+
+In the frontend, Jolt uses Rank-1 Constraint System (R1CS). The backend employs Spartan and Hyrax, with Hyrax incurring larger prover costs. It operates over an approximately 256-bit field, although efforts are being made to use smaller fields. The system utilizes Spice-based memory checking and currently does not support recursion for aggregate proofs. For lookups, Jolt relies on Spice.
+
+SP1
+
+In the frontend, SP1 uses Algebraic Intermediate Representation (AIR) which requires expensive Fast Fourier Transforms (FFTs). The backend incorporates Plonky3 STARKs and Hyrax, with Hyrax incurring larger prover costs. It operates over smaller fields, either approximately 31-bit or 64-bit (Baby Bear, Goldilocks). SP1 supports recursion for aggregate proofs. The Fast Reed-Solomon Interactive Oracle Proof (FRI) blowup factor is 2, leading to faster proofs, larger proofs, and more expensive recursion. For lookups, SP1 uses Plookup. Notably, SP1 implements AIRs for each RISC-V instruction compatible with the Plonky3 prover and is optimized for CPU performance.
+
+RISC0
+
+In the frontend, RISC0 employs AIR, which also requires expensive FFTs. The backend utilizes Plonky3 STARKs and operates over a smaller, approximately 32-bit field (Baby Bear). RISC0 supports recursion for aggregate proofs, with a FRI blowup factor of 4, resulting in slower proofs, smaller proofs, and less expensive recursion. For lookups, RISC0 uses Plookup. This system is optimized for GPU performance.
 
 \section{Discussion}
 % The discussion section focuses on the main challenges/issues you had to overcome during the project.
@@ -270,6 +284,8 @@ Our approach had some limitations. First, we were limited by time constraints wh
 \subsection{Siddhartha Tuladhar}
 
 \subsection{Lawrence Lim}
+
+Lawrence contributed on the ideation side in the beginning, did the cryptography research, qualitative comparisons, contributed to the ML research and led the benchmarking on the x86 and ARM HPCs.
 
 \subsection{Brandon Gao}
 
