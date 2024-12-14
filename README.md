@@ -1,5 +1,9 @@
 # ZK Benchmark
 
+## Result
+
+[Paper](./research-paper/capstone/Capstone_Report_Template.pdf)
+
 ## Quick Start
 
 ### Risc Zero
@@ -51,13 +55,3 @@ jolt install-toolchain
 cd jolt
 cargo build --release
 ```
-
-## Building Research Paper
-
-### Requirements
-
-To use these templates, we require the following software.
-
-1. [_Pandoc_](https://pandoc.org/) for converting between the Markdown files into other document formats.
-2. [_LaTeX_](https://www.latex-project.org/) for creating PDF documents.
-3. Shell such as Bash for invoking the build scripts.
