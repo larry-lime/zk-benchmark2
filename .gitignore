@@ -4,3 +4,20 @@ myvenv/
 # Added by cargo
 
 /target
+
+# Ignore auxiliary and intermediate files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.run.xml
