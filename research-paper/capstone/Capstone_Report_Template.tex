@@ -24,7 +24,7 @@
 	\vfill
 
 	%%%% AUTHOR(S)
-	{\Large\itshape \textbf{Lawrence Lim}\\ Siddhartha Tuladhar\\ Brandon Gao\\}\par
+  {\Large\itshape Lawrence Lim\\ Siddhartha Tuladhar\\ \textbf{Brandon Gao} \\\par}
 	\vspace{1.5cm}
 
 	\vfill
@@ -92,8 +92,6 @@ Currently, the most-friendly way of generating a ZKP is through the use of zero-
 The objective of this paper is to provide researchers, developers, and industry professionals a comprehensive comparable analysis of zkVMs in real-world use cases. To achieve this, we benchmark SP1\cite{Roy2024}, Risc0\cite{bruestle2023risc}, and Jolt\cite{arun2024jolt}. They all compile to RISC-V, which is an extremely popular compile target for common programming languages (Rust, C++, LLVM). We provide a quantative analysis on proof generation time and proof verification time. Additionally, we provide a qualitative analysis on the zkVM developer experience and how their performance trade-offs can impact real-world applications.
 
 \section{Related Work}
-
-%%%% DO NOT write a related work section that is just a laundry list of other papers, with a sentence about each one that was lifted from its abstract, and without any critical analysis nor deep comparison to other work.
 
 \subsection{Zero Knowledge Virtual Machines}
 
@@ -295,17 +293,17 @@ Our work differs from related work in that we focus on a holistic comparable ana
 This study faced several limitations that warrant consideration. First, the benchmarking process was constrained by hardware limitations, as scaling to 10,000 test cases resulted in excessive runtime or timeouts. This issue was particularly pronounced for Jolt, which exhibited high memory demands and would terminate itself when insufficient memory was available. Additionally, the implementation was challenged by the requirement to avoid using Rust’s standard library and most external libraries, including essential utilities such as I/O operations and data structures like strings. This was the main reason why we were unable to implement poly ridge regression algorithm. While the zkVMs allow the use of the standard library, its inclusion significantly slows proof generation, rendering benchmarking infeasible in practice.
 
 Furthermore, our study was limited in its scope of metrics, as we could not compare aspects such as memory usage due to the lack of publicly available benchmarks for such evaluations. A deeper analysis of architectural design differences among the zkVMs would also have been valuable, as it could provide more nuanced insights into their performance characteristics. Lastly, benchmarking the zkVMs both with and without precompiles would have offered a clearer understanding of the performance impact of the underlying designs. This approach, suggested by Justin Thaler, Professor at Georgetown University and a leading expert in the field, represents a promising direction for future research. These limitations and potential areas for improvement highlight opportunities for further exploration in subsequent studies.
-
-\section{Personal Contributions}
+%
+% \section{Personal Contributions}
 %
 % \subsection{Siddhartha Tuladhar}
 %
 % Siddhartha contributed to the serialization of the machine learning model for compatibility with Rust, the implementation of the logic required to generate zero-knowledge proofs (ZKPs) across all three zkVMs, and the development of benchmarking utilities to evaluate performance.
-%
-\subsection{Lawrence Lim}
-
-Lawrence contributed on the ideation side in the beginning, did the cryptography research, qualitative comparisons, contributed to the ML research and led the benchmarking on the x86 and ARM HPCs.
-%
+% %
+% % \subsection{Lawrence Lim}
+% %
+% Lawrence contributed on the ideation side in the beginning, did the cryptography research, qualitative comparisons, contributed to the ML research and led the benchmarking on the x86 and ARM HPCs.
+% %
 % \subsection{Brandon Gao}
 %
 % Brandon analyzed the dataset, compared it with similar Kaggle datasets, and tested various models, with ridge regression performing best. Ridge regression was selected for its ability to handle multicollinearity and generalize well.
@@ -343,13 +341,6 @@ Also, the performance tradeoffs we detailed in the qualitative comparison sectio
 \singlespacing
 \bibliographystyle{IEEEtran}
 \bibliography{references}
-
-
-%------ To create Appendix with additional stuff -------%
-%\newpage
-%\appendix
-%\section{Appendix}
-%Put data files, CAD drawings, additional sketches, etc.
 
 \end{document}
 
